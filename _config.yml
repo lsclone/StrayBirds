@@ -116,13 +116,13 @@ disqus:
 #################################### global configure #######################################
 
 username: lsclone
-baseurl: /StrayBirds
+baseurl: /blog
 markdown: redcarpet
 safe: false
 highlighter: pygments
 title: 御 风
 description: 得失随缘 心无增减
-theme: modernist
+theme: kunka
 disqusname: lsclone
 
 # theme can be: hack, leap-day, merlot, midnight, minimal, modernist, slate, time-machine, kunka

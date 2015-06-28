@@ -4,6 +4,7 @@ title: 搭建一个免费的，无限流量的Blog----github Pages和Jekyll入�
 category: 技术
 ---
 
+转载： [younghz的Markdown库](http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html "Markdown")
 
 喜欢写Blog的人，会经历三个阶段。
 

@@ -147,6 +147,18 @@ Jekyll使用[Liquid模板语言](https://github.com/shopify/liquid/wiki/liquid-f
 
 回到根目录，创建一个index.html文件，填入以下内容。
 
+    ---
+    layout: default
+    title: 我的Blog
+    ---
+    <h2>{{ page.title }}</h2>
+    <p>最新文章</p>
+    <ul>
+        {% for post in site.posts %}
+            <li>{{ post.date | date_to_string }} <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+        {% endfor %}
+    </ul>
+
 目录结构变成：
 
     /jekyll_demo
@@ -156,4 +168,38 @@ Jekyll使用[Liquid模板语言](https://github.com/shopify/liquid/wiki/liquid-f
         |--　_posts
         |　　　|--　2012-08-25-hello-world.html
         |--　index.html
+        
+####第六步，发布内容。
 
+现在，这个简单的Blog就可以发布了。先把所有内容加入本地git库。
+
+    $ git add .
+    $ git commit -m "first post"
+    
+然后，前往github的网站，在网站上创建一个名为jekyll_demo的库。接着，再将本地内容推送到github上你刚创建的库。注意，下面命令中的username，要替换成你的username。
+
+    $ git remote add origin https://github.com/username/jekyll_demo.git
+    $ git push origin gh-pages
+    
+上传成功之后，等10分钟左右，访问**http://username.github.com/jekyll_demo/**就可以看到Blog已经生成了（将username换成你的用户名）。
+
+####第七步，绑定域名。
+
+如果你不想用**http://username.github.com/jekyll_demo/**这个域名，可以换成自己的域名。
+
+具体方法是在repo的根目录下面，新建一个名为CNAME的文本文件，里面写入你要绑定的域名，比如example.com或者xxx.example.com。
+
+如果绑定的是顶级域名，则DNS要新建一条A记录，指向204.232.175.78。如果绑定的是二级域名，则DNS要新建一条CNAME记录，指向username.github.com（请将username换成你的用户名）。此外，别忘了将_config.yml文件中的baseurl改成根目录"/"。
+
+至此，最简单的Blog就算搭建完成了。进一步的完善，请参考Jekyll创始人的示例库，以及其他用Jekyll搭建的blog。
+
+（完）
+
+###相关文章
+
+[MaHua 在线markdown编辑器][1]
+
+[十分钟学会Markdown][2]
+
+[1]:http://mahua.jser.me/ "Markdown"
+[2]:http://www.bubuko.com/infodetail-191738.html "Markdown"

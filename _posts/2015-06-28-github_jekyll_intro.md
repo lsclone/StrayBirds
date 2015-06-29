@@ -207,4 +207,4 @@ Jekyll使用[Liquid模板语言](https://github.com/shopify/liquid/wiki/liquid-f
 
 [1]:http://mahua.jser.me/ "Markdown"
 [2]:http://www.bubuko.com/infodetail-191738.html "Markdown"
-[3]:http://maogm.com/blog/markdown-syntax.html#backslash "Markdown"
+[3]:http://maogm.com/blog/markdown-syntax.html "Markdown"

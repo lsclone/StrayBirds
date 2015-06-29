@@ -110,3 +110,4 @@ Jekyll使用[Liquid模板语言](https://github.com/shopify/liquid/wiki/liquid-f
         |--　_layouts
         |　　　|--　default.html
         
+####第四步，创建文章。

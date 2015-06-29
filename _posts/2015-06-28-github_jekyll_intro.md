@@ -140,3 +140,47 @@ Jekyll使用[Liquid模板语言](https://github.com/shopify/liquid/wiki/liquid-f
         |　　　|--　default.html 
         |--　_posts
         |　　　|--　2012-08-25-hello-world.html
+
+####第五步，创建首页。
+
+有了文章以后，还需要有一个首页。
+
+回到根目录，创建一个index.html文件，填入以下内容。
+
+    ---
+    layout: default
+    title: 我的Blog
+    ---
+    <h2>{{ page.title }}</h2>
+    <p>最新文章</p>
+    <ul>
+        {% for post in site.posts %}
+            <li>{{ post.date | date_to_string }} <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+        {% endfor %}
+    </ul>
+    
+它的Yaml文件头表示，首页使用default模板，标题为"我的Blog"。然后，首页使用了{% for post in site.posts %}，表示对所有帖子进行一个遍历。这里要注意的是，Liquid模板语言规定，输出内容使用两层大括号，单纯的命令使用一层大括号。至于{{site.baseurl}}就是_config.yml中设置的baseurl变量。
+
+目录结构变成：
+
+    /jekyll_demo
+        |--　_config.yml
+        |--　_layouts
+        |　　　|--　default.html 
+        |--　_posts
+        |　　　|--　2012-08-25-hello-world.html
+        |--　index.html
+        
+####第六步，发布内容。
+
+现在，这个简单的Blog就可以发布了。先把所有内容加入本地git库。
+
+    $ git add .
+    $ git commit -m "first post"
+    
+然后，前往github的网站，在网站上创建一个名为jekyll_demo的库。接着，再将本地内容推送到github上你刚创建的库。注意，下面命令中的username，要替换成你的username。
+
+    $ git remote add origin https://github.com/username/jekyll_demo.git
+    $ git push origin gh-pages
+    
+上传成功之后，等10分钟左右，访问**http://username.github.com/jekyll_demo/**就可以看到Blog已经生成了（将username换成你的用户名）。

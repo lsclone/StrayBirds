@@ -159,6 +159,8 @@ Jekyll使用[Liquid模板语言](https://github.com/shopify/liquid/wiki/liquid-f
         {% endfor %}
     </ul>
 
+它的Yaml文件头表示，首页使用default模板，标题为"我的Blog"。然后，首页使用了，表示对所有帖子进行一个遍历。这里要注意的是，Liquid模板语言规定，输出内容使用两层大括号，单纯的命令使用一层大括号。至于就是_config.yml中设置的baseurl变量。
+
 目录结构变成：
 
     /jekyll_demo

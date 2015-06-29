@@ -151,15 +151,15 @@ Jekyll使用[Liquid模板语言](https://github.com/shopify/liquid/wiki/liquid-f
     layout: default
     title: 我的Blog
     ---
-    <h2>{{ page.title }}</h2>
+    <h2>{{ p a g e . title }}</h2>
     <p>最新文章</p>
     <ul>
-        {% for post in site.posts %}
-            <li>{{ post.date | date_to_string }} <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
-        {% endfor %}
+        { % for post in s i t e.posts %}
+            <li>{{ p o s  t . d a t e | d a t e_to_string }} <a href="{{ s i t e.baseurl }}{{ p o s t.url }}">{{ p o s  t.title }}</a></li>
+        { % endfor % }
     </ul>
 
-它的Yaml文件头表示，首页使用default模板，标题为"我的Blog"。然后，首页使用了，表示对所有帖子进行一个遍历。这里要注意的是，Liquid模板语言规定，输出内容使用两层大括号，单纯的命令使用一层大括号。至于`{{site.baseurl}}`就是_config.yml中设置的baseurl变量。
+它的Yaml文件头表示，首页使用default模板，标题为"我的Blog"。然后，首页使用了{ % for post in s i t e.posts %}，表示对所有帖子进行一个遍历。这里要注意的是，Liquid模板语言规定，输出内容使用两层大括号，单纯的命令使用一层大括号。至于{{ s i t e.baseurl }}就是_config.yml中设置的baseurl变量。
 
 目录结构变成：
 

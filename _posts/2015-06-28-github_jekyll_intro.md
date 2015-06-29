@@ -147,6 +147,7 @@ Jekyll使用[Liquid模板语言](https://github.com/shopify/liquid/wiki/liquid-f
 
 回到根目录，创建一个index.html文件，填入以下内容。
 
+\
     ---
     layout: default
     title: 我的Blog
@@ -158,6 +159,7 @@ Jekyll使用[Liquid模板语言](https://github.com/shopify/liquid/wiki/liquid-f
             <li>{{ post.date | date_to_string }} <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
         {% endfor %}
     </ul>
+\
     
 它的Yaml文件头表示，首页使用default模板，标题为"我的Blog"。然后，首页使用了{ % for post in site.posts %}，表示对所有帖子进行一个遍历。这里要注意的是，Liquid模板语言规定，输出内容使用两层大括号，单纯的命令使用一层大括号。至于{ { site.baseurl}}就是_config.yml中设置的baseurl变量。
 
@@ -170,7 +172,7 @@ Jekyll使用[Liquid模板语言](https://github.com/shopify/liquid/wiki/liquid-f
         |--　_posts
         |　　　|--　2012-08-25-hello-world.html
         |--　index.html
-        
+
 ####第六步，发布内容。
 
 现在，这个简单的Blog就可以发布了。先把所有内容加入本地git库。

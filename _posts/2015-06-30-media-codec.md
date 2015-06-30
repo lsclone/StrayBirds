@@ -6,6 +6,8 @@ category: 技术
 
 ####工作如下：
 
+参考链接： [最简单的基于FFMPEG的视频编码器（YUV编码为H.264）](http://blog.csdn.net/leixiaohua1020/article/details/25430425 "Markdown")
+
 1. 恢复熟悉并提交ffmpeg相关测试用例代码
 2. 恢复并熟悉图像格式yuv、rgb相关基础知识
 3. 恢复并熟悉mpeg4、h.264、mp3等音视频压缩编码格式

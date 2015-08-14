@@ -65,3 +65,11 @@ class Derived : public Base {
   using Base::Base;  // Base's constructors are redeclared here.
 };
 ```
+
+```
+...
+Derived d;
+Derived d(10);
+Derived d("hello");
+...
+```

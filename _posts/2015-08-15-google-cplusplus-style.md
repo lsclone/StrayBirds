@@ -271,7 +271,7 @@ std::tr1::shared_ptr　　Safe with const referents (i.e.shared_ptr\<const T\>).
 
 不要使用C风格的转换。改用C++风格的转换。
 
-###### 1. 用static_cast进行数值转换，或是显式的将一个类的指针转为它的子类的指针。
+*1. 用static_cast进行数值转换，或是显式的将一个类的指针转为它的子类的指针。*
 
 ```
 char a;
@@ -279,7 +279,7 @@ int b = static_cast<int>(a);
 char c = static_cast<char>(b);
 ```
 
-###### 2. 用const_cast去掉常量性质。
+*2. 用const_cast去掉常量性质。*
 
 ```
 const B b1;
@@ -287,9 +287,9 @@ B* b2 = const_cast<B*>(&b1);
 B& b3 = const_cast<B&>(b1);
 ```
 
-###### 3. 用reinterpret_cast进行不安全的指针间转换或整型转指针操作。只有在你清楚操作的含义及可能的后果时才能使用这种转换。
+*3. 用reinterpret_cast进行不安全的指针间转换或整型转指针操作。只有在你清楚操作的含义及可能的后果时才能使用这种转换。*
 
-###### 4. 用dynamic_cast进行基类指针转换为子类指针操作（需要虚函数）。
+*4. 用dynamic_cast进行基类指针转换为子类指针操作（需要虚函数）。*
 
 ```
 class A

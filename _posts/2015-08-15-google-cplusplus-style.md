@@ -80,9 +80,32 @@ Derived d("hello");
 
 3. 如果在构造函数中**调用虚函数**，这些调用就会依赖于子类的实现。即使你的类还没有子类，未来对你的类的改动也会悄悄的引入这个问题而带来很多麻烦。
 
-#### 5. Interfaces
+#### 5. Explicit Constructors 显式构造函数
 
-Classes thatsatisfy certain conditions are allowed, but not required, to end with anInterface suffix.
+Use the C++ keyword **explicit** for constructors with one argument.
+
+在只有一个参数的构造前面加上**explicit**关键字。
+
+Definition:
+
+Normally, if a constructor takes one argument, it can be used as a conversion. For instance, if you define Foo::Foo(string name) and then pass a string to a function that expects a Foo, the constructor will be called to convert the string into a Foo and will pass the Foo to your function for you. This can be convenient but is also a source of trouble when things get converted and new objects created without you meaning them to. Declaring a constructor explicit prevents it from being invoked implicitly as a conversion.
+
+定义：
+
+一般来说，如果一个构造函数只有一个参数，这个参数是允许进行隐式转换的。例如，如果定义了一个Foo::Foo(string name)，然后向一个接受Foo类型的参数的函数传递一个string，这个构造函数就会被调用，将string对象构建为一个Foo对象，再将这个Foo对象传递给接受它的函数。这会方便我们使用，但也会引发一类你不需要的转换和创建新对象的问题。将一个构造函数声明为explicit可以避免隐式转换。
+
+Decision:
+
+We require all single argument constructors to be explicit. Always put explicit in front of one-argument constructors in the class definition: explicit Foo(string name);
+The exception iscopy constructors, which, in the rare cases when we allow them, should probably not be explicit. Classes that are intended to be transparent wrappers around other classes are also exceptions. Such exceptions should be clearly marked with comments.
+
+结论：
+
+我们需要将所有的单参数的构造函数声明为explicit。但复制构造函数除外，这是少有的我们允许进行隐式转换的场合。用于对其它类进行透明包装的类也例外。这些例外应该用注释进行明确的说明。
+
+#### 6. Interfaces
+
+Classes that satisfy certain conditions are allowed, but not required, to end with an Interface suffix.
 
 满足一些条件的类允许（但不必需）以Interface后缀结尾。
 
@@ -90,8 +113,8 @@ Definition: A class is apure interface if it meets the following requirements:
 
 1. It has only public pure virtual("= 0") methods and static methods (but see below for destructor).
 2. It may not have non-static datamembers.
-3. It need not have anyconstructors defined. If a constructor is provided, it must take no argumentsand it must be protected.
-4. If it is a subclass, it mayonly be derived from classes that satisfy these conditions and are tagged withthe Interface suffix.
+3. It need not have any constructors defined. If a constructor is provided, it must take no arguments and it must be protected.
+4. If it is a subclass, it mayonly be derived from classes that satisfy these conditions and are tagged with the Interface suffix.
 
 如果一个类满足下列要求，它就是一个纯接口：
 
@@ -100,13 +123,13 @@ Definition: A class is apure interface if it meets the following requirements:
 3. 它不需要定义任何构造函数。提供的构造函数必须是没有参数且是受保护的。
 4. 如果它是一个子类，它只能从同样满足这些条件且有着Interface后缀标记的类中派生出来 。
 
-An interfaceclass can never be directly instantiated because of the pure virtual method(s)it declares. To make sure all implementations of the interface can be destroyedcorrectly, the interface must also declare a virtual destructor (in anexception to the first rule, this should not be pure). See Stroustrup, The C++Programming Language, 3rd edition, section 12.4 for details.
+An interface class can never be directly instantiated because of the pure virtual method(s) it declares. To make sure all implementations of the interface can be destroyed correctly, the interface must also declare a virtual destructor (in an exception to the first rule, this should not be pure). See Stroustrup, The C++ Programming Language, 3rd edition, section 12.4 for details.
 
 一个接口类不能直接生成实例，因为其中声明的纯虚方法。为了保证这个接口的所有的实现都可以被直接销毁，这个接口必须声明一个虚的析构函数。
 
 Pros:
 
-Tagging a classwith the Interface suffix lets others know that they must not add implementedmethods or non static data members. This is particularly important in the caseof multiple inheritance. Additionally, the interface concept is alreadywell-understood by Java programmers.
+Tagging a classwith the Interface suffix lets others know that they must not add implemented methods or non static data members. This is particularly important in the caseof multiple inheritance. Additionally, the interface concept is already well-understood by Java programmers.
 
 优点：
 
@@ -114,7 +137,7 @@ Tagging a classwith the Interface suffix lets others know that they must not add
 
 Cons:
 
-The Interfacesuffix lengthens the class name, which can make it harder to read andunderstand. Also, the interface property may be considered an implementationdetail that shouldn't be exposed to clients.
+The Interface suffix lengthens the class name, which can make it harder to read and understand. Also, the interface property may be considered an implementation detail that shouldn't be exposed to clients.
 
 缺点：
 
@@ -122,7 +145,7 @@ Interface后缀增加了类名字的长度，这会令人难以阅读和理解�
 
 Decision:
 
-A class may endwith Interface only if it meets the above requirements. We do not require theconverse, however: classes that meet the above requirements are not required toend with Interface.
+A class may endwith Interface only if it meets the above requirements. We do not require the converse, however: classes that meet the above requirements are not required to end with Interface.
 
 结论：
 

@@ -266,3 +266,45 @@ std::tr1::shared_ptr　　Safe with const referents (i.e.shared_ptr\<const T\>).
 一般来说，我们倾向于设计对象隶属明确的代码，最明确的对象隶属是根本不使用指针，直接将对象作为一个域（field）或局部变量使用。另一种极端是引用计数指针不属于任何对象，这样设计的问题是容易导致循环引用或其他导致对象无法删除的诡异条件，而且在每一次拷贝或赋值时连原子操作都会很慢。
 
 虽然不推荐这么做，但有些时候，引用计数指针是最简单有效的解决方案。
+
+#### 11. Casting 类型转换
+
+不要使用C风格的转换。改用C++风格的转换。
+
+##### 1. 用static_cast进行数值转换，或是显式的将一个类的指针转为它的子类的指针。
+
+```
+char a;
+int b = static_cast<int>(a);
+char c = static_cast<char>(b);
+```
+
+##### 2. 用const_cast去掉常量性质。
+
+```
+const B b1;
+B* b2 = const_cast<B*>(&b1);
+B& b3 = const_cast<B&>(b1);
+```
+
+##### 3. 用reinterpret_cast进行不安全的指针间转换或整型转指针操作。只有在你清楚操作的含义及可能的后果时才能使用这种转换。
+
+##### 4. 用dynamic_cast进行基类指针转换为子类指针操作（需要虚函数）。
+
+```
+class A
+{
+public:
+ virtual ~A(){}
+};
+
+class B : public A
+{
+};
+
+A* pA = new B;
+B* pB = dynamic_cast<B*>(pA);
+if ( pB != NULL ) {
+ ...
+}
+```

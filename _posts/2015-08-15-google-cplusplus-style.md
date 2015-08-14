@@ -91,7 +91,7 @@ Definition: A class is apure interface if it meets the following requirements:
 
 1. 它只有公开的纯虚方法（“=0”）和静态方法（但看下面的析构函数一节）。
 2. 它没有非静态的数据成员。
-3. 它不需要定义任何构造函数[f16] 。提供的构造函数必须是没有参数且是受保护的。
+3. 它不需要定义任何构造函数。提供的构造函数必须是没有参数且是受保护的。
 4. 如果它是一个子类，它只能从同样满足这些条件且有着Interface后缀标记的类中派生出来 。
 
 An interfaceclass can never be directly instantiated because of the pure virtual method(s)it declares. To make sure all implementations of the interface can be destroyedcorrectly, the interface must also declare a virtual destructor (in anexception to the first rule, this should not be pure). See Stroustrup, The C++Programming Language, 3rd edition, section 12.4 for details.

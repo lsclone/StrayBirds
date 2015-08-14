@@ -54,7 +54,7 @@ Thrift 的 TNonblockingServer 注释很丰富，原理清晰。 个人认为基�
 *后续工作：*
 
 libevent封装了epoll。通过阅读thrift和libevent源码，详细分析libevent的事件循环(event loop) 机制、thrift的任务处理机制。
-深入了解epoll到thrift的并发服务器的**实现机制**。
+深入了解从epoll层层封装到thrift的并发服务器的**实现机制**。
 
 ##### 相关链接：
 

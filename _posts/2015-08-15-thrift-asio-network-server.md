@@ -50,3 +50,13 @@ if (!connection_->notifyIOThread()) {
 
 Thrift 的 TNonblockingServer 注释很丰富，原理清晰。 个人认为基本上是事件驱动服务器的入门教科书级代码了， 
 事件驱动服务器核心在于状态转移， 因为事件驱动的原因，每次转换事件我们都需要保存当前的状态。 没啥，都是状态而已。
+
+*后续工作：*
+
+libevent封装了epoll。通过阅读thrift和libevent源码，详细分析libevent的事件循环(event loop) 机制、thrift的任务处理机制。
+深入了解epoll到thrift的并发服务器的**实现机制**。
+
+##### 相关链接：
+
+1. [Libevent源码分析](http://yanyiwu.com/work/2014/12/10/asyncronous-io-libevent.html "Markdown")
+2. [Libevent官网](http://libevent.org/ "Markdown")

@@ -236,3 +236,10 @@ Friend declarations should always be in the private section, and the *DISALLOW_C
 Method definitions in the corresponding .cc file should be the same as the declaration order, as much as possible.
 
 在关联的.cc文件中方法的定义的顺序应该尽量与它被声明的顺序相同。
+
+
+#### 10. Smart Pointers 智能指针
+
+If you actually need pointer semantics, boost::scoped_ptr is great. You should only use std::tr1::shared_ptr with a non-const referent when it is truly necessary to share ownership of an object (e.g. inside an STL container). You should never use std::auto_ptr.
+
+如果你确实需要用智能指针，boost::scoped_ptr完全能胜任。在真正需要分享一个对象的所有权时（例如在STL容器内），你应该只使用std::tr1::shared_ptr指向非常量的所指物。永远不要用std::auto_ptr。

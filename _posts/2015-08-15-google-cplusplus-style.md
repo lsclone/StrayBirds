@@ -200,3 +200,39 @@ A class may endwith Interface only if it meets the above requirements. We do not
 结论：
 
 一个类只有在满足上述要求时才能用Interface后缀。但是我们不需要相反的规则：一个满足上述条件的类不以Interface结尾。
+
+#### 9. Declaration Order 声明顺序
+
+Use the specified order of declarations within a class: public: before private:,methods before data members (variables), etc.
+
+在类中使用特定的声明顺序：公开的要在私有的前面，方法要在数据成员前面，等等。
+
+Your class definition should start with its public: section, followed by its protected: section and then its private: section. If any of these sections are empty, omit them.
+
+你的类的定义应该从公开成员部分开始，接着是受保护成员，最后是私有成员。如果哪部分是空的就省略掉。
+
+Within each section, the declarations generally should be in the following order:
+
+1. Typedefs and Enums
+2. Constants (static const datamembers)
+3. Constructors
+4. Destructor
+5. Methods, including staticmethods
+6. Data Members (except staticconst data members)
+
+在每部分中，声明通常应该按下面的顺序排列：
+
+1. 自定义别名和枚举
+2. 常量（静态常量）
+3. 构造函数
+4. 析构函数
+5. 方法，包括静态方法
+6. 数据成员（除了静态常量成员）
+
+Friend declarations should always be in the private section, and the *DISALLOW_COPY_AND_ASSIGN* macro invocation should be at the end of the private: section. It should be the last thing in the class. See Copy Constructors.
+
+友元声明总应该在私有部分，禁止复制和赋值宏应该放到私有部分的最后。它应该是类中最后的东西。
+
+Method definitions in the corresponding .cc file should be the same as the declaration order, as much as possible.
+
+在关联的.cc文件中方法的定义的顺序应该尽量与它被声明的顺序相同。

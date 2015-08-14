@@ -150,6 +150,7 @@ Only very rarely is multiple implementation inheritance actually useful. We allo
 多重继承只有在非常有限的场合比较有用。我们只允许有实现的基类不超过一个的多重继承；所有其它的基类都应该是用Interface后缀标记的纯接口类。
 
 Note: There isan exception to this rule on Windows.
+
 注意：Windows不符合这条准则。
 
 #### 8. Interfaces 接口类

@@ -74,7 +74,7 @@ Derived d("hello");
 ...
 ```
 
-#### 4. DoingWork in Constructors
+#### 4. Doing Work in Constructors
 
 3. If the work **calls virtualfunctions,** these calls will not get dispatched to the subclass implementations.Future modification to your class can quietly introduce this problem even ifyour class is not currently subclassed, causing much confusion.
 
@@ -103,7 +103,7 @@ The exception iscopy constructors, which, in the rare cases when we allow them, 
 
 我们需要将所有的单参数的构造函数声明为explicit。但拷贝构造函数除外，这是少有的我们允许进行隐式转换的场合。用于对其它类进行透明包装的类也例外。这些例外应该用注释进行明确的说明。
 
-#### 6. CopyConstructors 拷贝构造函数
+#### 6. Copy Constructors 拷贝构造函数
 
 Provide a copy constructor and assignment operator only when necessary. Otherwise, disable them with **DISALLOW_COPY_AND_ASSIGN**.
 
@@ -143,18 +143,27 @@ For convenience, a **DISALLOW_COPY_AND_ASSIGN** macro can be used:
  };
 ```
 
-#### 7. Interfaces
+#### 7. Multiple Inheritance 多重继承
+
+Only very rarely is multiple implementation inheritance actually useful. We allow multiple inheritance only when at most one of the base classes has an implementation; all other base classes must be pure interface classes tagged with the Interface suffix.
+
+多重继承只有在非常有限的场合比较有用。我们只允许有实现的基类不超过一个的多重继承；所有其它的基类都应该是用Interface后缀标记的纯接口类。
+
+Note: There isan exception to this rule on Windows.
+注意：Windows不符合这条准则。
+
+#### 8. Interfaces 接口类
 
 Classes that satisfy certain conditions are allowed, but not required, to end with an Interface suffix.
 
 满足一些条件的类允许（但不必需）以Interface后缀结尾。
 
-Definition: A class is apure interface if it meets the following requirements:
+Definition: A class is a pure interface if it meets the following requirements:
 
 1. It has only public pure virtual("= 0") methods and static methods (but see below for destructor).
 2. It may not have non-static datamembers.
 3. It need not have any constructors defined. If a constructor is provided, it must take no arguments and it must be protected.
-4. If it is a subclass, it mayonly be derived from classes that satisfy these conditions and are tagged with the Interface suffix.
+4. If it is a subclass, it may only be derived from classes that satisfy these conditions and are tagged with the Interface suffix.
 
 如果一个类满足下列要求，它就是一个纯接口：
 

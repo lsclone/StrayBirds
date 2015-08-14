@@ -256,5 +256,5 @@ std::auto_ptr　　Confusing and bug-prone ownership-transfer semantics. Do not 
 
 std::tr1::shared_ptr　　Safe with const referents (i.e.shared_ptr\<const T\>). Reference-counted pointers with non-const referents can occasionally be the best design, but try to rewrite with single owners where possible.
 
-在指向物为常量时是安全的（如shared_ptr<const T>）。
+在指向物为常量时是安全的（如shared_ptr\<const T\>）。
 在指向物是非常量时引用计数的指针偶尔会是最佳设计，但要试着在可能的场合将它改写为单所有者的形式。

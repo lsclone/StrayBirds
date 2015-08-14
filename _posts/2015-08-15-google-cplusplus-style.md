@@ -74,7 +74,13 @@ Derived d("hello");
 ...
 ```
 
-#### 4. Interfaces
+#### 4. DoingWork in Constructors
+
+3. If the work **calls virtualfunctions,** these calls will not get dispatched to the subclass implementations.Future modification to your class can quietly introduce this problem even ifyour class is not currently subclassed, causing much confusion.
+
+3. 如果在构造函数中**调用虚函数**，这些调用就会依赖于子类的实现。即使你的类还没有子类，未来对你的类的改动也会悄悄的引入这个问题而带来很多麻烦。
+
+#### 5. Interfaces
 
 Classes thatsatisfy certain conditions are allowed, but not required, to end with anInterface suffix.
 

@@ -34,3 +34,15 @@ void MyClass::Foo() {
 
 }  // namespace mynamespace
 ```
+
+##### 2. Local Variables
+
+```
+vector<int> v;
+v.push_back(1);  // Prefer initializing using brace initialization.
+v.push_back(2);
+```
+
+```
+vector<int> v = {1, 2};  // Good -- v starts initialized.
+```

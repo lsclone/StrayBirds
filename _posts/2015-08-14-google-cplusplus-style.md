@@ -1,5 +1,5 @@
 ---
-style: post
+layout: post
 title: google C++ 代码规范
 category: 技术
 ---

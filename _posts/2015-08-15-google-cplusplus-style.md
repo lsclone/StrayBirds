@@ -242,7 +242,7 @@ Method definitions in the corresponding .cc file should be the same as the decla
 
 If you actually need pointer semantics, boost::scoped_ptr is great. You should only use std::tr1::shared_ptr with a non-const referent when it is truly necessary to share ownership of an object (e.g. inside an STL container). You should never use std::auto_ptr.
 
-如果你确实需要用智能指针，boost::scoped_ptr完全能胜任。在真正需要分享一个对象的所有权时（例如在STL容器内），你应该只使用std::tr1::shared_ptr指向非常量的所指物。永远不要用std::auto_ptr。
+如果你确实需要用智能指针，**boost::scoped_ptr完全能胜任**。在真正需要分享一个对象的所有权时（例如在STL容器内），你应该只使用std::tr1::shared_ptr指向非常量的所指物。永远不要用std::auto_ptr。
 
 Decision（结论）
 

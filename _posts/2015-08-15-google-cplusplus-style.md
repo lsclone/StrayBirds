@@ -8,48 +8,7 @@ category: 技术
 
 #### [部分转载](http://blog.csdn.net/fz_ywj/article/details/8666989 "Markdown")
 
-##### 1. Named Namespaces
-
-```
-// In the .h file
-namespace mynamespace {
-
-// All declarations are within the namespace scope.
-// Notice the lack of indentation.
-class MyClass {
- public:
-  ...
-  void Foo();
-};
-
-}  // namespace mynamespace
-```
-
-```
-// In the .cc file
-namespace mynamespace {
-
-// Definition of functions is within scope of the namespace.
-void MyClass::Foo() {
-  ...
-}
-
-}  // namespace mynamespace
-```
-
-##### 2. Local Variables
-
-```
-vector<int> v;
-v.push_back(1);  // Prefer initializing using brace initialization.
-v.push_back(2);
-```
-
-```
-vector<int> v = {1, 2};  // Good -- v starts initialized.
-```
-
-##### 3. Delegating and Inheriting Constructors
+##### 1. Delegating and Inheriting Constructors
 
 如果派生类没有数据成员需要初始化，且基类有多个构造函数，可以如下书写代码：
 
@@ -76,13 +35,13 @@ Derived d("hello");
 ...
 ```
 
-#### 4. Doing Work in Constructors
+#### 2. Doing Work in Constructors
 
 3. If the work **calls virtualfunctions,** these calls will not get dispatched to the subclass implementations.Future modification to your class can quietly introduce this problem even ifyour class is not currently subclassed, causing much confusion.
 
 3. 如果在构造函数中**调用虚函数**，这些调用就会依赖于子类的实现。即使你的类还没有子类，未来对你的类的改动也会悄悄的引入这个问题而带来很多麻烦。
 
-#### 5. Explicit Constructors 显式构造函数
+#### 3. Explicit Constructors 显式构造函数
 
 Use the C++ keyword **explicit** for constructors with one argument.
 
@@ -105,7 +64,7 @@ The exception iscopy constructors, which, in the rare cases when we allow them, 
 
 我们需要将所有的单参数的构造函数声明为explicit。但拷贝构造函数除外，这是少有的我们允许进行隐式转换的场合。用于对其它类进行透明包装的类也例外。这些例外应该用注释进行明确的说明。
 
-#### 6. Copy Constructors 拷贝构造函数
+#### 4. Copy Constructors 拷贝构造函数
 
 Provide a copy constructor and assignment operator only when necessary. Otherwise, disable them with **DISALLOW_COPY_AND_ASSIGN**.
 
@@ -145,7 +104,7 @@ For convenience, a **DISALLOW_COPY_AND_ASSIGN** macro can be used:
  };
 ```
 
-#### 7. Multiple Inheritance 多重继承
+#### 5. Multiple Inheritance 多重继承
 
 Only very rarely is multiple implementation inheritance actually useful. We allow multiple inheritance only when at most one of the base classes has an implementation; all other base classes must be pure interface classes tagged with the Interface suffix.
 
@@ -155,7 +114,7 @@ Note: There isan exception to this rule on Windows.
 
 注意：Windows不符合这条准则。
 
-#### 8. Interfaces 接口类
+#### 6. Interfaces 接口类
 
 Classes that satisfy certain conditions are allowed, but not required, to end with an Interface suffix.
 
@@ -203,7 +162,7 @@ A class may endwith Interface only if it meets the above requirements. We do not
 
 一个类只有在满足上述要求时才能用Interface后缀。但是我们不需要相反的规则：一个满足上述条件的类不以Interface结尾。
 
-#### 9. Declaration Order 声明顺序
+#### 7. Declaration Order 声明顺序
 
 Use the specified order of declarations within a class: public: before private:,methods before data members (variables), etc.
 
@@ -240,7 +199,7 @@ Method definitions in the corresponding .cc file should be the same as the decla
 在关联的.cc文件中方法的定义的顺序应该尽量与它被声明的顺序相同。
 
 
-#### 10. Smart Pointers 智能指针
+#### 8. Smart Pointers 智能指针
 
 If you actually need pointer semantics, boost::scoped_ptr is great. You should only use std::tr1::shared_ptr with a non-const referent when it is truly necessary to share ownership of an object (e.g. inside an STL container). You should never use std::auto_ptr.
 
@@ -269,7 +228,7 @@ std::tr1::shared_ptr　　Safe with const referents (i.e.shared_ptr\<const T\>).
 
 虽然不推荐这么做，但有些时候，引用计数指针是最简单有效的解决方案。
 
-#### 11. Casting 类型转换
+#### 9. Casting 类型转换
 
 不要使用C风格的转换。改用C++风格的转换。
 

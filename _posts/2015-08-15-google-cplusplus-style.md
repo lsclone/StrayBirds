@@ -251,6 +251,7 @@ boost::scoped_ptr    Straight forward and risk-free. Use wherever appropriate.
 明确而没有风险。应该在任何适合的场合使用。
 
 std::auto_ptr     Confusing and bug-prone ownership-transfer semantics. Do not use.
+
 在所有权转移的语义上令人迷惑且漏洞百出。不要使用。
 
 std::tr1::shared_ptr    Safe with const referents (i.e.shared_ptr<const T>). Reference-counted pointers with non-const referentscan occasionally be the best design, but try to rewrite with single owners where possible.

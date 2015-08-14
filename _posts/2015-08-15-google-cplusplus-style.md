@@ -103,7 +103,45 @@ The exception iscopy constructors, which, in the rare cases when we allow them, 
 
 我们需要将所有的单参数的构造函数声明为explicit。但复制构造函数除外，这是少有的我们允许进行隐式转换的场合。用于对其它类进行透明包装的类也例外。这些例外应该用注释进行明确的说明。
 
-#### 6. Interfaces
+#### 6. CopyConstructors 复制构造函数
+
+Provide a copyconstructor and assignment operator only when necessary. Otherwise, disablethem with DISALLOW_COPY_AND_ASSIGN.
+
+只有在必要时才提供复制构造函数和赋值运算符。否则，要用宏来禁止复制和赋值。
+
+Decision:
+
+Few classes needto be copyable. Most should have neither a copy constructor nor an assignmentoperator. In many situations, a pointer or reference will work just as well asa copied value, with better performance. For example, you can pass functionparameters by reference or pointer instead of by value, and you can storepointers rather than objects in an STL container.
+
+只有很少的类需要是可复制的。大多数类既不需要复制构造函数也不需要赋值运算符。在很多场合下，指针或引用可以像复制的值一样工作，性能还更好。例如，你可以用引用或者指针取代值来进行函数参数的传递，你也可以在STL容器中储存对象的指针而不是对象的值。
+
+If your classneeds to be copyable, prefer providing a copy method, such as CopyFrom() orClone(), rather than a copy constructor, because such methods cannot be invokedimplicitly. If a copy method is insufficient in your situation (e.g. forperformance reasons, or because your class needs to be stored by value in anSTL container), provide both a copy constructor and assignment operator.
+
+如果你的类需要是可复制的，更好的方法是提供一个复制方法，比如CopyFrom()或Clone()，而不是提供复制构造函数，因为这些方法不可能被隐式调用。如果一个复制方法不能满足你的需求（比如因为性能原因，或者是你的类需要按值存放在STL容器中），那就同时提供复制构造函数和赋值运算符。
+
+If your classdoes not need a copy constructor or assignment operator, you must explicitlydisable them. To do so, add dummy declarations for the copy constructor andassignment operator in the private: section of your class, but do not provideany corresponding definition (so that any attempt to use them results in a linkerror).
+
+如果你的类不需要复制构造函数或赋值运算符，你一定要显式的禁止它们。为了这么做，要将复制构造函数和赋值运算符声明为private且不提供任何的实现（这样试图调用它们就会产生链接时错误）。
+
+**For convenience, a DISALLOW_COPY_AND_ASSIGN macro can be used:**
+
+```
+ // A macro to disallow the copy constructor and operator= functions
+ // This should be used in the private:
+ #define DISALLOW_COPY_AND_ASSIGN(TypeName) \
+   TypeName(const TypeName&);               \
+   voidoperator=(const TypeName&)
+ Then, in classFoo:
+ class Foo {
+ public:
+  Foo(int f);
+  ~Foo();
+ private:
+  DISALLOW_COPY_AND_ASSIGN(Foo);
+ };
+```
+
+#### 7. Interfaces
 
 Classes that satisfy certain conditions are allowed, but not required, to end with an Interface suffix.
 

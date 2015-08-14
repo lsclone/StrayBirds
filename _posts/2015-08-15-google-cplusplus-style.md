@@ -93,26 +93,31 @@ Definition: A class is apure interface if it meets the following requirements:
 2. 它没有非静态的数据成员。
 3. 它不需要定义任何构造函数[f16] 。提供的构造函数必须是没有参数且是受保护的。
 4. 如果它是一个子类，它只能从同样满足这些条件且有着Interface后缀标记的类中派生出来 。
-5. 
 
 An interfaceclass can never be directly instantiated because of the pure virtual method(s)it declares. To make sure all implementations of the interface can be destroyedcorrectly, the interface must also declare a virtual destructor (in anexception to the first rule, this should not be pure). See Stroustrup, The C++Programming Language, 3rd edition, section 12.4 for details.
 
 一个接口类不能直接生成实例，因为其中声明的纯虚方法。为了保证这个接口的所有的实现都可以被直接销毁，这个接口必须声明一个虚的析构函数。
 
 Pros:
+
 Tagging a classwith the Interface suffix lets others know that they must not add implementedmethods or non static data members. This is particularly important in the caseof multiple inheritance. Additionally, the interface concept is alreadywell-understood by Java programmers.
 
 优点：
+
 用Interface后缀来标识一个类能让其它人知道他们禁止向其中添加方法的实现或非静态的数据成员。这在多重继承中尤其重要。另外，接口的概念已经被Java程序员所熟知了。
 
 Cons:
+
 The Interfacesuffix lengthens the class name, which can make it harder to read andunderstand. Also, the interface property may be considered an implementationdetail that shouldn't be exposed to clients.
 
 缺点：
+
 Interface后缀增加了类名字的长度，这会令人难以阅读和理解。此外，接口特性作为实现细节不应该被暴露给客户端。
 
 Decision:
+
 A class may endwith Interface only if it meets the above requirements. We do not require theconverse, however: classes that meet the above requirements are not required toend with Interface.
 
 结论：
+
 一个类只有在满足上述要求时才能用Interface后缀。但是我们不需要相反的规则：一个满足上述条件的类不以Interface结尾。

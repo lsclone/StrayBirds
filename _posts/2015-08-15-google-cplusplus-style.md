@@ -101,27 +101,27 @@ The exception iscopy constructors, which, in the rare cases when we allow them, 
 
 结论：
 
-我们需要将所有的单参数的构造函数声明为explicit。但复制构造函数除外，这是少有的我们允许进行隐式转换的场合。用于对其它类进行透明包装的类也例外。这些例外应该用注释进行明确的说明。
+我们需要将所有的单参数的构造函数声明为explicit。但拷贝构造函数除外，这是少有的我们允许进行隐式转换的场合。用于对其它类进行透明包装的类也例外。这些例外应该用注释进行明确的说明。
 
 #### 6. CopyConstructors 拷贝构造函数
 
 Provide a copy constructor and assignment operator only when necessary. Otherwise, disable them with **DISALLOW_COPY_AND_ASSIGN**.
 
-只有在必要时才提供复制构造函数和赋值运算符。否则，要用宏**DISALLOW_COPY_AND_ASSIGN**来禁止复制和赋值。
+只有在必要时才提供拷贝构造函数和赋值运算符。否则，要用宏**DISALLOW_COPY_AND_ASSIGN**来禁止复制和赋值。
 
 Decision:
 
 Few classes need to be copyable. Most should have neither a copy constructor nor an assignment operator. In many situations, a pointer or reference will work just as well as a copied value, with better performance. For example, you can pass function parameters by reference or pointer instead of by value, and you can store pointers rather than objects in an STL container.
 
-只有很少的类需要是可复制的。大多数类既不需要复制构造函数也不需要赋值运算符。在很多场合下，指针或引用可以像复制的值一样工作，性能还更好。例如，你可以用引用或者指针取代值来进行函数参数的传递，你也可以在STL容器中储存对象的指针而不是对象的值。
+只有很少的类需要是可复制的。大多数类既不需要拷贝构造函数也不需要赋值运算符。在很多场合下，指针或引用可以像复制的值一样工作，性能还更好。例如，你可以用引用或者指针取代值来进行函数参数的传递，你也可以在STL容器中储存对象的指针而不是对象的值。
 
 If your class needs to be copyable, prefer providing a copy method, such as CopyFrom() orClone(), rather than a copy constructor, because such methods cannot be invoked implicitly. If a copy method is in sufficient in your situation (e.g. for performance reasons, or because your class needs to be stored by value in an STL container), provide both a copy constructor and assignment operator.
 
-如果你的类需要是可复制的，更好的方法是提供一个复制方法，比如CopyFrom()或Clone()，而不是提供复制构造函数，因为这些方法不可能被隐式调用。如果一个复制方法不能满足你的需求（比如因为性能原因，或者是你的类需要按值存放在STL容器中），那就同时提供复制构造函数和赋值运算符。
+如果你的类需要是可复制的，更好的方法是提供一个复制方法，比如CopyFrom()或Clone()，而不是提供拷贝构造函数，因为这些方法不可能被隐式调用。如果一个复制方法不能满足你的需求（比如因为性能原因，或者是你的类需要按值存放在STL容器中），那就同时提供拷贝构造函数和赋值运算符。
 
 If your class does not need a copy constructor or assignment operator, you must explicitly disable them. To do so, add dummy declarations for the copy constructor and assignment operator in the private: section of your class, but do not provide any corresponding definition (so that any attempt to use them results in a link error).
 
-如果你的类不需要复制构造函数或赋值运算符，你一定要显式的禁止它们。为了这么做，要将复制构造函数和赋值运算符声明为private且不提供任何的实现（这样试图调用它们就会产生链接时错误）。
+如果你的类不需要拷贝构造函数或赋值运算符，你一定要显式的禁止它们。为了这么做，要将拷贝构造函数和赋值运算符声明为private且不提供任何的实现（这样试图调用它们就会产生链接时错误）。
 
 **For convenience, a DISALLOW_COPY_AND_ASSIGN macro can be used:**
 

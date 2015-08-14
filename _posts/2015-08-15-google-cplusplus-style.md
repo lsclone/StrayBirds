@@ -123,7 +123,7 @@ If your class does not need a copy constructor or assignment operator, you must 
 
 如果你的类不需要拷贝构造函数或赋值运算符，你一定要显式的禁止它们。为了这么做，要将拷贝构造函数和赋值运算符声明为private且不提供任何的实现（这样试图调用它们就会产生链接时错误）。
 
-**For convenience, a DISALLOW_COPY_AND_ASSIGN macro can be used:**
+For convenience, a **DISALLOW_COPY_AND_ASSIGN** macro can be used:
 
 ```
  // A macro to disallow the copy constructor and operator= functions

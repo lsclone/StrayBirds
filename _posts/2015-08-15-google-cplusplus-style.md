@@ -243,3 +243,17 @@ Method definitions in the corresponding .cc file should be the same as the decla
 If you actually need pointer semantics, boost::scoped_ptr is great. You should only use std::tr1::shared_ptr with a non-const referent when it is truly necessary to share ownership of an object (e.g. inside an STL container). You should never use std::auto_ptr.
 
 如果你确实需要用智能指针，boost::scoped_ptr完全能胜任。在真正需要分享一个对象的所有权时（例如在STL容器内），你应该只使用std::tr1::shared_ptr指向非常量的所指物。永远不要用std::auto_ptr。
+
+Decision:
+
+boost::scoped_ptr    Straight forward and risk-free. Use wherever appropriate.
+
+明确而没有风险。应该在任何适合的场合使用。
+
+std::auto_ptr     Confusing and bug-prone ownership-transfer semantics. Do not use.
+在所有权转移的语义上令人迷惑且漏洞百出。不要使用。
+
+std::tr1::shared_ptr    Safe with const referents (i.e.shared_ptr<const T>). Reference-counted pointers with non-const referentscan occasionally be the best design, but try to rewrite with single owners where possible.
+
+在指向物为常量时是安全的（如shared_ptr<const T>）。
+在指向物是非常量时引用计数的指针偶尔会是最佳设计，但要试着在可能的场合将它改写为单所有者的形式。

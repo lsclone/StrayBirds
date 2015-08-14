@@ -6,6 +6,8 @@ category: 技术
 
 #### Google C++ Style Guide
 
+#### [部分转载](http://blog.csdn.net/fz_ywj/article/details/8666989 "Markdown")
+
 ##### 1. Named Namespaces
 
 ```

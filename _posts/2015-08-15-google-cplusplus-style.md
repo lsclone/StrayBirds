@@ -46,3 +46,22 @@ v.push_back(2);
 ```
 vector<int> v = {1, 2};  // Good -- v starts initialized.
 ```
+
+##### 3. Delegating and Inheriting Constructors
+
+如果派生类没有数据成员需要初始化，且基类有多个构造函数，可以如下书写代码：
+
+```
+class Base {
+ public:
+  Base();
+  Base(int n);
+  Base(const string& s);
+  ...
+};
+
+class Derived : public Base {
+ public:
+  using Base::Base;  // Base's constructors are redeclared here.
+};
+```

@@ -320,7 +320,7 @@ Note that the PRI* macros expand to independent strings which are concatenated b
 
 **3. You may need to be careful with structure alignments, particularly for structures being stored on disk. Any class/structure with a int64_t/uint64_t member will by default end up being 8-byte aligned on a 64-bit system. If you have such structures being shared on disk between 32-bit and 64-bit code, you will need to ensure that they are packed the same on both architectures. Most compilers offer a way to alter structure alignment. For gcc, you can use \_\_attribute\_\_((packed)). MSVC offers #pragma pack() and __declspec(align()).**
 
-在结构体对齐时你得小心点，尤其是要存到磁盘上的结构体。在64位系统上，任何包含int64_t/uint64_t成员的类/结构体默认都按8个字节对齐。如果你要在32位和64位的代码中共享使用存放在磁盘上的这种结构体，你需要确保它们在两种架构下都以同样的方式包装。大多数编译器都提供了改变结构体对齐的方法。GCC中你可以用*__attribute__((packed))*。MSVC中可以用#pragma pack()或__declspec(align())。
+在结构体对齐时你得小心点，尤其是要存到磁盘上的结构体。在64位系统上，任何包含int64_t/uint64_t成员的类/结构体默认都按8个字节对齐。如果你要在32位和64位的代码中共享使用存放在磁盘上的这种结构体，你需要确保它们在两种架构下都以同样的方式包装。大多数编译器都提供了改变结构体对齐的方法。GCC中你可以用\_\_attribute\_\_((packed))。MSVC中可以用#pragma pack()或__declspec(align())。
 
 **4. Use the LL or ULL suffixes as needed to create 64-bit constants. For example:**
 

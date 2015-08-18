@@ -300,11 +300,13 @@ printf()中的一些类型的格式标识符在32位和64位系统下不完全�
 #define PRIoS __PRIS_PREFIX "o"
 ```
 
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+| Type                       | DO NOT use           | DO use  | Notes   |
+| --------------------------:|--------------------------:| -----:|-----:|
+| void * (or any pointer)    | %p | $1600 ||
+| int64_t      | %qd, %lld      |   %"PRId64" ||
+| uint64_t | %qu, %llu, %llx      |    %"PRIu64", %"PRIx64" |
+| size_t | %u      |    %"PRIuS", %"PRIxS" |C99 specifies %zu|
+| ptrdiff_t | %d      |    %"PRIdS" |C99 specifies %td|
 
 Note that the PRI* macros expand to independent strings which are concatenated by the compiler. Hence if you are using a non-constant format string, you need to insert the value of the macro into the format, rather than the name. It is still possible, as usual, to include length specifiers, etc., after the % when using the PRI* macros. So, e.g. printf("x = %30"PRIuS"\n", x) would expand on 32-bit Linux to printf("x = %30" "u" "\n", x), which the compiler will treat as printf("x = %30u\n", x).
 

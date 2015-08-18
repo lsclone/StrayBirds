@@ -301,13 +301,13 @@ printf()中的一些类型的格式标识符在32位和64位系统下不完全�
 ```
 
 ```
-| Type                       | DO NOT use                | DO use                | Notes           |
-| --------------------------:|--------------------------:|----------------------:|----------------:|
-| void * (or any pointer)    |           %lx             |           %p          |                 |
-| int64_t                    |       %qd, %lld           |        %"PRId64"      |                 |
-| uint64_t                   |      %qu, %llu, %llx      |  %"PRIu64", %"PRIx64" |                 |
-| size_t                     |           %u              |    %"PRIuS", %"PRIxS" |C99 specifies %zu|
-| ptrdiff_t                  |           %d              |        %"PRIdS"       |C99 specifies %td|
+|          Type             |        DO NOT use         |        DO use         |      Notes      |
+| -------------------------:|--------------------------:|----------------------:|----------------:|
+| void * (or any pointer)   |           %lx             |           %p          |                 |
+|       int64_t             |       %qd, %lld           |        %"PRId64"      |                 |
+|       uint64_t            |      %qu, %llu, %llx      |  %"PRIu64", %"PRIx64" |                 |
+|       size_t              |           %u              |    %"PRIuS", %"PRIxS" |C99 specifies %zu|
+|      ptrdiff_t            |           %d              |        %"PRIdS"       |C99 specifies %td|
 ```
 
 Note that the PRI* macros expand to independent strings which are concatenated by the compiler. Hence if you are using a non-constant format string, you need to insert the value of the macro into the format, rather than the name. It is still possible, as usual, to include length specifiers, etc., after the % when using the PRI* macros. So, e.g. printf("x = %30"PRIuS"\n", x) would expand on 32-bit Linux to printf("x = %30" "u" "\n", x), which the compiler will treat as printf("x = %30u\n", x).
@@ -333,4 +333,4 @@ uint64_t my_mask = 3ULL << 48;
 
 **5. If you really need different code on 32-bit and 64-bit systems, use #ifdef _LP64 to choose between the code variants. (But please avoid this if possible, and keep any such changes localized.)**
 
-如果你在32位和64位系统下确实需要不同的代码，用_LP64宏来选择不同的代码。（但尽量不这么做，即使必须这么做也要尽量使改动局部化。）
+如果你在32位和64位系统下确实需要不同的代码，用_LP64宏来选择不同的代码。（但尽量不这么做，即使必须这么做也要尽量使改动局部化）

@@ -300,9 +300,9 @@ printf()中的一些类型的格式标识符在32位和64位系统下不完全�
 #define PRIoS __PRIS_PREFIX "o"
 ```
 
-| Type                       | DO NOT use           | DO use  | Notes   |
-| --------------------------:|--------------------------:| -----:|-----:|
-| void * (or any pointer)    | %p | $1600 ||
+| Type                       | DO NOT use                | DO use     | Notes          |
+| --------------------------:|--------------------------:|-----------:|---------------:|
+| void * (or any pointer)    |        %lx                |      %p    |                |
 | int64_t      | %qd, %lld      |   %"PRId64" ||
 | uint64_t | %qu, %llu, %llx      |    %"PRIu64", %"PRIx64" |
 | size_t | %u      |    %"PRIuS", %"PRIxS" |C99 specifies %zu|

@@ -300,6 +300,7 @@ printf()中的一些类型的格式标识符在32位和64位系统下不完全�
 #define PRIoS __PRIS_PREFIX "o"
 ```
 
+```
 | Type                       | DO NOT use                | DO use                | Notes           |
 | --------------------------:|--------------------------:|----------------------:|----------------:|
 | void * (or any pointer)    |           %lx             |           %p          |                 |
@@ -307,6 +308,7 @@ printf()中的一些类型的格式标识符在32位和64位系统下不完全�
 | uint64_t                   |      %qu, %llu, %llx      |  %"PRIu64", %"PRIx64" |                 |
 | size_t                     |           %u              |    %"PRIuS", %"PRIxS" |C99 specifies %zu|
 | ptrdiff_t                  |           %d              |        %"PRIdS"       |C99 specifies %td|
+```
 
 Note that the PRI* macros expand to independent strings which are concatenated by the compiler. Hence if you are using a non-constant format string, you need to insert the value of the macro into the format, rather than the name. It is still possible, as usual, to include length specifiers, etc., after the % when using the PRI* macros. So, e.g. printf("x = %30"PRIuS"\n", x) would expand on 32-bit Linux to printf("x = %30" "u" "\n", x), which the compiler will treat as printf("x = %30u\n", x).
 
@@ -316,7 +318,7 @@ Note that the PRI* macros expand to independent strings which are concatenated b
 
 记住void*的大小不等于int的大小。如果你要用和指针一样大的整型，就用intptr_t。
 
-3. You may need to be careful with structure alignments, particularly for structures being stored on disk. Any class/structure with a int64_t/uint64_t member will by default end up being 8-byte aligned on a 64-bit system. If you have such structures being shared on disk between 32-bit and 64-bit code, you will need to ensure that they are packed the same on both architectures. Most compilers offer a way to alter structure alignment. For gcc, you can use __attribute__((packed)). MSVC offers #pragma pack() and __declspec(align()).
+**3. You may need to be careful with structure alignments, particularly for structures being stored on disk. Any class/structure with a int64_t/uint64_t member will by default end up being 8-byte aligned on a 64-bit system. If you have such structures being shared on disk between 32-bit and 64-bit code, you will need to ensure that they are packed the same on both architectures. Most compilers offer a way to alter structure alignment. For gcc, you can use __attribute__((packed)). MSVC offers #pragma pack() and __declspec(align()).**
 
 在结构体对齐时你得小心点，尤其是要存到磁盘上的结构体。在64位系统上，任何包含int64_t/uint64_t成员的类/结构体默认都按8个字节对齐。如果你要在32位和64位的代码中共享使用存放在磁盘上的这种结构体，你需要确保它们在两种架构下都以同样的方式包装。大多数编译器都提供了改变结构体对齐的方法。GCC中你可以用__attribute__((packed))。MSVC中可以用#pragma pack()或__declspec(align())。
 

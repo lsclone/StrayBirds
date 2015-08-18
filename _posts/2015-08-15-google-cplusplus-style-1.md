@@ -48,3 +48,7 @@ vector<int> v = {1, 2};  // Good -- v starts initialized.
 ```
 
 **未完待续...**
+
+相关网址：
+1. [google C++ style guide](http://google.github.io/styleguide/cppguide.html "Markdown")
+2. [Google C++ Style Guide中英对照](http://blog.csdn.net/fz_ywj/article/details/8647162 "Markdown")

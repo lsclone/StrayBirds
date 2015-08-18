@@ -269,3 +269,64 @@ if ( pB != NULL ) {
  ...
 }
 ```
+
+#### 10. 64-bit Portability 64位下的可移植性
+
+Code should be64-bit and 32-bit friendly. Bear in mind problems of printing, comparisons, andstructure alignment.
+
+代码应该同时兼容32位和64位。要考虑到打印、比较、以及结构体对齐等问题。
+
+**1. printf() specifiers for some types are not cleanly portable between 32-bit and 64-bit systems. C99 defines some portable format specifiers. Unfortunately, MSVC 7.1 does not understand some of these specifiers and the standard is missing a few, so we have to define our own ugly versions in some cases (in the style of the standard include file inttypes.h):**
+
+printf()中的一些类型的格式标识符在32位和64位系统下不完全兼容。C99定义了一些可移植的格式标识符。不幸的是，MSVC7.1不完全支持，标准中也遗漏了一部分，所以我们不得不自己定义一个丑陋的版本（用标准头文件inttypes.h的风格）
+
+```
+// printf macros for size_t, in the style of inttypes.h
+#ifdef _LP64
+#define __PRIS_PREFIX "z"
+#else
+#define __PRIS_PREFIX
+#endif
+
+// Use these macros after a % in a printf format string
+// to get correct 32/64 bit behavior, like this:
+// size_t size = records.size();
+// printf("%"PRIuS"\n", size);
+
+#define PRIdS __PRIS_PREFIX "d"
+#define PRIxS __PRIS_PREFIX "x"
+#define PRIuS __PRIS_PREFIX "u"
+#define PRIXS __PRIS_PREFIX "X"
+#define PRIoS __PRIS_PREFIX "o"
+```
+
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+
+Note that the PRI* macros expand to independent strings which are concatenated by the compiler. Hence if you are using a non-constant format string, you need to insert the value of the macro into the format, rather than the name. It is still possible, as usual, to include length specifiers, etc., after the % when using the PRI* macros. So, e.g. printf("x = %30"PRIuS"\n", x) would expand on 32-bit Linux to printf("x = %30" "u" "\n", x), which the compiler will treat as printf("x = %30u\n", x).
+
+注意到PRI开头的宏展开为了独立的字符串，编译器会串联起这些字符串。因此如果你用非常量的格式字符串，你需要将宏的值插入到其中，而不是宏的名字。通常用PRI宏后还是能在%后面加上长度标识的。例如，printf("x =%30"PRIuS"\n", x)在32位Linux下会被展开为printf("x = %30" "u""\n", x)，编译器会将其视为printf("x = %30u\n", x)。
+
+**2. Remember that sizeof(void *) != sizeof(int). Use intptr_t if you want a pointer-sized integer.**
+
+记住void*的大小不等于int的大小。如果你要用和指针一样大的整型，就用intptr_t。
+
+3. You may need to be careful with structure alignments, particularly for structures being stored on disk. Any class/structure with a int64_t/uint64_t member will by default end up being 8-byte aligned on a 64-bit system. If you have such structures being shared on disk between 32-bit and 64-bit code, you will need to ensure that they are packed the same on both architectures. Most compilers offer a way to alter structure alignment. For gcc, you can use __attribute__((packed)). MSVC offers #pragma pack() and __declspec(align()).
+
+在结构体对齐时你得小心点，尤其是要存到磁盘上的结构体。在64位系统上，任何包含int64_t/uint64_t成员的类/结构体默认都按8个字节对齐。如果你要在32位和64位的代码中共享使用存放在磁盘上的这种结构体，你需要确保它们在两种架构下都以同样的方式包装。大多数编译器都提供了改变结构体对齐的方法。GCC中你可以用__attribute__((packed))。MSVC中可以用#pragma pack()或__declspec(align())。
+
+**4. Use the LL or ULL suffixes as needed to create 64-bit constants. For example:**
+
+需要创建64位常数时，在后面加上LL或ULL后缀。例如：
+
+```
+int64_t my_value = 0x123456789LL;
+uint64_t my_mask = 3ULL << 48;
+```
+
+**5. If you really need different code on 32-bit and 64-bit systems, use #ifdef _LP64 to choose between the code variants. (But please avoid this if possible, and keep any such changes localized.)**
+
+如果你在32位和64位系统下确实需要不同的代码，用_LP64宏来选择不同的代码。（但尽量不这么做，即使必须这么做也要尽量使改动局部化。）

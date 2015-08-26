@@ -120,7 +120,7 @@ SharedLibrary  : libmyjni.so
 Install        : libmyjni.so => libs/armeabi/libmyjni.so
 ```
 
-you can also build NDK with **cygwin**
+you can also build NDK with **cygwin** : 
 
 ```
 // Change directory to <project-root>
@@ -141,6 +141,8 @@ Check the "LogCat" panel to confirm that the shared library "libmyjni.so" is loa
 
     ...: Trying to load lib /data/data/com.example.androidhellojni/lib/libmyjni.so ...
     ...: Added shared lib /data/data/com.example.androidhellojni/lib/libmyjni.so ...
+
+====================================================================
 
 **MORE REFERENCES & RESOURCES**
 

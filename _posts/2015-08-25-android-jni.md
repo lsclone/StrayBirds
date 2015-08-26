@@ -4,9 +4,7 @@ title: Android JNI 开发详解
 category: 技术
 ---
 
-*参考网址*
-
-[Java Native Interface (JNI)](https://www3.ntu.edu.sg/home/ehchua/programming/java/JavaNativeInterface.html "Markdown")
+*参考网址* [Java Native Interface (JNI)](https://www3.ntu.edu.sg/home/ehchua/programming/java/JavaNativeInterface.html "Markdown")
 
 待写...
 

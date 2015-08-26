@@ -65,7 +65,7 @@ Run "javah" utility (**from a CMD shell**) to create C/C++ header called "HelloJ
     > javah -classpath ../../bin/classes;<ANDROID_SDK_HOME>\platforms\android-<xx>\android.jar 
       -o HelloJNI.h com.mytest.JNIActivity
 
-参考实例：
+参考实例(cmd 命令行模式)
 
     > javah -classpath ../../bin/classes;C:\adt-bundle-windows-x86_64-20140321\sdk\platforms\android-19\android.jar 
       -o HelloJNI.h com.mytest.JNIActivity

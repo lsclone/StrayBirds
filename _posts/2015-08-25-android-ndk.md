@@ -12,7 +12,7 @@ category: 技术
 
 2. Download the Android NDK from **http://developer.android.com/tools/sdk/ndk/index.html** (e.g., android-ndk-r8-windows.zip).
 
-3. Unzip the downloaded zip file into a directory of your choice (e.g., d:\myproject). The NDK will be unzipped as d:\myproject\android-ndk-r8. I shall denote the installed directory as \<NDK_HOME\>.
+3. Unzip the downloaded zip file into a directory of your choice (e.g., d:\myproject). The NDK will be unzipped as d:\myproject\android-ndk-r8. I shall denote the installed directory as **NDK_HOME**.
 
 4. Include the NDK installed directory in the **PATH** environment variable.
 
@@ -54,6 +54,23 @@ Replaced the "JNIActivity.java" as follows:
           setContentView(textView);
        }
     }
+
+**Step 2: Generating C/C++ Header File using "javah" Utility**
+
+Create a folder "jni" under the project's root (right-click on the project ⇒ New ⇒ Folder). Create a sub-folder "include" under "jni" for storing the header files.
+
+Run "javah" utility (**from a CMD shell**) to create C/C++ header called "HelloJNI.h":
+
+    // Change directory to <project-root>/jni/include
+    > javah -classpath ../../bin/classes;<ANDROID_SDK_HOME>\platforms\android-<xx>\android.jar 
+      -o HelloJNI.h com.mytest.JNIActivity
+
+参考实例：
+
+    > javah -classpath ../../bin/classes;C:\adt-bundle-windows-x86_64-20140321\sdk\platforms\android-19\android.jar 
+      -o HelloJNI.h com.mytest.JNIActivity
+
+
 
 **相关网址：**
 

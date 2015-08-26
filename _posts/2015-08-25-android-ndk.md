@@ -8,7 +8,7 @@ category: 技术
 
 ####一、 Installing the Native Development Kit (NDK)
 
-1. Setting up all the necessary tools for Android programming, such as JDK, Eclipse, Android SDK, Eclipse ADT (Read [Android 5.0 开发环境搭建](http://lsclone.github.io/blog/%E6%8A%80%E6%9C%AF/2015/08/20/android5.html "Markdown")方式二); and (for Windows Users) Cygwin (Read "How to install Cygwin" and "GCC and Make").
+1. Setting up all the necessary tools for Android programming, such as JDK, Eclipse, Android SDK, Eclipse ADT (Read the 2nd method of [Android 5.0 开发环境搭建](http://lsclone.github.io/blog/%E6%8A%80%E6%9C%AF/2015/08/20/android5.html "Markdown")); and (for Windows Users) Cygwin (Read "How to install Cygwin" and "GCC and Make").
 
 2. Download the Android NDK from http://developer.android.com/tools/sdk/ndk/index.html (e.g., android-ndk-r8-windows.zip).
 

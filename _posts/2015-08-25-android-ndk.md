@@ -61,15 +61,23 @@ Create a folder "jni" under the project's root (right-click on the project ⇒ N
 
 Run "javah" utility (**from a CMD shell**) to create C/C++ header called "HelloJNI.h":
 
-    // Change directory to <project-root>/jni/include
-    > javah -classpath ../../bin/classes;<ANDROID_SDK_HOME>\platforms\android-<xx>\android.jar 
-      -o HelloJNI.h com.mytest.JNIActivity
+```
+> javah --help
+......
+// Change directory to <project-root>/jni/include
+> javah -classpath ../../bin/classes;<ANDROID_SDK_HOME>\platforms\android-<xx>\android.jar 
+  -o HelloJNI.h com.mytest.JNIActivity
+```
 
-参考实例(cmd 命令行模式)
+参考实例(**cmd 命令行模式**)
 
     > javah -classpath ../../bin/classes;C:\adt-bundle-windows-x86_64-20140321\sdk\platforms\android-19\android.jar 
       -o HelloJNI.h com.mytest.JNIActivity
 
+* -classpath: in our case, we need the JNIActivity.class which is kept in "<project-root>\bin\classes"; and its superclass Android.app.Activity.class which is kept in android.jar under the Android SDK.
+* android.jar contains *android api classes* ([classes in android.jar](http://www.java2s.com/Code/Jar/a/Downloadandroidjar.htm "Markdown"))
+* -o: to set the output filename.
+* You need to use the fully-qualified name "com.mytest.JNIActivity".
 
 
 **相关网址：**

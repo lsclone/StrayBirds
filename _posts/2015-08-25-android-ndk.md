@@ -75,12 +75,74 @@ Run "javah" utility (**from a CMD shell**) to create C/C++ header called "HelloJ
       -o HelloJNI.h com.mytest.JNIActivity
 
 * -classpath: in our case, we need the JNIActivity.class which is kept in "<project-root>\bin\classes"; and its superclass Android.app.Activity.class which is kept in android.jar under the Android SDK.
-* android.jar contains *android api classes* ([classes in android.jar](http://www.java2s.com/Code/Jar/a/Downloadandroidjar.htm "Markdown"))
+* android.jar contains **android api classes** ([classes in android.jar](http://www.java2s.com/Code/Jar/a/Downloadandroidjar.htm "Markdown"))
 * -o: to set the output filename.
 * You need to use the fully-qualified name "com.mytest.JNIActivity".
 
+**Step 3: C Implementation - HelloJNI.c**
 
-**相关网址：**
+Create the following C program called "HelloJNI.c" under the "jni" directory (right-click on the "jni" folder ⇒ New ⇒ File):
+
+    #include <jni.h>
+    #include "include/HelloJNI.h"
+     
+    JNIEXPORT jstring JNICALL Java_com_mytest_JNIActivity_getMessage
+              (JNIEnv *env, jobject thisObj) {
+       return (*env)->NewStringUTF(env, "Hello from native code!");
+    }
+
+**Step 4: Create an Android makefile - Android.mk**
+
+Create an Android makefile called "Android.mk" under the "jni" directory (right-click on "jni" folder ⇒ New ⇒ File), as follows:
+
+```
+LOCAL_PATH := $(call my-dir)
+
+include $(CLEAR_VARS)
+
+LOCAL_MODULE    := myjni
+LOCAL_SRC_FILES := HelloJNI.c
+
+include $(BUILD_SHARED_LIBRARY)
+```
+
+In the above makefile, "myjni" is the name of our shared library (used in System.loadLibrary()), and "HelloJNI.c" is the source file.
+
+**Step 5: Build NDK**
+
+**Start a CMD shell**, change directory to the project's root directory, and run "ndk-build" script provided by Android NDK (the Android NDK installed directory shall be in the PATH).
+
+```
+// Change directory to <project-root>
+> ndk-build
+Compile thumb : myjni <= HelloJNI.c
+SharedLibrary  : libmyjni.so
+Install        : libmyjni.so => libs/armeabi/libmyjni.so
+```
+
+you can also build NDK with **cygwin**
+
+```
+// Change directory to <project-root>
+> $NDK_HOME/ndk-build
+```
+
+NOTES:
+
+* Use "ndk-build --help" to display the command-line options.
+* Use "ndk-build V=1" to display the build messages.
+* Use "ndk-build -B" to perform a force re-built.
+
+**Step 6: Run the Android App**
+
+Run the android app, via "Run As" ⇒ "Android Application". You shall see the message from the native program appears on the screen.
+
+Check the "LogCat" panel to confirm that the shared library "libmyjni.so" is loaded.
+
+    ...: Trying to load lib /data/data/com.example.androidhellojni/lib/libmyjni.so ...
+    ...: Added shared lib /data/data/com.example.androidhellojni/lib/libmyjni.so ...
+
+**MORE REFERENCES & RESOURCES**
 
 1. [Windows环境下Android NDK环境搭建](http://blog.csdn.net/pengchua/article/details/7582949 "Markdown")
 

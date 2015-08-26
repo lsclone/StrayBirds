@@ -123,7 +123,7 @@ Install        : libmyjni.so => libs/armeabi/libmyjni.so
 you can also build NDK with **cygwin** :
 
 ```
-// Change directory to <project-root>
+// open cygwin and change directory to <project-root>
 > $NDK_HOME/ndk-build
 ```
 

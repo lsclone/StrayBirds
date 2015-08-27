@@ -117,8 +117,10 @@ You can also compile and link in two steps:
 
 For gcc-3, include option -mno-cygwin to build DLL files which are not dependent upon the Cygwin DLL.
 
+```
 > gcc-3 -D __int64="long long" -mno-cygwin -Wl,--add-stdcall-alias 
   -I"<JAVA_HOME>\include" -I"<JAVA_HOME>\include\win32" -shared -o hello.dll HelloJNI.c
+```
 
 **For gcc-4: I still cannot find the correct compiler option (-mno-cygwin is not supported). The Java program hangs!**
 

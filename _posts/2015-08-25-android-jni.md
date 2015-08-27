@@ -124,6 +124,8 @@ For gcc-3, include option -mno-cygwin to build DLL files which are not dependent
 
 **For gcc-4: I still cannot find the correct compiler option (-mno-cygwin is not supported). The Java program hangs!**
 
+===================================================================
+
 **相关网址**
 
 [Java Native Interface Wiki](https://en.wikipedia.org/wiki/Java_Native_Interface#External_links "Markdown")

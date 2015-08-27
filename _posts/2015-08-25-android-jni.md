@@ -124,6 +124,14 @@ For gcc-3, include option -mno-cygwin to build DLL files which are not dependent
 
 **For gcc-4: I still cannot find the correct compiler option (-mno-cygwin is not supported). The Java program hangs!**
 
+* Step 4: Run the Java Program
+
+```
+> java HelloJNI
+or
+> java -Djava.library.path=. HelloJNI
+```
+
 ===================================================================
 
 **相关网址**

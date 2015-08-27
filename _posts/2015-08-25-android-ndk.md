@@ -150,8 +150,10 @@ Check the "LogCat" panel to confirm that the shared library "libmyjni.so" is loa
 
 2. [How to install Cygwin](https://www3.ntu.edu.sg/home/ehchua/programming/howto/Cygwin_HowTo.html "Markdown")
 
-3. [Cygwin官方下载页面](https://cygwin.com/install.html "Markdown") Cygwin Setup - Choose Download Site(s) add : http://mirrors.sohu.com
+3. Cygwin Setup - Choose Download Site(s) add : http://mirrors.sohu.com
 
-4. [Android.mk | Android Developer -- google官网NDK之Android.mk(Makefile)说明文档](https://developer.android.com/ndk/guides/android_mk.html#mdv "Markdown") 
+4. [Cygwin官方下载页面](https://cygwin.com/install.html "Markdown")
 
-5. [Android NDK开发（2）----- JNI多线程](http://biancheng.dnbcw.info/shouji/388426.html "Markdown")
+5. [Android.mk | Android Developer -- google官网NDK之Android.mk(Makefile)说明文档](https://developer.android.com/ndk/guides/android_mk.html#mdv "Markdown") 
+
+6. [Android NDK开发（2）----- JNI多线程](http://biancheng.dnbcw.info/shouji/388426.html "Markdown")

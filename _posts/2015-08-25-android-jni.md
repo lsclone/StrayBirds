@@ -137,10 +137,19 @@ or
 * JNI defines the following JNI types in the native system that correspond to Java types:
    * 1. Java Primitives: jint, jbyte, jshort, jlong, jfloat, jdouble, jchar, jboolean for Java Primitive of int, byte, short, long, float, double, char and boolean, respectively.
    * 2. Java Reference Types: jobject for java.lang.Object. It also defines the following sub-types:
-      * a. jclass for java.lang.Class.
-      * b. jstring for java.lang.String.
-      * c. jthrowable for java.lang.Throwable.
-      * d. jarray for Java array. Java array is a reference type with eight primitive array and one Object array. Hence, there are eight array of primitives jintArray, jbyteArray, jshortArray, jlongArray, jfloatArray, jdoubleArray, jcharArray and jbooleanArray; and one object array jobjectArray.
+      * a.　jclass for java.lang.Class.
+      * b.　jstring for java.lang.String.
+      * c.　jthrowable for java.lang.Throwable.
+      * d.　jarray for Java array. Java array is a reference type with eight primitive array and one Object array. Hence, there are eight array of primitives jintArray, jbyteArray, jshortArray, jlongArray, jfloatArray, jdoubleArray, jcharArray and jbooleanArray; and one object array jobjectArray.
+
+The native functions receives argument in the above JNI types and returns a value in the JNI type (such as jstring, jintArray). However, native functions operate on their own native types (such as C-string, C's int[]). Hence, there is a need to convert (or transform) between JNI types and the native types.
+
+* The native programs:
+   * Receive the arguments in JNI type (passed over by the Java program).
+   * For reference JNI type, convert or copy the arguments to local native types, e.g., jstring to a C-string, jintArray to C's int[], and so on. Primitive JNI types such as jint and jdouble do not need conversion and can be operated directly.
+   * Perform its operations, in local native type.
+   * Create the returned object in JNI type, and copy the result into the returned object.
+   * Return.
 
 ===================================================================
 

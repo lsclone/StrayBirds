@@ -10,7 +10,7 @@ category: 技术
 
 可以参考Android NDK开发详解进行如下操作：
 
-* install jdk and set **JDK_HOME** win-system environment variable
+* install jdk and set **JAVA_HOME** win-system environment variable
 * install cygwin & mingw for windows
 * install eclipse
 
@@ -91,7 +91,7 @@ JNIEXPORT void JNICALL Java_HelloJNI_sayHello(JNIEnv *env, jobject thisObj) {
 
 Compile the C program - this depends on the C compiler you used.
 
-`For MinGW GCC in Windows`
+*For MinGW GCC in Windows*
 
 ```
 > set JAVA_HOME=C:\Program Files\Java\jdk1.7.0_{xx}
@@ -102,6 +102,25 @@ Compile the C program - this depends on the C compiler you used.
 > gcc -Wl,--add-stdcall-alias -I"%JAVA_HOME%\include" -I"%JAVA_HOME%\include\win32" -shared -o hello.dll HelloJNI.c
       // Compile HellJNI.c into shared library hello.dll
 ```
+
+You can also compile and link in two steps:
+
+```
+// Compile-only with -c flag. Output is HElloJNI.o
+> gcc -c -I"%JAVA_HOME%\include" -I"%JAVA_HOME%\include\win32" HelloJNI.c
+ 
+// Link into shared library "hello.dll"
+> gcc -Wl,--add-stdcall-alias -shared -o hello.dll HelloJNI.o
+```
+
+**For Cygwin GCC in Windows**
+
+For gcc-3, include option -mno-cygwin to build DLL files which are not dependent upon the Cygwin DLL.
+
+> gcc-3 -D __int64="long long" -mno-cygwin -Wl,--add-stdcall-alias 
+  -I"<JAVA_HOME>\include" -I"<JAVA_HOME>\include\win32" -shared -o hello.dll HelloJNI.c
+
+**For gcc-4: I still cannot find the correct compiler option (-mno-cygwin is not supported). The Java program hangs!**
 
 **相关网址**
 

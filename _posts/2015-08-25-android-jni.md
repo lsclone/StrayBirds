@@ -145,11 +145,36 @@ or
 The native functions receives argument in the above JNI types and returns a value in the JNI type (such as jstring, jintArray). However, native functions operate on their own native types (such as C-string, C's int[]). Hence, there is a need to convert (or transform) between JNI types and the native types.
 
 * The native programs:
-   * Receive the arguments in JNI type (passed over by the Java program).
-   * For reference JNI type, convert or copy the arguments to local native types, e.g., jstring to a C-string, jintArray to C's int[], and so on. Primitive JNI types such as jint and jdouble do not need conversion and can be operated directly.
-   * Perform its operations, in local native type.
-   * Create the returned object in JNI type, and copy the result into the returned object.
-   * Return.
+   * 1. Receive the arguments in JNI type (passed over by the Java program).
+   * 2. For reference JNI type, convert or copy the arguments to local native types, e.g., jstring to a C-string, jintArray to C's int[], and so on. Primitive JNI types such as jint and jdouble do not need conversion and can be operated directly.
+   * 3. Perform its operations, in local native type.
+   * 4. Create the returned object in JNI type, and copy the result into the returned object.
+   * 5. Return.
+
+####四、 Passing Arguments and Result between Java & Native Programs
+
+**4.1 Passing Primitives**
+
+Passing Java primitives is straight forward. A jxxx type is defined in the native system, i.e,. jint, jbyte, jshort, jlong, jfloat, jdouble, jchar and jboolean for each of the Java's primitives int, byte, short, long, float, double, char and boolean, respectively.
+
+* Java JNI Program: TestJNIPrimitive.java
+
+```
+public class TestJNIPrimitive {
+   static {
+      System.loadLibrary("myjni"); // myjni.dll (Windows) or libmyjni.so (Unixes)
+   }
+ 
+   // Declare a native method average() that receives two ints and return a double containing the average
+   private native double average(int n1, int n2);
+ 
+   // Test Driver
+   public static void main(String args[]) {
+      System.out.println("In Java, the average is " + new TestJNIPrimitive().average(3, 2));
+   }
+}
+```
+
 
 ===================================================================
 

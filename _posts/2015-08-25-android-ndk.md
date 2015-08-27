@@ -156,6 +156,6 @@ Check the "LogCat" panel to confirm that the shared library "libmyjni.so" is loa
 
 5. [Android.mk | Android Developer -- google官网NDK之Android.mk(Makefile)说明文档](https://developer.android.com/ndk/guides/android_mk.html#mdv "Markdown") 
 
-6. java与native之间的参数传递参考： [Android JNI 开发详解](http://lsclone.github.io/blog/%E6%8A%80%E6%9C%AF/2015/08/25/android-jni.html "android jni")
+6. **java与native之间的参数传递参考：** [Android JNI 开发详解](http://lsclone.github.io/blog/%E6%8A%80%E6%9C%AF/2015/08/25/android-jni.html "android jni")
 
 7. [Android NDK开发（2）----- JNI多线程](http://biancheng.dnbcw.info/shouji/388426.html "Markdown")

@@ -68,10 +68,10 @@ The output is HelloJNI.h as follows:
       #endif
       #endif
 
-The arguments:
+> The arguments:
 
-1. JNIEnv*: reference to JNI environment, which lets you access all the JNI fucntions.
-2. jobject: reference to "this" Java object.
+>> 1. JNIEnv*: reference to JNI environment, which lets you access all the JNI fucntions.
+>> 2. jobject: reference to "this" Java object.
 
 * Step 3: C Implementation - HelloJNI.c
 

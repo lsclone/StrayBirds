@@ -327,6 +327,7 @@ JNIEXPORT jdoubleArray JNICALL Java_TestJNIPrimitiveArray_sumAndAverage
 **5.1  Accessing Object's Instance Variables**
 
 * JNI Program - TestJNIInstanceVariable.java
+
 ```
 public class TestJNIInstanceVariable {
    static {
@@ -349,6 +350,224 @@ public class TestJNIInstanceVariable {
    }
 }
 ```
+
+* C Implementation - TestJNIInstanceVariable.c
+
+```
+#include <jni.h>
+#include <stdio.h>
+#include "TestJNIInstanceVariable.h"
+ 
+JNIEXPORT void JNICALL Java_TestJNIInstanceVariable_modifyInstanceVariable
+          (JNIEnv *env, jobject thisObj) {
+   // Get a reference to this object's class
+   jclass thisClass = (*env)->GetObjectClass(env, thisObj);
+ 
+   // int
+   // Get the Field ID of the instance variables "number"
+   jfieldID fidNumber = (*env)->GetFieldID(env, thisClass, "number", "I");
+   if (NULL == fidNumber) return;
+ 
+   // Get the int given the Field ID
+   jint number = (*env)->GetIntField(env, thisObj, fidNumber);
+   printf("In C, the int is %d\n", number);
+ 
+   // Change the variable
+   number = 99;
+   (*env)->SetIntField(env, thisObj, fidNumber, number);
+ 
+   // Get the Field ID of the instance variables "message"
+   jfieldID fidMessage = (*env)->GetFieldID(env, thisClass, "message", "Ljava/lang/String;");
+   if (NULL == fidMessage) return;
+ 
+   // String
+   // Get the object given the Field ID
+   jstring message = (*env)->GetObjectField(env, thisObj, fidMessage);
+ 
+   // Create a C-string with the JNI String
+   const char *cStr = (*env)->GetStringUTFChars(env, message, NULL);
+   if (NULL == cStr) return;
+ 
+   printf("In C, the string is %s\n", cStr);
+   (*env)->ReleaseStringUTFChars(env, message, cStr);
+ 
+   // Create a new C-string and assign to the JNI string
+   message = (*env)->NewStringUTF(env, "Hello from C");
+   if (NULL == message) return;
+ 
+   // modify the instance variables
+   (*env)->SetObjectField(env, thisObj, fidMessage, message);
+}
+```
+
+**5.2  Accessing Class' Static Variables**
+
+* JNI Program - TestJNIStaticVariable.java
+
+```
+public class TestJNIStaticVariable {
+   static {
+      System.loadLibrary("myjni"); // nyjni.dll (Windows) or libmyjni.so (Unixes)
+   }
+ 
+   // Static variables
+   private static double number = 55.66;
+ 
+   // Declare a native method that modifies the static variable
+   private native void modifyStaticVariable();
+ 
+   // Test Driver
+   public static void main(String args[]) {
+      TestJNIStaticVariable test = new TestJNIStaticVariable();
+      test.modifyStaticVariable();
+      System.out.println("In Java, the double is " + number);
+   }
+}
+```
+
+* C Implementation - TestJNIStaticVariable.c
+
+```
+#include <jni.h>
+#include <stdio.h>
+#include "TestJNIStaticVariable.h"
+ 
+JNIEXPORT void JNICALL Java_TestJNIStaticVariable_modifyStaticVariable
+          (JNIEnv *env, jobject thisObj) {
+   // Get a reference to this object's class
+   jclass cls = (*env)->GetObjectClass(env, thisObj);
+ 
+   // Read the int static variable and modify its value
+   jfieldID fidNumber = (*env)->GetStaticFieldID(env, cls, "number", "D");
+   if (NULL == fidNumber) return;
+   jdouble number = (*env)->GetStaticDoubleField(env, cls, fidNumber);
+   printf("In C, the double is %f\n", number);
+   number = 77.88;
+   (*env)->SetStaticDoubleField(env, cls, fidNumber, number);
+}
+```
+
+**5.3  Callback Instance Methods and Static Methods**
+
+* JNI Program - TestJNICallBackMethod.java
+
+```
+public class TestJNICallBackMethod {
+   static {
+      System.loadLibrary("myjni"); // myjni.dll (Windows) or libmyjni.so (Unixes)
+   }
+ 
+   // Declare a native method that calls back the Java methods below
+   private native void nativeMethod();
+ 
+   // To be called back by the native code
+   private void callback() {
+      System.out.println("In Java");
+   }
+ 
+   private void callback(String message) {
+      System.out.println("In Java with " + message);
+   }
+ 
+   private double callbackAverage(int n1, int n2) {
+      return ((double)n1 + n2) / 2.0;
+   }
+ 
+   // Static method to be called back
+   private static String callbackStatic() {
+      return "From static Java method";
+   }
+
+   // Test Driver 
+   public static void main(String args[]) {
+      new TestJNICallBackMethod().nativeMethod();
+   }
+}
+```
+
+* C Implementation - TestJNICallBackMethod.c
+
+```
+#include <jni.h>
+#include <stdio.h>
+#include "TestJNICallBackMethod.h"
+ 
+JNIEXPORT void JNICALL Java_TestJNICallBackMethod_nativeMethod
+          (JNIEnv *env, jobject thisObj) {
+ 
+   // Get a class reference for this object
+   jclass thisClass = (*env)->GetObjectClass(env, thisObj);
+ 
+   // Get the Method ID for method "callback", which takes no arg and return void
+   jmethodID midCallBack = (*env)->GetMethodID(env, thisClass, "callback", "()V");
+   if (NULL == midCallBack) return;
+   printf("In C, call back Java's callback()\n");
+   // Call back the method (which returns void), baed on the Method ID
+   (*env)->CallVoidMethod(env, thisObj, midCallBack);
+ 
+   jmethodID midCallBackStr = (*env)->GetMethodID(env, thisClass,
+                               "callback", "(Ljava/lang/String;)V");
+   if (NULL == midCallBackStr) return;
+   printf("In C, call back Java's called(String)\n");
+   jstring message = (*env)->NewStringUTF(env, "Hello from C");
+   (*env)->CallVoidMethod(env, thisObj, midCallBackStr, message);
+ 
+   jmethodID midCallBackAverage = (*env)->GetMethodID(env, thisClass,
+                                  "callbackAverage", "(II)D");
+   if (NULL == midCallBackAverage) return;
+   jdouble average = (*env)->CallDoubleMethod(env, thisObj, midCallBackAverage, 2, 3);
+   printf("In C, the average is %f\n", average);
+ 
+   jmethodID midCallBackStatic = (*env)->GetStaticMethodID(env, thisClass,
+                                 "callbackStatic", "()Ljava/lang/String;");
+   if (NULL == midCallBackStatic) return;
+   jstring resultJNIStr = (*env)->CallStaticObjectMethod(env, thisClass, midCallBackStatic);
+   const char *resultCStr = (*env)->GetStringUTFChars(env, resultJNIStr, NULL);
+   if (NULL == resultCStr) return;
+   printf("In C, the returned string is %s\n", resultCStr);
+   (*env)->ReleaseStringUTFChars(env, resultJNIStr, resultCStr);
+}
+```
+
+You can list the method signature for a Java program via **javap** utility (Class File Disassembler) with **-s** (print signature) and **-p** (show private members):
+
+```
+> javap --help
+> javap -s -p TestJNICallBackMethod
+  .......
+  private void callback();
+    Signature: ()V
+ 
+  private void callback(java.lang.String);
+    Signature: (Ljava/lang/String;)V
+ 
+  private double callbackAverage(int, int);
+    Signature: (II)D
+ 
+  private static java.lang.String callbackStatic();
+    Signature: ()Ljava/lang/String;
+  .......
+```
+
+**5.4  Callback Overridden Superclass' Instance Method**
+
+* JNI provides a set of CallNonvirtual<Type>Method() functions to invoke superclass' instance methods which has been overridden in this class (similar to a super.methodName() call inside a Java subclass):
+      * 1. Get the Method ID, via GetMethodID().
+      * 2. Based on the Method ID, invoke one of the CallNonvirtual<Type>Method(), with the object, superclass, and arguments.
+
+The JNI function for calling the overridden superclass' instance method are:
+
+```
+NativeType CallNonvirtual<type>Method(JNIEnv *env, jobject obj, jclass cls, jmethodID methodID, ...);
+NativeType CallNonvirtual<type>MethodA(JNIEnv *env, jobject obj, jclass cls, jmethodID methodID, const jvalue *args);
+NativeType CallNonvirtual<type>MethodV(JNIEnv *env, jobject obj, jclass cls, jmethodID methodID, va_list args);
+```
+
+#### 六、 Creating Objects and Object Arrays
+
+#### 七、 Local and Global References
+
+see the website **"Java Native Interface (JNI)"** for more details.
 
 ===================================================================
 

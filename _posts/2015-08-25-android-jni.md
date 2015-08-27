@@ -134,7 +134,7 @@ or
 
 ####三、 JNI Basics
 
-JNI defines the following JNI types in the native system that correspond to Java types:
+* JNI defines the following JNI types in the native system that correspond to Java types:
    * 1. Java Primitives: jint, jbyte, jshort, jlong, jfloat, jdouble, jchar, jboolean for Java Primitive of int, byte, short, long, float, double, char and boolean, respectively.
    * 2. Java Reference Types: jobject for java.lang.Object. It also defines the following sub-types:
       * a. jclass for java.lang.Class.

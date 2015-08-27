@@ -175,6 +175,180 @@ public class TestJNIPrimitive {
 }
 ```
 
+* The implementation TestJNIPrimitive.c is as follows:
+
+```
+#include <jni.h>
+#include <stdio.h>
+#include "TestJNIPrimitive.h"
+ 
+JNIEXPORT jdouble JNICALL Java_TestJNIPrimitive_average
+          (JNIEnv *env, jobject thisObj, jint n1, jint n2) {
+   jdouble result;
+   printf("In C, the numbers are %d and %d\n", n1, n2);
+   result = ((jdouble)n1 + n2) / 2.0;
+   // jint is mapped to int, jdouble is mapped to double
+   return result;
+}
+```
+
+**4.2 Passing Strings**
+
+* Java JNI Program: TestJNIString.java
+
+```
+public class TestJNIString {
+   static {
+      System.loadLibrary("myjni"); // myjni.dll (Windows) or libmyjni.so (Unixes)
+   }
+   // Native method that receives a Java String and return a Java String
+   private native String sayHello(String msg);
+ 
+   public static void main(String args[]) {
+      String result = new TestJNIString().sayHello("Hello from Java");
+      System.out.println("In Java, the returned string is: " + result);
+   }
+}
+```
+
+* C Implementation - TestJNIString.c
+
+```
+#include <jni.h>
+#include <stdio.h>
+#include "TestJNIString.h"
+ 
+JNIEXPORT jstring JNICALL Java_TestJNIString_sayHello(JNIEnv *env, jobject thisObj, jstring inJNIStr) {
+   // Step 1: Convert the JNI String (jstring) into C-String (char*)
+   const char *inCStr = (*env)->GetStringUTFChars(env, inJNIStr, NULL);
+   if (NULL == inCSt) return NULL;
+ 
+   // Step 2: Perform its intended operations
+   printf("In C, the received string is: %s\n", inCStr);
+   (*env)->ReleaseStringUTFChars(env, inJNIStr, inCStr);  // release resources
+ 
+   // Prompt user for a C-string
+   char outCStr[128];
+   printf("Enter a String: ");
+   scanf("%s", outCStr);    // not more than 127 characters
+ 
+   // Step 3: Convert the C-string (char*) into JNI String (jstring) and return
+   return (*env)->NewStringUTF(env, outCStr);
+}
+```
+
+* C++ Implementation - TestJNIString.cpp
+
+```
+#include <jni.h>
+#include <iostream>
+#include <string>
+#include "TestJNIString.h"
+using namespace std;
+ 
+JNIEXPORT jstring JNICALL Java_TestJNIString_sayHello(JNIEnv *env, jobject thisObj, jstring inJNIStr) {
+   // Step 1: Convert the JNI String (jstring) into C-String (char*)
+   const char *inCStr = env->GetStringUTFChars(inJNIStr, NULL);
+   if (NULL == inCStr) return NULL;
+ 
+   // Step 2: Perform its intended operations
+   cout << "In C++, the received string is: " << inCStr << endl;
+   env->ReleaseStringUTFChars(inJNIStr, inCStr);  // release resources
+ 
+   // Prompt user for a C++ string
+   string outCppStr;
+   cout << "Enter a String: ";
+   cin >> outCppStr;
+ 
+   // Step 3: Convert the C++ string to C-string, then to JNI String (jstring) and return
+   return env->NewStringUTF(outCppStr.c_str());
+}
+```
+
+**4.3 Passing Array of Primitives**
+
+* JNI Program - TestJNIPrimitiveArray.java
+
+```
+public class TestJNIPrimitiveArray {
+   static {
+      System.loadLibrary("myjni"); // myjni.dll (Windows) or libmyjni.so (Unixes)
+   }
+ 
+   // Declare a native method sumAndAverage() that receives an int[] and
+   //  return a double[2] array with [0] as sum and [1] as average
+   private native double[] sumAndAverage(int[] numbers);
+ 
+   // Test Driver
+   public static void main(String args[]) {
+      int[] numbers = {22, 33, 33};
+      double[] results = new TestJNIPrimitiveArray().sumAndAverage(numbers);
+      System.out.println("In Java, the sum is " + results[0]);
+      System.out.println("In Java, the average is " + results[1]);
+   }
+}
+```
+
+* C Implementation - TestJNIPrimitiveArray.c
+
+```
+#include <jni.h>
+#include <stdio.h>
+#include "TestJNIPrimitiveArray.h"
+ 
+JNIEXPORT jdoubleArray JNICALL Java_TestJNIPrimitiveArray_sumAndAverage
+          (JNIEnv *env, jobject thisObj, jintArray inJNIArray) {
+   // Step 1: Convert the incoming JNI jintarray to C's jint[]
+   jint *inCArray = (*env)->GetIntArrayElements(env, inJNIArray, NULL);
+   if (NULL == inCArray) return NULL;
+   jsize length = (*env)->GetArrayLength(env, inJNIArray);
+ 
+   // Step 2: Perform its intended operations
+   jint sum = 0;
+   int i;
+   for (i = 0; i < length; i++) {
+      sum += inCArray[i];
+   }
+   jdouble average = (jdouble)sum / length;
+   (*env)->ReleaseIntArrayElements(env, inJNIArray, inCArray, 0); // release resources
+ 
+   jdouble outCArray[] = {sum, average};
+ 
+   // Step 3: Convert the C's Native jdouble[] to JNI jdoublearray, and return
+   jdoubleArray outJNIArray = (*env)->NewDoubleArray(env, 2);  // allocate
+   if (NULL == outJNIArray) return NULL;
+   (*env)->SetDoubleArrayRegion(env, outJNIArray, 0 , 2, outCArray);  // copy
+   return outJNIArray;
+}
+```
+
+####五、 Accessing Object's Variables and Calling Back Methods
+
+**5.1  Accessing Object's Instance Variables**
+
+* JNI Program - TestJNIInstanceVariable.java
+```
+public class TestJNIInstanceVariable {
+   static {
+      System.loadLibrary("myjni"); // myjni.dll (Windows) or libmyjni.so (Unixes)
+   }
+ 
+   // Instance variables
+   private int number = 88;
+   private String message = "Hello from Java";
+ 
+   // Declare a native method that modifies the instance variables
+   private native void modifyInstanceVariable();
+ 
+   // Test Driver   
+   public static void main(String args[]) {
+      TestJNIInstanceVariable test = new TestJNIInstanceVariable();
+      test.modifyInstanceVariable();
+      System.out.println("In Java, int is " + test.number);
+      System.out.println("In Java, String is " + test.message);
+   }
+}
+```
 
 ===================================================================
 

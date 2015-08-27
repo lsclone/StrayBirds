@@ -70,8 +70,8 @@ The output is HelloJNI.h as follows:
 
 > The arguments:
 
->> 1. JNIEnv*: reference to JNI environment, which lets you access all the JNI fucntions.
->> 2. jobject: reference to "this" Java object.
+>> * JNIEnv*: reference to JNI environment, which lets you access all the JNI fucntions.
+>> * jobject: reference to "this" Java object.
 
 * Step 3: C Implementation - HelloJNI.c
 
@@ -93,6 +93,7 @@ Compile the C program - this depends on the C compiler you used.
 
 `For MinGW GCC in Windows`
 
+```
 > set JAVA_HOME=C:\Program Files\Java\jdk1.7.0_{xx}
       // Define and Set environment variable JAVA_HOME to JDK installed directory
       // I recommend that you set JAVA_HOME permanently, via "Control Panel" ⇒ "System" ⇒ "Environment Variables"
@@ -100,6 +101,7 @@ Compile the C program - this depends on the C compiler you used.
       // In Windows, you can refer a environment variable by adding % prefix and suffix 
 > gcc -Wl,--add-stdcall-alias -I"%JAVA_HOME%\include" -I"%JAVA_HOME%\include\win32" -shared -o hello.dll HelloJNI.c
       // Compile HellJNI.c into shared library hello.dll
+```
 
 **相关网址**
 

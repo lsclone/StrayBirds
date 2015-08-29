@@ -16,6 +16,8 @@ category: 技术
 
 4. Include the NDK installed directory in the **PATH** environment variable.
 
+5. Eclipse -> Windows -> Preferences -> Android -> NDK, **NDK Location**: NDK installed directory(e.g., d:\myproject\android-ndk-r8)
+
 ####二、Writing a Hello-world Android NDK Program (NDK实例)
 
 **Step 0: Read the Documentation**

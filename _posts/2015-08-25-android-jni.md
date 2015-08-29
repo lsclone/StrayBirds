@@ -8,9 +8,9 @@ category: 技术
 
 ####一、 JNI环境搭建: 
 
-可以参考Android NDK开发详解进行如下操作：
+可以参考Android JNI/NDK开发详解进行如下操作：
 
-* install jdk and set **JAVA_HOME** win-system environment variable
+* install jdk
 * install cygwin & mingw for windows
 * install eclipse
 

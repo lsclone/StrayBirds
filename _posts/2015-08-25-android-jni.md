@@ -8,7 +8,7 @@ category: 技术
 
 ####一、 JNI环境搭建: 
 
-可以参考Android JNI/NDK开发详解进行如下操作：
+可以参考Android JNI/NDK开发详解及[Android 5.0 开发环境搭建](http://lsclone.github.io/blog/技术/2015/08/20/android5.html "Markdown")进行如下操作：
 
 * install jdk
 * install cygwin & mingw for windows

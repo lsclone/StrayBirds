@@ -400,6 +400,8 @@ JNIEXPORT void JNICALL Java_TestJNIInstanceVariable_modifyInstanceVariable
 }
 ```
 
+Get the Field ID of the instance variable to be accessed via GetFieldID() from the class reference. You need to provide the variable name and its field descriptor (or signature). For a Java class, the field descriptor is in the form of **"L<fully-qualified-name>;"**, with dot replaced by forward slash (/), e.g.,, the class descriptor for String is "Ljava/lang/String;". For primitives, **use "I" for int, "B" for byte, "S" for short, "J" for long, "F" for float, "D" for double, "C" for char, and "Z" for boolean**. For arrays, include a prefix **"["**, e.g., "[Ljava/lang/Object;" for an array of Object; "[I" for an array of int
+
 **5.2  Accessing Class' Static Variables**
 
 * JNI Program - TestJNIStaticVariable.java

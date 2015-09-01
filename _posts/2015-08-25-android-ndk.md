@@ -144,6 +144,28 @@ Check the "LogCat" panel to confirm that the shared library "libmyjni.so" is loa
     ...: Trying to load lib /data/data/com.example.androidhellojni/lib/libmyjni.so ...
     ...: Added shared lib /data/data/com.example.androidhellojni/lib/libmyjni.so ...
 
+**Step 7: print log**
+
+```
+#include <android/log.h>
+#define LOGD(...) ((void)__android_log_print(ANDROID_LOG_DEBUG, "native-activity", __VA_ARGS__))
+#define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO,  "native-activity", __VA_ARGS__))
+#define LOGW(...) ((void)__android_log_print(ANDROID_LOG_WARN,  "native-activity", __VA_ARGS__))
+#define LOGE(...) ((void)__android_log_print(ANDROID_LOG_ERROR, "native-activity", __VA_ARGS__))
+
+...
+LOGD("%s: func failed", __FUNCTION__);
+...
+```
+
+**Android.mk** add:
+
+```
+...
+LOCAL_LDLIBS    := -llog
+...
+```
+
 ====================================================================
 
 **MORE REFERENCES & RESOURCES**

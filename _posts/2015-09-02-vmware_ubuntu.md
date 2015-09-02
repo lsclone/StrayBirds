@@ -4,9 +4,9 @@ title: VMware + Ubuntu 安装介绍
 category: 技术
 ---
 
-* 1. 安装VMware [VMware Workstation 12.0.0 Pro 正式版/注册码/注册机](http://www.52pojie.cn/forum.php?mod=viewthread&tid=405618&page=1 "VMware")
+**1. 安装VMware [VMware Workstation 12.0.0 Pro 正式版/注册码/注册机](http://www.52pojie.cn/forum.php?mod=viewthread&tid=405618&page=1 "VMware")**
 
-* 2. [在VMware虚拟机中使用安装并设置Ubuntu系统](http://jingyan.baidu.com/article/14bd256e0ca52ebb6d26129c.html "Ubuntu")
+**2. [在VMware虚拟机中使用安装并设置Ubuntu系统](http://jingyan.baidu.com/article/14bd256e0ca52ebb6d26129c.html "Ubuntu")**
 
 需要注意以下几点：
 > * [ubuntu官网下载页面](http://www.ubuntu.com/download/desktop "ubuntu")
@@ -17,6 +17,6 @@ category: 技术
 > * Virtual Machine Settings-->CD/DVD(IDE), choose: **Use ISO image file**, 找到ubuntu-14.04.3-desktop-amd64.iso
 > * 安装Ubuntu...
 
-* 3. 解决Ubuntu全屏问题：
+**3. 解决Ubuntu全屏问题：**
 
 > Ubuntu -> 右上角 -> 系统设置 -> 硬件 -> 显示 -> 选择分辨率(eg.,1440x900(16:10)) -> 点击"**应用**"按钮

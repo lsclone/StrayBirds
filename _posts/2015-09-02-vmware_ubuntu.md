@@ -28,5 +28,5 @@ category: 技术
 需要注意以下几点：
 > * Install VMware Tools 之前需要先**弹出**Ubuntu 14.04.3 LTS amd64
 > * 设置/更改密码：sudo passwd username (eg.,root)
-> * 切换到root用户：su -> 输入密码；退出root用户: exit
+> * 切换到root用户：su -> 回车 -> 输入密码；退出root用户: exit
 > * 手动加载共享文件夹：mount -t vmhgfs .host:/ /mnt/hgfs

@@ -30,3 +30,12 @@ category: 技术
 > * 设置/更改密码：sudo passwd username (eg.,root)
 > * 切换到root用户：su -> 回车 -> 输入密码；退出root用户: exit
 > * 手动加载共享文件夹：mount -t vmhgfs .host:/ /mnt/hgfs
+
+
+**5. apt-get 设置代理**
+
+*参考*: [Ubuntu下apt-get的网络代理设置 ](http://blog.sina.com.cn/s/blog_002e20310101eai2.html "proxy")
+
+需要注意以下几点：
+> * http_proxy=http://用户名:密码@代理地址:代理端口
+> * 如果没有用户名密码，http_proxy=http://代理地址:代理端口，简写为：http_proxy=代理地址:代理端口

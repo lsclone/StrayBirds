@@ -16,3 +16,7 @@ category: 技术
 > * 可选操作： Virtual Machine Settings-->Processors, choose: **Virtualize Intel VT-x/EPT or AMD-V/RVI**. (**必须要在 BIOS 中启用了相关的 CPU 虚拟化功能，否则将开启不了虚拟机**)
 > * Virtual Machine Settings-->CD/DVD(IDE), choose: **Use ISO image file**, 找到ubuntu-14.04.3-desktop-amd64.iso
 > * 安装Ubuntu...
+
+* 3. 解决Ubuntu全屏问题：
+
+Ubuntu -> 右上角 -> 系统设置 -> 硬件 -> 显示 -> 选择分辨率(eg.,1440x900(16:10)) -> 点击"**应用**"按钮

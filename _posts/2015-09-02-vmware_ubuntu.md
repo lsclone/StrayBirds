@@ -13,6 +13,6 @@ category: 技术
 > * 选择ubuntu64位,则需要在后续VMware安装时,Linux操作系统下选择Version: ubuntu-64bit
 > * 新建虚拟机-->Guest Operating System Installation,  choose: **I will install the operating system later**
 > * **Store virtual disk as a single file**
-> * Virtual Machine Settings-->Processors, choose: **Virtualize Intel VT-x/EPT or AMD-V/RVI**. (**必须要在 BIOS 中启用了相关的 CPU 虚拟化功能，否则将开启不了虚拟机**)
+> * 可选操作： Virtual Machine Settings-->Processors, choose: **Virtualize Intel VT-x/EPT or AMD-V/RVI**. (**必须要在 BIOS 中启用了相关的 CPU 虚拟化功能，否则将开启不了虚拟机**)
 > * Virtual Machine Settings-->CD/DVD(IDE), choose: **Use ISO image file**, 找到ubuntu-14.04.3-desktop-amd64.iso
 > * 安装Ubuntu...

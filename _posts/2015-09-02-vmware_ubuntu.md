@@ -10,7 +10,7 @@ category: 技术
 
 需要注意以下几点：
 > * [ubuntu官网下载页面](http://www.ubuntu.com/download/desktop "ubuntu")
-> * 选择64位则需要在后续VMware安装时Linux操作系统下选择Version: ubuntu-64bit
+> * 选择ubuntu64位,则需要在后续VMware安装时,Linux操作系统下选择Version: ubuntu-64bit
 > * 新建虚拟机-->Guest Operating System Installation,  choose: **I will install the operating system later**
 > * **Store virtual disk as a single file**
 > * Virtual Machine Settings-->Processors, choose: **Virtualize Intel VT-x/EPT or AMD-V/RVI**. (**必须要在 BIOS 中启用了相关的 CPU 虚拟化功能，否则将开启不了虚拟机**)

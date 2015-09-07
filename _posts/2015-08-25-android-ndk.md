@@ -174,7 +174,7 @@ LOCAL_LDLIBS    := -llog
 链接库文件：
 
     LOCAL_LDFLAGS  		:= -L./
-    LOCAL_LDLIBS 		:= -lhello  #eg,.libhello.a
+    LOCAL_LDLIBS 		:= -lhello  #eg,. libhello.a
 
 * [Android.mk小结](http://blog.csdn.net/crazyman2010/article/details/40401545 "android.mk")
 * [编写Android.mk中的LOCAL_SRC_FILES的终极技巧](http://blog.csdn.net/fu_zk/article/details/12836431 "android.mk")

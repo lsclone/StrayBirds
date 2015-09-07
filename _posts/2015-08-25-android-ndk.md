@@ -166,6 +166,16 @@ LOCAL_LDLIBS    := -llog
 
 **Step 8: Android.mk**
 
+头文件包含路径： 
+
+    LOCAL_C_INCLUDES 	:= ./
+    LOCAL_C_INCLUDES 	+= ../
+
+链接库文件：
+
+    LOCAL_LDFLAGS  		:= -L./
+    LOCAL_LDLIBS 		:= -lhello  #eg,.libhello.a
+
 * [Android.mk小结](http://blog.csdn.net/crazyman2010/article/details/40401545 "android.mk")
 * [编写Android.mk中的LOCAL_SRC_FILES的终极技巧](http://blog.csdn.net/fu_zk/article/details/12836431 "android.mk")
 * [Android.mk 中的 LOCAL_SRC_FILES, LOCAL_C_INCLUDES](http://blog.163.com/caty_nuaa/blog/static/90390720144269528857/?COLLCC=3225355915& "android.mk")

@@ -1,5 +1,5 @@
 ---
-laytou: post
+layout: post
 title: 绘图相关工具类网址
 category: 技术
 ---

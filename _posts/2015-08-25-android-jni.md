@@ -571,6 +571,25 @@ NativeType CallNonvirtual<type>MethodV(JNIEnv *env, jobject obj, jclass cls, jme
 
 see the website **"Java Native Interface (JNI)"** for more details.
 
+#### 八、 How to access arrays within an object with JNI?
+
+*参考网址*：[how-to-access-arrays-within-an-object-with-jni](http://stackoverflow.com/questions/1086596/how-to-access-arrays-within-an-object-with-jni "Markdown")
+
+```
+// Get the class
+jclass mvclass = env->GetObjectClass( *cls );
+// Get method ID for method getSomeDoubleArray that returns a double array
+jmethodID mid = env->GetMethodID(mvclass, "getSomeDoubleArray", "()[D");
+// Call the method, returns JObject (because Array is instance of Object)
+jobject mvdata = env->CallObjectMethod(*base, mid);
+// Cast it to a jdoublearray
+jdoubleArray * arr = reinterpret_cast<jdoubleArray*>(&mvdata)
+// Get the elements (you probably have to fetch the length of the array as well
+double * data = env->GetDoubleArrayElements(*arr, NULL);
+// Don't forget to release it 
+env->ReleaseDoubleArrayElements(*arr, data, 0);
+```
+
 ===================================================================
 
 **相关网址**

@@ -179,23 +179,23 @@ LOCAL_LDLIBS    := -llog
 **关于链接静态库的补充说明：**
 
 ```
-LOCAL_PATH			:= $(call my-dir)
+LOCAL_PATH			    := $(call my-dir)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE        := math
-LOCAL_SRC_FILES     := libmath.a
+LOCAL_MODULE            := math
+LOCAL_SRC_FILES         := libmath.a
 #LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)
 include $(PREBUILT_STATIC_LIBRARY)
 
 include $(CLEAR_VARS)
 
-LOCAL_C_INCLUDES 	:= ./include
+LOCAL_C_INCLUDES 	    := ./include/
 
-LOCAL_MODULE    	:= hello  #eg,. libhello.so
-LOCAL_SRC_FILES 	:= hello.c
+LOCAL_MODULE    	    := hello  #eg,. libhello.so
+LOCAL_SRC_FILES 	    := hello.c
 
 LOCAL_STATIC_LIBRARIES	:= math
-LOCAL_LDLIBS 		:= -llog
+LOCAL_LDLIBS 		    := -llog
 
 include $(BUILD_SHARED_LIBRARY)
 ```

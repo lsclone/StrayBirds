@@ -180,6 +180,13 @@ LOCAL_LDLIBS    := -llog
 * [编写Android.mk中的LOCAL_SRC_FILES的终极技巧](http://blog.csdn.net/fu_zk/article/details/12836431 "android.mk")
 * [Android.mk 中的 LOCAL_SRC_FILES, LOCAL_C_INCLUDES](http://blog.163.com/caty_nuaa/blog/static/90390720144269528857/?COLLCC=3225355915& "android.mk")
 
+**Step 9: Application.mk**
+
+*参考网址*：
+
+* [Application.mk帮助文档](https://developer.android.com/ndk/guides/application_mk.html "Markdown")
+* [Android NDK开发指南（一） Application.mk文件](http://www.cnblogs.com/yaozhongxiao/archive/2012/03/06/2381586.html "Markdown")
+
 ====================================================================
 
 **MORE REFERENCES & RESOURCES**

@@ -176,7 +176,7 @@ LOCAL_LDLIBS    := -llog
     LOCAL_LDFLAGS  		:= -L./
     LOCAL_LDLIBS 		:= -lhello  #eg,. libhello.a
 
-**关于链接静态库的补充说明：**
+**链接静态库的推荐方式：**
 
 ```
 LOCAL_PATH			    := $(call my-dir)

@@ -171,12 +171,14 @@ LOCAL_LDLIBS    := -llog
     LOCAL_C_INCLUDES 	:= ./
     LOCAL_C_INCLUDES 	+= ../
 
-链接库文件：
+链接外部库文件：
 
     LOCAL_LDFLAGS  		:= -L./
     LOCAL_LDLIBS 		:= -lhello  #eg,. libhello.a
 
-**链接静态库的推荐方式：**
+**链接外部库文件的推荐方式：**
+
+链接外部静态库：
 
 ```
 LOCAL_PATH			    := $(call my-dir)
@@ -195,6 +197,30 @@ LOCAL_MODULE    	    := hello  #eg,. libhello.so
 LOCAL_SRC_FILES 	    := hello.c
 
 LOCAL_STATIC_LIBRARIES	:= math
+LOCAL_LDLIBS 		    := -llog
+
+include $(BUILD_SHARED_LIBRARY)
+```
+
+链接外部动态库：
+
+```
+LOCAL_PATH			    := $(call my-dir)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE            := math
+LOCAL_SRC_FILES         := libmath.so
+#LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)
+include $(PREBUILT_STATIC_LIBRARY)
+
+include $(CLEAR_VARS)
+
+LOCAL_C_INCLUDES 	    := ./include/
+
+LOCAL_MODULE    	    := hello  #eg,. libhello.so
+LOCAL_SRC_FILES 	    := hello.c
+
+LOCAL_SHARED_LIBRARIES	:= math
 LOCAL_LDLIBS 		    := -llog
 
 include $(BUILD_SHARED_LIBRARY)

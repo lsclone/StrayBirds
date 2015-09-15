@@ -571,7 +571,7 @@ see the website **"Java Native Interface (JNI)"** for more details.
 
 #### 七、 Local and Global References
 
-有待总结。。。
+Global References 有待总结。。。
 
 思路： 
 * jobject需要NewGlobalRef(), 例如CallBack，需要通过jobject调用相关成员函数。

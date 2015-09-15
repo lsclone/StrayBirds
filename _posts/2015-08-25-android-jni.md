@@ -567,9 +567,16 @@ NativeType CallNonvirtual<type>MethodV(JNIEnv *env, jobject obj, jclass cls, jme
 
 #### 六、 Creating Objects and Object Arrays
 
+see the website **"Java Native Interface (JNI)"** for more details.
+
 #### 七、 Local and Global References
 
-see the website **"Java Native Interface (JNI)"** for more details.
+有待总结。。。
+
+思路： 
+* jobject需要NewGlobalRef(), 例如CallBack，需要通过jobject调用相关成员函数。
+* 关注**ATTACH_JVM**和**DETACH_JVM**及**JNI_OnLoad()**
+
 
 #### 八、 How to access arrays within an object with JNI?
 

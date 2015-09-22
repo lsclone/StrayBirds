@@ -597,6 +597,36 @@ double * data = env->GetDoubleArrayElements(*arr, NULL);
 env->ReleaseDoubleArrayElements(*arr, data, 0);
 ```
 
+#### 九、 How to access java.util.List within an object defined in java with JNI?
+
+java code:
+
+```
+public class Information {
+	public List<xxx> xxxlist = new ArrayList<xxx>();
+}
+```
+
+jni code:
+
+```
+jclass class = env->GetObjectClass(obj); //obj type: Information
+
+jfieldID field = env->GetFieldID(class, "xxxlist", "Ljava/util/List;");
+jobject listObj = env->GetObjectField(obj, field);
+
+jclass listClass = env->FindClass("java/util/List");
+jmethodID listAdd = env->GetMethodID(listClass, "add", "(Ljava/lang/Object;)Z"); // boolean add(java.lang.Object);
+
+jclass elemClass = env->FindClass("xxx/xxx/xxx");
+jmethodID elemConsMethod = env->GetMethodID(elemClass, "<init>", "()V"); // xxx.xxx.xxx construction
+
+for (int i = 0; i < 10; i++) {
+	jobject elemObj = env->NewObject(elemClass, elemConsMethod);
+	env->CallBooleanMethod(listObj, listAdd, elemObj);
+}
+```
+
 ===================================================================
 
 **相关网址**

@@ -599,6 +599,8 @@ env->ReleaseDoubleArrayElements(*arr, data, 0);
 
 #### 九、 How to access java.util.List within an object defined in java with JNI?
 
+*参考网址*: [Set/Get Java List<> from C code](http://stackoverflow.com/questions/8168931/set-get-java-list-from-c-code "Markdown")
+
 java code:
 
 ```

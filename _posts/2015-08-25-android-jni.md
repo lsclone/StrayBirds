@@ -597,7 +597,33 @@ double * data = env->GetDoubleArrayElements(*arr, NULL);
 env->ReleaseDoubleArrayElements(*arr, data, 0);
 ```
 
-#### 九、 How to access java.util.List within an object defined in java with JNI?
+#### 九、 How to access an object defined in java with JNI?
+
+*参考网址*: [Android NDK实现 C 代码中操作 Java 代码的类对象](http://blog.sina.com.cn/s/blog_4c451e0e010133b4.html "Markdown")
+
+java code:
+
+```
+package com.example.utility;
+
+public class Information {
+	public int data;
+}
+```
+
+jni code:
+
+```
+jclass infoClass = env->FindClass("com/example/utility/Information");
+
+jmethodID infoConsMethod = env->GetMethodID(infoClass, "<init>", "()V"); // Information construction
+jobject infoObj = env->NewObject(infoClass, infoConsMethod);
+
+jfieldID field = env->GetFieldID(infoClass, "data", "I");
+env->SetIntField(infoObj, field, 10);
+```
+
+#### 十、 How to access java.util.List within an object defined in java with JNI?
 
 *参考网址*: 
 

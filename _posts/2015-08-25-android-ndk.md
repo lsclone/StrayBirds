@@ -244,6 +244,18 @@ endif
 
 **Step 9: Application.mk**
 
+[armeabi和armeabi-v7a 以及x86](http://blog.sina.com.cn/s/blog_95c607dd0102uxau.html "markdown")
+```
+APP_ABI := armeabi armeabi-v7a arm64-v8a x86
+通常只编译armeabi-v7a即可
+```
+
+[怎么在android app中使用STL库](http://www.myexception.cn/android/1704478.html "markdown")
+```
+APP_STL := stlport_static 推荐
+or APP_STL := gnustl_static
+```
+
 *参考网址*：
 
 * [Application.mk帮助文档](https://developer.android.com/ndk/guides/application_mk.html "Markdown")

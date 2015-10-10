@@ -226,9 +226,21 @@ LOCAL_LDLIBS 		    := -llog
 include $(BUILD_SHARED_LIBRARY)
 ```
 
+判断语句写法：
+
+```
+ifeq ($(TARGET_ARCH_ABI), armeabi-v7a)
+	common_CFLAGS += -march=armv7-a -mfloat-abi=softfp -mfpu=neon
+	common_LDFLAGS += -Wl,--fix-cortex-a8
+else
+...
+endif
+```
+
 * [Android.mk小结](http://blog.csdn.net/crazyman2010/article/details/40401545 "android.mk")
 * [编写Android.mk中的LOCAL_SRC_FILES的终极技巧](http://blog.csdn.net/fu_zk/article/details/12836431 "android.mk")
 * [Android.mk 中的 LOCAL_SRC_FILES, LOCAL_C_INCLUDES](http://blog.163.com/caty_nuaa/blog/static/90390720144269528857/?COLLCC=3225355915& "android.mk")
+* [Android.mk语法说明（android ndk开发）](http://www.linuxidc.com/Linux/2011-09/42638p2.htm "android.mk")
 
 **Step 9: Application.mk**
 

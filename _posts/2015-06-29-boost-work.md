@@ -4,9 +4,17 @@ title: boost后续添加工作
 category: 技术
 ---
 
-####后续工作：
+####1. boost::mutex
 
-1. boost异步io总结
-2. boost线程池、poco线程池
-3. boost定时器
-4. epoll并发服务器代码上传等
+*参考网址*：
+* [Boost 不同Mutex的大体说明](http://www.cppblog.com/ming81/archive/2012/07/18/184028.html "Mutex")
+* [boost中的mutex与lock](http://blog.csdn.net/zp373860147/article/details/8186724 "Mutex")
+
+####2. boost异步io总结
+
+####3. boost线程池、poco线程池
+
+####4. boost定时器
+
+####5. epoll并发服务器代码上传等
+

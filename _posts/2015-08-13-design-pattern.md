@@ -44,8 +44,8 @@ Singleton* Singleton::GetInstance() {
   	if (!pInstance.get()) {
   		pInstance = std::auto_ptr<Singleton>(new Singleton());
   	}
-	}
-	return pInstance.get();
+  }
+  return pInstance.get();
 }
 ```
 

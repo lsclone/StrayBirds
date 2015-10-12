@@ -19,3 +19,10 @@ category: 技术
 
 ####5. epoll并发服务器代码上传等
 
+####6. Smart Pointer
+
+*参考网址*：
+
+* [boost::scoped_ptr](http://blog.csdn.net/wuliming_sc/article/details/3820419 "Markdown")
+* [boost::shared_ptr](http://blog.csdn.net/wuliming_sc/article/details/3820842 "Markdown")
+

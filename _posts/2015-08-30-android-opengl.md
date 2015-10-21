@@ -57,11 +57,27 @@ public class MySurfaceView extends GLSurfaceView {
 public class MyRenderer implements GLSurfaceView.Renderer {
    @Override
    public void onDrawFrame(GL10 gl) {
+      gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
    }
 }
 ```
 
 ####2. GLSurfaceView.Renderer
 
+GLSurfaceView.Renderer的三个接口函数都在rendering thread(GLThread)中被调用。
+
+```
+@Override
+public void onDrawFrame(GL10 gl) {
+}
+@Override
+public void onSurfaceCreated(GL10 gl, EGLConfig config) {
+}
+@Override
+public void onSurfaceChanged(GL10 gl, int width, int height) {
+}
+```
+
 ####3. OpenGL ES
 
+*参考网址*：[OpenGL ES](http://developer.android.com/guide/topics/graphics/opengl.html "Markdown")

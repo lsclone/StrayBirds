@@ -42,11 +42,23 @@ class MyGLSurfaceView extends GLSurfaceView {
 renderer draws on-demand by calling **setRenderMode(RENDERMODE_WHEN_DIRTY)**
 
 ```
-...
-GLSurfaceView.setRenderMode(RENDERMODE_WHEN_DIRTY);
-...
-GLSurfaceView.requestRender();
-...
+public class MySurfaceView extends GLSurfaceView {
+   private MyRenderer mMyRenderer;
+   public MySurfaceView(Context context, AttributeSet attrs) {
+      this.setRenderer(mMyRenderer);
+      this.setRenderMode(RENDERMODE_WHEN_DIRTY);
+   }
+   public void request() {
+      // call mMyRenderer.onDrawFrame() on the rendering thread
+      this.requestRender();
+   }
+}
+
+public class MyRenderer implements GLSurfaceView.Renderer {
+   @Override
+   public void onDrawFrame(GL10 gl) {
+   }
+}
 ```
 
 ####2. GLSurfaceView.Renderer

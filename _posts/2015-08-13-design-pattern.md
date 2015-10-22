@@ -21,15 +21,15 @@ category: 技术
 
 class Singleton {
 public:
-	~Singleton() {}
-	static Singleton* GetInstance();
+  ~Singleton() {}
+  static Singleton* GetInstance();
 
 protected:
-	Singleton() {}
+  Singleton() {}
 
 private:
-	static std::auto_ptr<Singleton> pInstance;
-	static boost::mutex mutex;
+  static std::auto_ptr<Singleton> pInstance;
+  static boost::mutex mutex;
 };
 ```
 
@@ -41,9 +41,9 @@ std::auto_ptr<Singleton> Singleton::pInstance;
 Singleton* Singleton::GetInstance() {
   if (!pInstance.get()) {
     boost::mutex::scoped_lock lock(mutex);
-  	if (!pInstance.get()) {
-  		pInstance = std::auto_ptr<Singleton>(new Singleton());
-  	}
+      if (!pInstance.get()) {
+        pInstance = std::auto_ptr<Singleton>(new Singleton());
+      }
   }
   return pInstance.get();
 }
@@ -54,6 +54,71 @@ Singleton* Singleton::GetInstance() {
 * [C++中的单例模式](http://blog.csdn.net/hackbuteer1/article/details/7460019 "singleton")
 * [C++单件模式实现](http://www.360doc.com/content/13/1021/17/12892305_323079174.shtml "singleton")
 
-####二、
+####二、接口实现
+
+interface.h
+
+```
+#ifndef _INTERFACE_H_
+#define _INTERFACE_H_
+
+class Interface {
+public:
+  Interface() {}
+  virtual ~Interface() {}
+
+  virtual int Add(int, int) = 0;
+  virtual double Div(int, int) = 0;
+
+  static Interface* GetInstance();
+};
+
+#endif //_INTERFACE_H_
+```
+
+interface.cpp
+
+```
+#include "interface.h"
+#include "caculator.h"
+
+Interface* Interface::GetInstance() {
+  return new Caculator();
+}
+```
+
+caculator.h
+
+```
+#ifndef _CACULATOR_H_
+#define _CACULATOR_H_
+
+#include "interface.h"
+
+class Caculator : public Interface {
+public:
+  Caculator() {}
+  virtual int Add(int, int);
+  virtual double Div(int, int);
+};
+
+#endif //_CACULATOR_H_
+```
+
+caculator.cpp
+
+```
+#include "caculator.h"
+
+int Caculator::Add(int x, int y) {
+  return (x + y);
+}
+
+double Caculator::Div(int x, int y) {
+  return (x * 1.0 / y);
+}
+```
+
+####三、工厂模式
 
 未完待续...

@@ -209,6 +209,25 @@ private:
 #endif //_AUTO_POINTER_H_
 ```
 
+main.cpp
+
+```
+#include "stdio.h"
+#include "interface.h"
+#include "auto_pointer.h"
+
+int main() {
+  auto_pointer<Interface> p;
+  auto_pointer<Interface>::create(p, Interface::GetInstance());
+  try {
+    printf("div : %.2f\n", p->Div(10, 3));
+  } catch (...) {
+    printf("smart_pointer should be initialized first.\n");
+  }
+  return 0;
+}
+```
+
 ####三、工厂模式
 
 未完待续...

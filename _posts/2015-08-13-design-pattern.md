@@ -129,81 +129,81 @@ template <class ObjectType>
 class wrap
 {
 public:
-	wrap(ObjectType* pObject) : m_nRef(0),
-		m_pObject(pObject) {}
+  wrap(ObjectType* pObject) : m_nRef(0),
+    m_pObject(pObject) {}
 
-	~wrap() {
-		delete m_pObject;
-	}
+  ~wrap() {
+    delete m_pObject;
+  }
 
-	void addRef() {
-		m_nRef++;
-	}
+  void addRef() {
+    m_nRef++;
+  }
 
-	void subRef() {
-		m_nRef--;
-		if (0 == m_nRef) {
-			delete this;
-		}
-	}
+  void subRef() {
+    m_nRef--;
+    if (0 == m_nRef) {
+      delete this;
+    }
+  }
 
-	ObjectType* ref() {
-		return m_pObject;
-	}
+  ObjectType* ref() {
+    return m_pObject;
+  }
 
 private:
-	int m_nRef;
-	ObjectType* m_pObject;
+  int m_nRef;
+  ObjectType* m_pObject;
 };
 
 template <class ObjectType>
 class auto_pointer {
 public:
-	static void create(auto_pointer<ObjectType>& origin,
-		ObjectType* pObject) {
-		if (NULL == pObject) {
-			return;
-		}
-		origin.m_pObj = new wrap<ObjectType>(pObject);
-		origin.m_pObj->addRef();
-	}
+  static void create(auto_pointer<ObjectType>& origin,
+    ObjectType* pObject) {
+    if (NULL == pObject) {
+      return;
+    }
+    origin.m_pObj = new wrap<ObjectType>(pObject);
+    origin.m_pObj->addRef();
+  }
 
-	~auto_pointer() {
-		if (NULL != m_pObj) {
-			m_pObj->subRef();
-		}
-	}
+  ~auto_pointer() {
+    if (NULL != m_pObj) {
+      m_pObj->subRef();
+    }
+  }
 
-	auto_pointer() : m_pObj(NULL) {}
+  auto_pointer() : m_pObj(NULL) {}
 
-	auto_pointer(const auto_pointer<ObjectType>& origin) {
-		if (NULL != origin.m_pObj) {
-			m_pObj = origin.m_pObj;
-			m_pObj->addRef();
-		} else {
-			m_pObj = NULL;
-		}
-	}
+  auto_pointer(const auto_pointer<ObjectType>& origin) {
+    if (NULL != origin.m_pObj) {
+      m_pObj = origin.m_pObj;
+      m_pObj->addRef();
+    } else {
+      m_pObj = NULL;
+    }
+  }
 
-	const auto_pointer<ObjectType>& operator=
-		(const auto_pointer<ObjectType>& origin) {
-		if (NULL != origin.m_pObj) {
-			m_pObj = origin.m_pObj;
-			m_pObj->addRef();
-		}
-		return *this;
-	}
+  const auto_pointer<ObjectType>& operator=
+    (const auto_pointer<ObjectType>& origin) {
+    if (NULL != origin.m_pObj) {
+      m_pObj = origin.m_pObj;
+      m_pObj->addRef();
+    }
+    return *this;
+  }
 
-	ObjectType* operator->() {
-		if (NULL != m_pObj) {
-			return m_pObj->ref();
-		} else {
-			throw NULL;
-		}
-	}
+  ObjectType* operator->() {
+    if (NULL != m_pObj) {
+      return m_pObj->ref();
+    } else {
+      throw NULL;
+    }
+  }
 
 private:
-	wrap<ObjectType>* m_pObj;
+  wrap<ObjectType>* m_pObj;
 };
 
 #endif //_AUTO_POINTER_H_

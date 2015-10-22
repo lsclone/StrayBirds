@@ -228,6 +228,52 @@ int main() {
 }
 ```
 
+优化如下：
+
+interface.cpp
+
+```
+auto_pointer<Interface> Interface::GetInstance() {
+  auto_pointer<Interface> p;
+  auto_pointer<Interface>::create(p, new Caculator());
+  return p;
+}
+```
+
+main.cpp
+
+```
+#include "stdio.h"
+#include "interface.h"
+#include "auto_pointer.h"
+
+void test(auto_pointer<Interface> p) {
+  try {
+    printf("sum : %d\n", p->Add(10, 3));
+  } catch (...) {
+  }
+}
+
+int main() {
+	auto_pointer<Interface> p = Interface::GetInstance();
+	try {
+		printf("div : %.2f\n", p->Div(10, 4));
+	} catch (...) {
+		printf("smart_pointer should be initialized first.\n");
+	}
+	test(p);
+	return 0;
+}
+```
+
 ####三、工厂模式
+
+工厂模式分三类： 简单工厂模式、工厂方法模式、抽象工厂模式
+
+参考文档：
+
+* [简单工厂模式](http://www.jellythink.com/archives/42 "factory")
+* [工厂方法模式](http://www.jellythink.com/archives/62 "factory")
+* [抽象工厂模式](http://www.jellythink.com/archives/75 "factory")
 
 未完待续...

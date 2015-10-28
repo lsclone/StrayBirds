@@ -135,16 +135,6 @@ NOTES:
 * Use "ndk-build V=1" to display the build messages.
 * Use "ndk-build -B" to perform a force re-built.
 
-**Step 5.5: Load Library in Android Project**
-
-```
-public class JNIActivity extends Activity {
-  static {
-    System.loadLibrary("myjni");
-  }
-}
-```
-
 **Step 6: Run the Android App**
 
 Run the android app, via "Run As" ⇒ "Android Application". You shall see the message from the native program appears on the screen.

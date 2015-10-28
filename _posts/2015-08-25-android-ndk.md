@@ -138,7 +138,7 @@ NOTES:
 **Step 5.5: Load Library in Android Project**
 
 ```
-public class MyActivity extends Activity {
+public class JNIActivity extends Activity {
   static {
     System.loadLibrary("myjni");
   }

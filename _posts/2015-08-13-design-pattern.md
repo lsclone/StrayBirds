@@ -276,4 +276,12 @@ int main() {
 * [工厂方法模式](http://www.jellythink.com/archives/62 "factory")
 * [抽象工厂模式](http://www.jellythink.com/archives/75 "factory")
 
-未完待续...
+####四、命令模式
+
+####五、State模式
+
+####六、MVC架构
+
+参考文档：
+
+* [MVC框架(百度)](http://baike.baidu.com/link?url=l3uoteKviMcV0wixD02JqqyyAE_dZryD3G0UaLGg3Qlowi-5ip7F0K1psMOKvGWEmqqC72USPYsbL81r58g_JK "mvc")

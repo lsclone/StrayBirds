@@ -237,6 +237,12 @@ else
 endif
 ```
 
+JNI层调用OpenGL ES需要连接库文件：
+
+```
+LOCAL_LDLIBS := -ljnigraphics -lGLESv1_CM -lGLESv2
+```
+
 * [Android.mk小结](http://blog.csdn.net/crazyman2010/article/details/40401545 "android.mk")
 * [编写Android.mk中的LOCAL_SRC_FILES的终极技巧](http://blog.csdn.net/fu_zk/article/details/12836431 "android.mk")
 * [Android.mk 中的 LOCAL_SRC_FILES, LOCAL_C_INCLUDES](http://blog.163.com/caty_nuaa/blog/static/90390720144269528857/?COLLCC=3225355915& "android.mk")

@@ -262,10 +262,26 @@ APP_STL := stlport_static 推荐
 or APP_STL := gnustl_static
 ```
 
+* 通用例子
+
+```
+APP_PLATFORM := android-19
+NDK_TOOLCHAIN_VERSION := 4.8
+APP_ABI := armeabi-v7a
+APP_STL := gnustl_static
+APP_OPTIM := debug
+#APP_OPTIM := release
+APP_CPPFLAGS := -O3 -fno-rtti -fno-exceptions -finline-functions -funswitch-loops -fgcse-after-reload -pipe -flto -mfpu=neon
+#APP_CPPFLAGS := -O0 -g -frtti -fexceptions -finline-functions -funswitch-loops -fgcse-after-reload -pipe
+```
+
 *参考网址*：
 
 * [Application.mk帮助文档](https://developer.android.com/ndk/guides/application_mk.html "Markdown")
 * [Android NDK开发指南（一） Application.mk文件](http://www.cnblogs.com/yaozhongxiao/archive/2012/03/06/2381586.html "Markdown")
+* [ndk 添加c++11支持](http://jingyan.baidu.com/article/b87fe19ebd51fa52183568f7.html "Markdown")
+* [Android NDK的C++11标准支持](http://www.tuicool.com/articles/NFjEby "Markdown")
+* [Application.mk简介](http://blog.csdn.net/wang_shaner/article/details/41479721 "Markdown")
 
 ====================================================================
 

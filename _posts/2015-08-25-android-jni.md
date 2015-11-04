@@ -571,12 +571,67 @@ see the website **"Java Native Interface (JNI)"** for more details.
 
 #### 七、 Local and Global References
 
-Global References 有待总结。。。
+util.h
 
-思路： 
-* jobject需要NewGlobalRef(), 例如CallBack，需要通过jobject调用相关成员函数。
-* 关注**ATTACH_JVM**和**DETACH_JVM**及**JNI_OnLoad()**
+```
+#include <jni.h>
 
+extern JavaVM* android_jvm;
+
+#ifdef __cplusplus
+
+// For cpp.
+#define ATTACH_JVM(env) \
+    JNIEnv *e;\
+    int __env = android_jvm->GetEnv((void **)&e, JNI_VERSION_1_6); \
+    android_jvm->AttachCurrentThread(&env,NULL);
+
+#define DETACH_JVM(env) \
+    if( __env == JNI_EDETACHED) {\
+        android_jvm->DetachCurrentThread();\
+    }
+
+#else
+
+// For c
+#define ATTACH_JVM(env) \
+    JNIEnv *e;\
+    int __env = (*android_jvm)->GetEnv(android_jvm, (void **)&e, JNI_VERSION_1_6);\
+    (*android_jvm)->AttachCurrentThread(android_jvm, &env, NULL);
+
+#define DETACH_JVM() \
+    if (__env == JNI_EDETACHED) {\
+        (*android_jvm)->DetachCurrentThread(android_jvm);\
+    }
+
+#endif
+```
+
+util.cpp
+
+```
+JavaVM* android_jvm;
+JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void* reserved) {
+    android_jvm = vm;
+    return JNI_VERSION_1_6;
+}
+```
+
+.cpp
+
+```
+JNIEnv* env;
+ATTACH_JVM(env);
+env->CallVoidMethod(obj, jmethodID); // see note
+DETACH_JVM();
+```
+
+Note：
+
+**obj** should be global references.
+
+* obj = env->NewGlobalRef(jobject);
+* env->DeleteGlobalRef(obj);
 
 #### 八、 How to access arrays within an object with JNI?
 

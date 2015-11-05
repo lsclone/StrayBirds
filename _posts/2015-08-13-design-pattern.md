@@ -284,6 +284,12 @@ int main() {
 
 工厂模式分三类： 简单工厂模式、工厂方法模式、抽象工厂模式
 
+![简单工厂模式](http://picture.jellythink.com/jellythinkSimplyFactoryDesign.png "简单工厂模式")
+
+![工厂方法模式](http://picture.jellythink.com/jellythinkFactory%20Pattern.png "工厂方法模式")
+
+![抽象工厂模式](http://picture.jellythink.com/jellythinkAbstractFactoryPattern.png "抽象工厂模式")
+
 参考文档：
 
 * [简单工厂模式](http://www.jellythink.com/archives/42 "factory")

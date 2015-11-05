@@ -54,7 +54,7 @@ Singleton* Singleton::GetInstance() {
 * [C++中的单例模式](http://blog.csdn.net/hackbuteer1/article/details/7460019 "singleton")
 * [C++单件模式实现](http://www.360doc.com/content/13/1021/17/12892305_323079174.shtml "singleton")
 
-C++11版本单件模式实现：
+**C++11**版本单件模式实现：
 
 ```
 Singleton& Singleton::getInstance() {

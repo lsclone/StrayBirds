@@ -54,6 +54,20 @@ Singleton* Singleton::GetInstance() {
 * [C++中的单例模式](http://blog.csdn.net/hackbuteer1/article/details/7460019 "singleton")
 * [C++单件模式实现](http://www.360doc.com/content/13/1021/17/12892305_323079174.shtml "singleton")
 
+C++11版本单件模式实现：
+
+```
+Singleton& Singleton::getInstance() {
+    static Singleton instance;
+    return instance;
+}
+```
+
+*参考网址*：
+
+* [Double-Checked Locking is Fixed In C++11](http://preshing.com/20130930/double-checked-locking-is-fixed-in-cpp11/ "singleton")
+* [How to implement multithread safe singleton in C++11 without using <mutex>](http://stackoverflow.com/questions/11711920/how-to-implement-multithread-safe-singleton-in-c11-without-using-mutex "singleton")
+
 ####二、接口实现
 
 interface.h

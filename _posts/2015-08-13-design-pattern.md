@@ -376,8 +376,8 @@ void ConcreteSubject::Notify()
      std::list<Observer*>::iterator it = m_ObserverList.begin();
      while (it != m_ObserverList.end())
      {
-	(*it)->Update();
-	++it;
+        (*it)->Update();
+        ++it;
      }
 }
 ```

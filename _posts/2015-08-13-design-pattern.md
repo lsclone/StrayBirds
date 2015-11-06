@@ -309,6 +309,79 @@ int main() {
 
 ####六、Observer模式
 
+```
+#include <iostream>
+#include <list>
+using namespace std;
+
+class Observer
+{
+public:
+     virtual void Update(int) = 0;
+};
+
+class Subject
+{
+public:
+     virtual void Attach(Observer*) = 0;
+     virtual void Detach(Observer*) = 0;
+     virtual void Notify() = 0;
+};
+
+class ConcreteObserver : public Observer
+{
+public:
+     ConcreteObserver(){}
+
+     void Update()
+     {
+	cout<<"ConcreteObserver get the update."<<endl;
+     }
+};
+
+class ConcreteObserver2 : public Observer
+{
+public:
+     ConcreteObserver2(){}
+
+     void Update()
+     {
+     	cout<<"ConcreteObserver2 get the update."<<endl;
+     }
+};
+
+class ConcreteSubject : public Subject
+{
+public:
+     void Attach(Observer* pObserver);
+     void Detach(Observer* pObserver);
+     void Notify();
+
+private:
+     std::list<Observer*> m_ObserverList;
+};
+
+void ConcreteSubject::Attach(Observer* pObserver)
+{
+     m_ObserverList.push_back(pObserver);
+}
+
+void ConcreteSubject::Detach(Observer* pObserver)
+{
+     m_ObserverList.remove(pObserver);
+}
+
+void ConcreteSubject::Notify()
+{
+     std::list<Observer*>::iterator it = m_ObserverList.begin();
+     while (it != m_ObserverList.end())
+     {
+	(*it)->Update();
+	++it;
+     }
+}
+```
+
 参考文档：[C++设计模式——观察者模式](http://www.jellythink.com/archives/359 "observer")
 
 ####七、MVC架构

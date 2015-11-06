@@ -7,7 +7,8 @@ category: 技术
 ####后续工作陆续添加中...
 
 1. [随笔分类 - C++设计模式](http://www.cnblogs.com/wanggary/category/294620.html "Markdown")
-2. [C++设计模式培训](http://www.info-soft.cn/e/action/ShowInfo.php?classid=108&id=1080 "Markdown")
+2. [UML类图几种关系的总结](http://www.open-open.com/lib/view/open1328059700311.html "Markdown")
+3. [C++设计模式培训](http://www.info-soft.cn/e/action/ShowInfo.php?classid=108&id=1080 "Markdown")
 
 ####一、 单件模式(Singleton)
 
@@ -298,9 +299,19 @@ int main() {
 
 ####四、命令模式
 
+参考文档：[C++设计模式——命令模式](http://www.jellythink.com/archives/323 "command")
+
 ####五、State模式
 
-####六、MVC架构
+![状态模式](http://picture.jellythink.com/jellythinkStatePattern.png "state")
+
+参考文档：[C++设计模式——状态模式](http://www.jellythink.com/archives/382 "state")
+
+####六、Observer模式
+
+参考文档：[C++设计模式——观察者模式](http://www.jellythink.com/archives/359 "observer")
+
+####七、MVC架构
 
 参考文档：
 

@@ -4,7 +4,7 @@ title: C++设计模式
 category: 技术
 ---
 
-####后续工作陆续添加中...
+*参考文档*：
 
 1. [随笔分类 - C++设计模式](http://www.cnblogs.com/wanggary/category/294620.html "Markdown")
 2. [UML类图几种关系的总结](http://www.open-open.com/lib/view/open1328059700311.html "Markdown")
@@ -299,7 +299,7 @@ int main() {
 
 ####四、命令模式
 
-*代码库*：[design_pattern_command](https://github.com/lsclone/design_pattern/tree/master/design_pattern_state "command")
+*代码库*：[design\_pattern\_command](https://github.com/lsclone/design_pattern/tree/master/design_pattern_state "command")
 
 参考文档：[C++设计模式——命令模式](http://www.jellythink.com/archives/323 "command")
 

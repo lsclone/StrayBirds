@@ -299,6 +299,8 @@ int main() {
 
 ####四、命令模式
 
+*代码库*：[design_pattern_command](https://github.com/lsclone/design_pattern/tree/master/design_pattern_state "command")
+
 参考文档：[C++设计模式——命令模式](http://www.jellythink.com/archives/323 "command")
 
 ####五、State模式

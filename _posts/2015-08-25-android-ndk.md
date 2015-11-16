@@ -283,6 +283,13 @@ APP_CPPFLAGS := -O3 -fno-rtti -fno-exceptions -finline-functions -funswitch-loop
 * [Android NDK的C++11标准支持](http://www.tuicool.com/articles/NFjEby "Markdown")
 * [Application.mk简介](http://blog.csdn.net/wang_shaner/article/details/41479721 "Markdown")
 
+**Step 10: ndk-gdb debug**
+
+*参考网址*：
+
+* [Android ndk-gdb 调试](http://blog.csdn.net/kaiqiangzhang001/article/details/21108857 "Markdown")
+* [android 通过gdbserver 调试c++](http://blog.csdn.net/liuhongxiangm/article/details/32085175 "Markdown")
+
 ====================================================================
 
 **MORE REFERENCES & RESOURCES**

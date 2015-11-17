@@ -13,7 +13,11 @@ category: 技术
 
 ####2. boost异步io总结
 
-####3. boost线程池、poco线程池
+####3. boost线程池
+
+note：
+
+TIME_UTC编译会报错, 修改为**boost::TIME_UTC_**
 
 ####4. boost定时器
 

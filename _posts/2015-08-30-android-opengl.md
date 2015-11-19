@@ -87,7 +87,7 @@ NDK使用opengles，需要添加：
 #include <GLES/glext.h>
 ```
 
-android.mk:
+android.mk
 
 ```
 LOCAL_CPPFLAGS    += -D_OPENGLES

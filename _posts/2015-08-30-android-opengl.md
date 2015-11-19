@@ -89,8 +89,8 @@ NDK使用opengles，需要添加：
 
 ```
 android.mk
-LOCAL_CPPFLAGS 	+= -D_OPENGLES
-LOCAL_LDLIBS      := -ljnigraphics -lGLESv1_CM -lGLESv2
+LOCAL_CPPFLAGS    += -D_OPENGLES
+LOCAL_LDLIBS   := -ljnigraphics -lGLESv1_CM -lGLESv2
 ```
 
 *参考网址*：[OpenGL ES](http://developer.android.com/guide/topics/graphics/opengl.html "Markdown")

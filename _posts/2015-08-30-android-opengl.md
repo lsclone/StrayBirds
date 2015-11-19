@@ -80,4 +80,17 @@ public void onSurfaceChanged(GL10 gl, int width, int height) {
 
 ####3. OpenGL ES
 
+NDK使用opengles，需要添加：
+
+```
+#include <GLES/gl.h>
+#include <GLES/glext.h>
+```
+
+```
+android.mk
+LOCAL_CPPFLAGS 	+= -D_OPENGLES
+LOCAL_LDLIBS      := -ljnigraphics -lGLESv1_CM -lGLESv2
+```
+
 *参考网址*：[OpenGL ES](http://developer.android.com/guide/topics/graphics/opengl.html "Markdown")

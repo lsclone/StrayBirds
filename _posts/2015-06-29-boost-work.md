@@ -15,6 +15,8 @@ category: 技术
 
 ####3. boost线程池
 
+*参考网址*：[boost之ThreadPool](http://blog.csdn.net/byxdaz/article/details/6299020 "threadpool")
+
 note：
 
 TIME_UTC编译会报错, 修改为**boost::TIME_UTC_**

@@ -1,11 +1,56 @@
 ---
 layout: post
-title: C++多重继承
+title: C++虚基类
 category: 技术
 ---
 
-多重继承只有在非常有限的场合比较有用。
+*参考文档*：[虚基类(baidu)](http://baike.baidu.com/link?url=hEfQvUXY2R2HRcpCa-h7sdMxkKHPKEUnqwNT15AJaDrMPYcptPWgIWSGEOceGD2xIYS28dysWo90U5K18JBpGa "virtual inherit")
 
-我们只允许有实现的基类不超过一个的多重继承；所有其它的基类都应该是用Interface后缀标记的纯接口类。
+实例：
 
-代码如下：
+```
+#include <stdio.h>
+
+class A {
+public:
+	A(int aa) : aData(aa) {}
+	virtual void a() { printf("%s\n", __FUNCTION__); }
+	virtual void b() { printf("%s\n", __FUNCTION__); }
+private:
+	int aData;
+};
+
+class B : virtual public A {
+public:
+	B(int aa, int bb) : A(aa), bData(bb) {}
+	virtual void a() { printf("%s\n", __FUNCTION__); }
+	virtual void b() { printf("%s\n", __FUNCTION__); }
+private:
+	int bData;
+};
+
+class C : virtual public A {
+public:
+	C(int aa, int cc) : A(aa), cData(cc) {}
+	virtual void a() { printf("%s\n", __FUNCTION__); }
+	//virtual void b() { printf("%s\n", __FUNCTION__); }
+private:
+	int cData;
+};
+
+class D : public B, public C {
+public:
+	D(int aa, int bb, int cc, int dd) : A(aa), B(aa, bb), C(aa, cc), dData(dd) {}
+	virtual void a() { printf("%s\n", __FUNCTION__); }
+	//virtual void b() { printf("%s\n", __FUNCTION__); }
+private:
+	int dData;
+};
+
+void main() {
+	D dd(1, 2, 3, 4);
+	A* pA = &dd;
+	pA->a();
+	pA->b();
+}
+```

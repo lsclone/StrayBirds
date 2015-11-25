@@ -15,7 +15,7 @@ category: 技术
 
 *参考网址*：
 
-* boost_1_55_0\/doc\/html\/boost_asio\/overview.html
+* boost\_1\_xx\_x/doc/html/boost_asio/overview.html
 * [发布一个基于BOOST、ASIO的网络模型，特别适合小公司](http://bbs.chinaunix.net/thread-1493274-1-1.html "asio")
 * [boost asio 应用方法学（二）——深入框架](http://blog.csdn.net/luansxx/article/details/7854326 "asio")
 * [boost asio 应用方法学（三）——异步规范](http://blog.csdn.net/luansxx/article/details/7854329 "asio")

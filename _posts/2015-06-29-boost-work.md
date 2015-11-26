@@ -41,3 +41,8 @@ TIME_UTC编译会报错, 修改为**boost::TIME_UTC_**
 * [boost::scoped_ptr](http://blog.csdn.net/wuliming_sc/article/details/3820419 "Markdown")
 * [boost::shared_ptr](http://blog.csdn.net/wuliming_sc/article/details/3820842 "Markdown")
 
+####5. boost file system
+
+遍历文件夹，代码待总结.
+
+*参考网址*：[Boost Filesystem Library](http://www.ibm.com/developerworks/cn/aix/library/au-boostfs/ "Markdown")

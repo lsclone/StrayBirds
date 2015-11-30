@@ -6,9 +6,9 @@ category: 技术
 
 * 1、参考boost::asio example，测试子线程执行asyn_read、asyn_write，是否会在主线程执行？(包括回调，degug跟踪)
 
-* 2、使用std::list分发recv到的数据到threadpool
+* 2、使用std::list分发recv到的数据到threadpool。
 
-* 3、使用CTPL线程池处理数据
+* 3、使用CTPL线程池处理数据。每条数据加时间戳，超时(eg,.10s)直接关闭连接。
 
 * 4、参考boost::asio example/cpp03/timeouts，优化超时时间。
 

@@ -37,11 +37,11 @@ category: 技术
 *参考*: [Ubuntu下apt-get的网络代理设置 ](http://blog.sina.com.cn/s/blog_002e20310101eai2.html "proxy")
 
 需要注意以下几点：
-> * http_proxy=http://用户名:密码@代理地址:代理端口
-> * 如果没有用户名密码，http_proxy=http://代理地址:代理端口，简写为：http_proxy=代理地址:代理端口
+> * http\_proxy=http://用户名:密码@代理地址:代理端口
+> * 如果没有用户名密码，http\_proxy=http://代理地址:代理端口，简写为：http\_proxy=代理地址:代理端口
 
 apt-get代理设置也可以通过界面操作进行设置：
 
-> Ubuntu -> 右上角 -> 系统设置 -> 硬件 -> 网络 -> 网络代理 -> 添加代理地址和代理端口
+> Ubuntu -> 右上角 -> 系统设置 -> 硬件 -> 网络 -> 网络代理 -> 添加代理地址和代理端口 (只需要填写代理地址和端口，不需要填写http\_proxy=http://)
 
 检查联网及install之前，执行：**apt-get update**

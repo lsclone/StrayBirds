@@ -37,7 +37,7 @@ category: 技术
 *参考*: [Ubuntu下apt-get的网络代理设置 ](http://blog.sina.com.cn/s/blog_002e20310101eai2.html "proxy")
 
 需要注意以下几点：
-> * http\_proxy=http://用户名:密码@代理地址:代理端口
+> * 修改/etc/profile，添加export http\_proxy=http://用户名:密码@代理地址:代理端口
 > * 如果没有用户名密码，http\_proxy=http://代理地址:代理端口，简写为：http\_proxy=代理地址:代理端口
 
 apt-get代理设置也可以通过界面操作进行设置：

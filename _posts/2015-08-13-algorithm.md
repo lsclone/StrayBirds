@@ -4,6 +4,18 @@ title: 算法和数据结构
 category: title
 ---
 
+> 数据结构
+
+####1. 堆(二叉堆)
+
+参考： 
+
+* [堆 (数据结构)](https://zh.wikipedia.org/wiki/%E5%A0%86_(%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84) "markdown")
+* [数据结构和算法学习笔记：优先队列和堆](http://www.yeolar.com/note/2012/05/26/ds-heap/ "markdown")
+
+
+> 算法
+
 ####1. 二分查找
 
 ```
@@ -89,3 +101,7 @@ void merge_sort(int arr[], const int len) {
 ```
 
 参考： [归并排序](https://zh.wikipedia.org/zh-cn/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F "markdown")
+
+####4. 堆排序
+
+参考： [堆排序](https://zh.wikipedia.org/zh-cn/%E5%A0%86%E6%8E%92%E5%BA%8F "markdown")

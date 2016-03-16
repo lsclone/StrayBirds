@@ -110,3 +110,7 @@ void merge_sort(int arr[], const int len) {
 ####5. 时间复杂度表
 
 ![时间复杂度](http://img.kuqin.com/upimg/allimg/150316/2135526204-41.jpg "markdown")
+
+归并排序时间复杂度分析
+
+![归并排序时间复杂度](http://img154.ph.126.net/rl0iR6_hFUqL_BX2CKcR_Q==/1482810177313103736.png "merge")

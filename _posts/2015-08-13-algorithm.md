@@ -95,8 +95,9 @@ void merge_sort_recursive(int arr[], int reg[], int start, int end) {
 		arr[k] = reg[k];
 }
 void merge_sort(int arr[], const int len) {
-	int reg[len];
+	int* reg = (int*)malloc(sizeof(int) * len);
 	merge_sort_recursive(arr, reg, 0, len - 1);
+	free(reg);
 }
 ```
 

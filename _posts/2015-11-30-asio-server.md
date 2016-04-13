@@ -14,5 +14,41 @@ category: 技术
 
 * 5、使用libcds优化std::list，使用Lock-free技术。[lock-free探究](http://lsclone.github.io/blog/%E6%8A%80%E6%9C%AF/2015/08/13/lock-free.html "lock-free")
 
+boost_1_59_0/libs/asio/example/cpp03/echo/async_tcp_echo_server.cpp 添加如下代码：
 
->> 代码稍后上传
+```
+...
+#include <ctpl.h>
+ctpl::thread_pool tp(10 /* two threads in the pool */);
+...
+
+class session
+{
+...
+private:
+  void handle_read(const boost::system::error_code& error,
+      size_t bytes_transferred)
+  {
+    if (!error)
+    {
+	  tp.push([this, bytes_transferred](int id){
+		  // process task with this->data_
+		  printf("recv data: %s\n", this->data_);
+
+		  boost::asio::async_write(this->socket_,
+			  boost::asio::buffer(this->data_, bytes_transferred),
+			  boost::bind(&session::handle_write, this,
+				boost::asio::placeholders::error));
+	  });
+    }
+    else
+    {
+      delete this;
+    }
+  }
+...
+};
+
+...
+
+```

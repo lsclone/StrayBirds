@@ -16,7 +16,7 @@ category: 技术
 
 **初步实现(未考虑分发list及时间戳)**
 
-boost_1_59_0/libs/asio/example/cpp03/echo/async_tcp_echo_server.cpp 添加如下代码：
+> boost_1_59_0/libs/asio/example/cpp03/echo/async_tcp_echo_server.cpp 添加如下代码：
 
 ```
 ...

@@ -14,9 +14,9 @@ category: 技术
 
 * 5、使用libcds优化std::list，使用Lock-free技术。[lock-free探究](http://lsclone.github.io/blog/%E6%8A%80%E6%9C%AF/2015/08/13/lock-free.html "lock-free")
 
-**初步实现(未考虑分发list及时间戳)**
+**初步实现(未考虑分发list及时间戳)：**
 
-> boost_1_59_0/libs/asio/example/cpp03/echo/async_tcp_echo_server.cpp 添加如下代码：
+*boost\_1\_59\_0/libs/asio/example/cpp03/echo/async\_tcp\_echo\_server.cpp 添加如下代码：*
 
 ```
 ...

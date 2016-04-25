@@ -4,9 +4,7 @@ title: Objective-C介绍及应用
 category: 技术
 ---
 
-Objective-C
-
-*参考网址：*
+Objective-C *参考网址：*
 
 * [Objective-C基础教程(入门教程)](http://wenku.baidu.com/link?url=S5_kWCMeaiI0SKW9ettcJ49ZCKjnozjJphiu3GSj26sSpZ0PzW5RqcLgYCyLVjnJ9jrq8qoM15iQyrMHplOlR1t9Ka-4Txkgr2iocYPj5CC "Objective-C")
 * [Objective-C中的@property](http://www.devtalking.com/articles/you-should-to-know-property/ "Objective-C")
@@ -77,3 +75,56 @@ NSArray *keyArray =[NSArray arrayWithObjects:@"mobile",@"computer", nil];
   
 [dictMutable removeAllObjects];  
 ```
+
+*参考网址：* 
+
+* [Dictionaries: Collections of Keys and Values (官网)](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/Collections/Articles/Dictionaries.html "oc")
+* [NSDictionary和NSMutableDictionary例子微解](http://blog.csdn.net/like7xiaoben/article/details/7526730 "oc")
+
+####3. objective-c数组的遍历方法
+
+```
+    Blog *blog1 = [[Blog blog] setBlogTitle:@"Love" andContent:@"I love you"];
+    Blog *blog2 = [[Blog blog] setBlogTitle:@"Friendship" andContent:@"you are my best friend"];
+    NSArray *array = [NSArray arrayWithObjects:@"hello",@"world",blog1,blog2, nil];
+     
+    //第一种遍历：普通for循环
+    long int count = [array count];
+    for (int i = 0 ; i < count; i++) {
+        NSLog(@"1遍历array: %zi-->%@",i,[array objectAtIndex:i]);
+    }
+     
+    //第二种遍历：快速for循环,需要有外变量i
+    int i = 0;
+    for (id obj in array) {
+        NSLog(@"2遍历array：%zi-->%@",i,[array objectAtIndex:i]);
+        i++;
+    }
+     
+    //第三种遍历：OC自带方法enumerateObjectsUsingBlock:
+     
+    //默认为正序遍历
+    [array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        NSLog(@"3遍历array：%zi-->%@",idx,obj);
+    }];
+    //NSEnumerationReverse参数为倒序遍历
+    [array enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        NSLog(@"4倒序遍历array：%zi-->%@",idx,obj);
+    }];
+     
+    //第四种遍历：利用枚举
+    NSEnumerator *en = [array objectEnumerator];
+    id obj;
+    int j = 0 ;
+    while (obj = [en nextObject]) {
+        NSLog(@"5遍历array：%d-->%@",j,obj);
+        j++;
+    }
+```
+
+*参考网址：* [objective-c数组的四种遍历方法总结](http://my.oschina.net/pengloo53/blog/173349 "oc")
+
+####4. block
+
+*参考网址：* [OC 的 Block 和 C++ 的 Lambda](http://www.jianshu.com/p/ccbd30af6283 "oc")
+

@@ -4,6 +4,14 @@ title: 并发服务器搭建思路
 category: 技术
 ---
 
+####待解决问题：（尽快）
+
+1. 以epoll为基础(后续blog有实例)， 设计类似boost::asio并发架构模型。
+2. 以epoll为例， 如何在handle_read()函数中，将收到数据添加到ctpl线程池之后，解决socket_fd挂起问题。
+因为异步，所以handle_read返回后，此时还未修改fd由监听读改为监听写，所以是否仍然会从fd读取数据且再次调用handle_read。
+
+####设计思路
+
 * 1、参考boost::asio example，子线程执行asyn_read、asyn_write后，回调asyn_read_callback、asyn_write_callback会在主线程执行。
 
 * 2、使用std::deque分发recv到的数据到threadpool。

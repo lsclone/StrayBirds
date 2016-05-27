@@ -14,7 +14,7 @@ category: 技术
 
 * 5、使用libcds优化std::deque，使用Lock-free技术。[lock-free探究](http://lsclone.github.io/blog/%E6%8A%80%E6%9C%AF/2015/08/13/lock-free.html "lock-free")
 
-* 6、消息队列deque进一步优化，除了添加时间戳，添加队列优先级和使用磁盘文件缓存deque。参考：[FIFO消息队列（内存、文件双缓冲模式）](http://blog.163.com/wwxwb_913/blog/static/97685362010851174237 "asio")
+* 6、消息队列deque进一步优化，除了添加时间戳，使用队列优先级和使用磁盘文件缓存队列部分数据。参考：[FIFO消息队列（内存、文件双缓冲模式）](http://blog.163.com/wwxwb_913/blog/static/97685362010851174237 "asio")
 
 
 ###初步实现(未考虑分发deque及时间戳)：

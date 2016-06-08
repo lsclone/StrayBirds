@@ -32,7 +32,7 @@ category: 技术
 
 note：
 
-TIME_UTC编译会报错, 修改为**boost::TIME_UTC_**
+TIME_UTC编译会报错, 修改为boost::TIME_UTC_
 
 ####4. boost定时器
 

@@ -218,6 +218,15 @@ void main(int argc, char **argv) {
 /*
 ** thread pool source: 
 ** http://threadpool.sourceforge.net/
+**
+** thread pool features:
+**	Policy-based thread pool implementation
+**	Scheduling policies: fifo, lifo and priority(优先级)
+**	Size policies: static_size
+**	Size policy controller: empty_controller, resize_controller
+**	Shutdown policies: wait_for_all_tasks, wait_for_active_tasks, immediately
+**	Smooth integration into STL and boost
+**
 */
 
 #include <boost/asio.hpp>

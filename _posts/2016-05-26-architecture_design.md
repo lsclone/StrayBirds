@@ -215,6 +215,11 @@ void main(int argc, char **argv) {
 添加线程池后的代码实现：
 
 ```
+/*
+** thread pool source: 
+** http://threadpool.sourceforge.net/
+*/
+
 #include <boost/asio.hpp>
 #include <boost/bind.hpp>
 #include <boost/threadpool.hpp>
@@ -348,3 +353,5 @@ void main(int argc, char **argv) {
 	io.run();
 }
 ```
+
+参考： [boost线程池](http://lsclone.github.io/blog/%E6%8A%80%E6%9C%AF/2015/06/29/boost-work.html "boost")

@@ -36,12 +36,21 @@ TIME_UTC编译会报错, 修改为**boost::TIME_UTC_**
 
 ####4. boost定时器
 
+参考代码： [架构设计(随笔)-模拟IOS异步网络通信](http://lsclone.github.io/blog/%E6%8A%80%E6%9C%AF/2016/05/26/architecture_design.html "code")
+
+*参考网址*：
+
+* [boost.asio系列——Timer](http://www.cnblogs.com/TianFang/archive/2013/02/02/2890325.html "Markdown")
+* [Boost.asio的简单使用(timer,thread,io_service类)](http://blog.163.com/miky_sun/blog/static/336940520104176206401/ "Markdown")
+
+####5. boost智能指针
+
 *参考网址*：
 
 * [boost::scoped_ptr](http://blog.csdn.net/wuliming_sc/article/details/3820419 "Markdown")
 * [boost::shared_ptr](http://blog.csdn.net/wuliming_sc/article/details/3820842 "Markdown")
 
-####5. boost file system
+####6. boost file system
 
 遍历文件夹，代码待总结.
 

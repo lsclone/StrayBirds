@@ -4,11 +4,11 @@ title: 并发服务器搭建思路
 category: 技术
 ---
 
-####待解决问题：（尽快）
+####待解决问题：(已测试)
 
 1. 以epoll为基础(后续blog有实例)， 设计类似boost::asio并发架构模型。
-2. 以epoll为例， 如何在handle_read()函数中，将收到数据添加到ctpl线程池之后，解决socket_fd挂起问题。
-因为异步，所以handle_read返回后，此时还未修改fd由监听读改为监听写，所以是否仍然会从fd读取数据且再次调用handle_read。
+2. 以epoll为例， 如何在handle\_read()函数中，将收到数据添加到ctpl线程池之后，解决socket\_fd挂起问题。
+因为异步，所以handle\_read返回后，此时还未修改fd由监听读改为监听写，所以是否仍然会从fd读取数据且再次调用handle\_read。(boost不会，安心)
 3. 可以参考 [boost高并发网络框架+线程池](http://blog.chinaunix.net/uid-28163274-id-4984766.html "asio")、[Boost.Asio C++ 网络编程](https://mmoaay.gitbooks.io/boost-asio-cpp-network-programming-chinese/content/Chapter5.html "asio")及
 *boost_1_59_0\libs\asio\example\cpp03\http\server2*
 
@@ -18,7 +18,7 @@ category: 技术
 
 * 2、使用std::deque分发recv到的数据到threadpool。
 
-* 3、使用CTPL线程池处理数据。每条数据加时间戳，超时(eg,.10s)直接关闭连接。
+* 3、使用boost::threadpool或者CTPL线程池处理数据。每条数据加时间戳，超时(eg,.10s)直接关闭连接。
 
 * 4、参考boost::asio example/cpp03/timeouts，优化超时时间。
 

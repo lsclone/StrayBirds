@@ -166,3 +166,59 @@ NSArray *keyArray =[NSArray arrayWithObjects:@"mobile",@"computer", nil];
 *参考网址：*
 
 * [Objective-C——消息、Category和Protocol](http://www.cnblogs.com/chijianqiang/archive/2012/06/22/objc-category-protocol.html "ios")
+
+####6. Category(分类)
+
+Objective-C提供了一种与众不同的方式——Category，**可以动态的为已经存在的类添加新的方法**。这样可以保证类的原始设计规模较小，功能增加时再逐步扩展。使用Category对类进行扩展时，不需要访问其源代码，也不需要创建子类。Category使用简单的方式，实现了类的相关方法的模块化，把不同的类方法分配到不同的分类文件中。
+
+原类：
+
+```
+SomeClass.h
+@interface SomeClass : NSObject {
+}
+-(void) print;
+@end 
+```
+
+分类SomeClass+Hello.h：
+
+```
+#import "SomeClass.h"
+
+//category的名称: Hello
+@interface SomeClass (Hello)
+- (void)hello;
+@end
+```
+
+分类SomeClass+Hello.m：
+
+```
+#import "SomeClass+Hello.h"
+
+@implementation SomeClass (Hello)
+- (void)hello {
+    NSLog (@"name：%@ ", @"Jacky");
+}
+@end 
+```
+
+调用分类方法：
+
+```
+#import "SomeClass+Hello.h"
+ 
+SomeClass *sc = [[SomeClass alloc] init];
+[sc hello];
+```
+
+Category的使用场景：
+
+1. 当你在定义类的时候，在某些情况下（例如需求变更），你可能想要为其中的某个或几个类中添加方法。
+2. 一个类中包含了许多不同的方法需要实现，而这些方法需要不同团队的成员实现
+3. 当你在使用基础类库中的类时，你可能希望这些类实现一些你需要的方法。
+
+*参考网址：*
+
+* [Objective-C——消息、Category和Protocol](http://www.cnblogs.com/chijianqiang/archive/2012/06/22/objc-category-protocol.html "ios")

@@ -222,6 +222,7 @@ Category的使用场景：
 *参考网址：*
 
 * [Objective-C——消息、Category和Protocol](http://www.cnblogs.com/chijianqiang/archive/2012/06/22/objc-category-protocol.html "ios")
+* [iOS设计模式——Category](http://blog.csdn.net/lovefqing/article/details/8289851 "ios")
 * [iOS在Xcode中怎么创建OC category文件](http://zhidao.baidu.com/link?url=AxLBD7cGt-g0dtTqvXPduf2a_gzxNUxpU-bSmX8E0hxd6YNLe7uPIgPb3oEOSQNCl3WekWmBdbzfOvgPSzSeWalEocgPO_jmhgavLhTfbS_ "ios")
 
 ####7. NSNotificationCenter & NSNotification (消息通知)

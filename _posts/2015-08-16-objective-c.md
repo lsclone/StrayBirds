@@ -272,7 +272,7 @@ Category的使用场景：
 
 *参考文档：* [iOS开发系列--通知与消息机制](http://www.cnblogs.com/kenshincui/p/4168532.html "ios")
 
-####8. ios多线程之dispatch
+####8. ios多线程之dispatch(asynchronous)
 
 1. 获得主线程的dispatch队列，实际是一个串行队列: dispatch_get_main_queue();
 

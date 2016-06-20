@@ -222,3 +222,84 @@ Category的使用场景：
 *参考网址：*
 
 * [Objective-C——消息、Category和Protocol](http://www.cnblogs.com/chijianqiang/archive/2012/06/22/objc-category-protocol.html "ios")
+
+####7. NSNotificationCenter & NSNotification (消息通知)
+
+```
+#define UPDATE_LGOGIN_INFO_NOTIFICATION @"updateLoginInfo"
+
+@implementation KCMainViewController
+
+/**
+ *  添加监听
+ */
+-(void)addObserverToNotification{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateLoginInfo:) name:UPDATE_LGOGIN_INFO_NOTIFICATION object:nil];
+}
+
+/**
+ *  更新登录信息,注意在这里可以获得通知对象并且读取附加信息
+ */
+-(void)updateLoginInfo:(NSNotification *)notification{
+    NSDictionary *userInfo=notification.userInfo;
+    _lbLoginInfo.text=userInfo[@"loginInfo"];
+    _btnLogin.titleLabel.text=@"注销";
+}
+
+@end
+```
+
+```
+#define UPDATE_LGOGIN_INFO_NOTIFICATION @"updateLoginInfo"
+
+@implementation KCLoginViewController
+
+/**
+ *  添加通知，注意这里设置了附加信息
+ */
+-(void)postNotification{
+    NSDictionary *userInfo=@{@"loginInfo":[NSString stringWithFormat:@"Hello,%@!",_txtUserName.text]};
+    NSLog(@"%@",userInfo);
+    NSNotification *notification=[NSNotification notificationWithName:UPDATE_LGOGIN_INFO_NOTIFICATION object:self userInfo:userInfo];
+    [[NSNotificationCenter defaultCenter] postNotification:notification];
+//也可直接采用下面的方法
+//    [[NSNotificationCenter defaultCenter] postNotificationName:UPDATE_LGOGIN_INFO_NOTIFICATION object:self userInfo:userInfo];
+
+}
+
+@end
+```
+
+*参考文档：* [iOS开发系列--通知与消息机制](http://www.cnblogs.com/kenshincui/p/4168532.html "ios")
+
+####8. ios多线程之dispatch
+
+1. 获得主线程的dispatch队列，实际是一个串行队列: dispatch_get_main_queue();
+
+2. 获得程序进程缺省产生的并发队列: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+可设定优先级来选择高、中、低三个优先级队列。三个队列不代表三个线程，可能会有更多的线程。并发队列可以根据实际情况来自动产生合理的线程数。
+
+```
+/*
+**  enum dispatch_queue_priority_t {
+**      DISPATCH_QUEUE_PRIORITY_HIGH,
+**      DISPATCH_QUEUE_PRIORITY_DEFAULT,
+**      DISPATCH_QUEUE_PRIORITY_LOW,
+**      DISPATCH_QUEUE_PRIORITY_BACKGROUND,
+**  }
+**  
+ */
+
+NSString* parameter = [self getSomeParameter];
+dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    NSString* result = [self fetchResultFromWebWithParameter:parameter];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self updateUIWithResult:result];
+    });
+});
+```
+
+*参考网址：*
+
+* [iOS开发之：dispatch_async 与 dispatch_get_global_queue 的使用方法](http://blog.sina.com.cn/s/blog_b22973cf01019ixl.html "ios")
+* [iOS多线程的初步研究（八）-- dispatch队列](http://www.cnblogs.com/sunfrog/p/3305614.html "ios")

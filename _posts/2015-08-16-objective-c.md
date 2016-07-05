@@ -149,7 +149,7 @@ NSArray *keyArray =[NSArray arrayWithObjects:@"mobile",@"computer", nil];
 实现protocol:
 
 ```
-@interface TestAppDelegate : NSObject<ProcessDataDelegate>;
+@interface TestAppDelegate : NSObject <ProcessDataDelegate>
 @end
 
 @implementation TestAppDelegate

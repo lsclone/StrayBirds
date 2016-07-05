@@ -276,9 +276,9 @@ Category的使用场景：
 
 ####8. ios多线程之dispatch(asynchronous)
 
-1. 获得主线程的dispatch队列，实际是一个串行队列: dispatch_get_main_queue();
+1. 获得主线程的dispatch队列，实际是一个串行队列: dispatch\_get\_main\_queue();
 
-2. 获得程序进程缺省产生的并发队列: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+2. 获得程序进程缺省产生的并发队列: dispatch\_get\_global\_queue(DISPATCH\_QUEUE\_PRIORITY\_DEFAULT, 0);
 可设定优先级来选择高、中、低三个优先级队列。三个队列不代表三个线程，可能会有更多的线程。并发队列可以根据实际情况来自动产生合理的线程数。
 
 ```
@@ -303,5 +303,16 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 
 *参考网址：*
 
-* [iOS开发之：dispatch_async 与 dispatch_get_global_queue 的使用方法](http://blog.sina.com.cn/s/blog_b22973cf01019ixl.html "ios")
+* [iOS开发之：dispatch\_async 与 dispatch\_get\_global\_queue 的使用方法](http://blog.sina.com.cn/s/blog_b22973cf01019ixl.html "ios")
 * [iOS多线程的初步研究（八）-- dispatch队列](http://www.cnblogs.com/sunfrog/p/3305614.html "ios")
+
+####9. NSObject重写init
+
+```
+- (id)init {
+    if(self = [super init]) {
+        ...
+    }
+    return self;
+}
+```

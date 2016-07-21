@@ -4,11 +4,11 @@ title: 并发服务器搭建思路
 category: 技术
 ---
 
-####待解决问题：(已测试)
+####待解决问题：
 
-1. 以epoll为基础(后续blog有实例)， 设计类似boost::asio并发架构模型。
+1. 以epoll为基础， 设计类似boost::asio并发架构模型。
 2. 以epoll为例， 如何在handle\_read()函数中，将收到数据添加到ctpl线程池之后，解决socket\_fd挂起问题。
-因为异步，所以handle\_read返回后，此时还未修改fd由监听读改为监听写，所以是否仍然会从fd读取数据且再次调用handle\_read。(boost不会，安心)
+因为异步，所以handle\_read返回后，此时还未修改fd由监听读改为监听写，所以是否仍然会从fd读取数据且再次调用handle\_read。(boost不会，可以放心)
 3. 可以参考 [boost高并发网络框架+线程池](http://blog.chinaunix.net/uid-28163274-id-4984766.html "asio")、[Boost.Asio C++ 网络编程](https://mmoaay.gitbooks.io/boost-asio-cpp-network-programming-chinese/content/Chapter5.html "asio")及
 *boost_1_59_0\libs\asio\example\cpp03\http\server2*
 
@@ -69,4 +69,311 @@ private:
 
 ...
 
+```
+
+###实现类似http的并发服务(未考虑分发deque及时间戳)：
+
+server:
+
+```
+/*
+** thread pool source:
+** http://threadpool.sourceforge.net/
+**
+** thread pool features:
+**  Policy-based thread pool implementation
+**  Scheduling policies: fifo, lifo and priority
+**  Size policies: static_size
+**  Size policy controller: empty_controller, resize_controller
+**  Shutdown policies: wait_for_all_tasks, wait_for_active_tasks, immediately
+**  Smooth integration into STL and boost
+**
+*/
+
+#include <cstdlib>
+#include <iostream>
+#include <boost/bind.hpp>
+#include <boost/asio.hpp>
+#include <boost/threadpool.hpp>
+
+using boost::asio::ip::tcp;
+using namespace std; // For atoi.
+
+/*
+**	thread number = number of cpu core * 2
+**	initialize threadpool with 8 threads.
+*/
+static boost::threadpool::pool tp(8);
+
+class session
+{
+public:
+	session(boost::asio::io_service& io_service) : 
+		socket_(io_service), 
+		reqContent(nullptr),
+		response(nullptr) {}
+
+	~session() {
+		if (reqContent)
+			free(reqContent);
+		if (response)
+			free(response);
+	}
+
+	inline tcp::socket& socket() { return socket_; }
+
+	void start() {
+		// read request header
+		boost::asio::async_read(socket_, boost::asio::buffer(&reqHeader, sizeof(Header)),
+			boost::bind(&session::read_callback, this,
+				boost::asio::placeholders::error,
+				boost::asio::placeholders::bytes_transferred, HEADER));
+	}
+
+private:
+	/*
+	**	callback function
+	**	call after reading data from socket receive buffer.
+	*/
+	void read_callback(const boost::system::error_code& error,
+		size_t bytes_transferred, size_t type) {
+		if (!error) {
+			if (type == HEADER) {
+				// read request content 
+				if (!reqContent) {
+					reqContent = (char*)malloc(reqHeader.contLenth);
+				} else {
+					reqContent = (char*)realloc(reqContent, reqHeader.contLenth);
+				}
+				assert(reqContent);
+
+				boost::asio::async_read(socket_, boost::asio::buffer(reqContent, reqHeader.contLenth),
+					boost::bind(&session::read_callback, this,
+						boost::asio::placeholders::error,
+						boost::asio::placeholders::bytes_transferred, CONTENT));
+			} else { // CONTENT
+				// add task to thread pool
+				tp.schedule(boost::bind(&session::process_work, this, bytes_transferred));
+			}
+		} else {
+			delete this;
+		}
+	}
+
+	/*
+	**	thread function
+	**	process http request content data.
+	*/
+	void process_work(size_t bytes_transferred) {
+		// simulate the process with content according to content type.
+		std::string str;
+		switch (reqHeader.contType) {
+		case MIME_TEXT:
+			// simulate the process with text content
+			str = std::string("receive text： ").append(reqContent);
+			break;
+		case MIME_HTML:
+			// simulate the process with html content
+			str = std::string("receive html.").append(reqContent);;
+			break;
+		case MIME_JSON:
+			// simulate the process with json content
+			str = std::string("receive json.").append(reqContent);
+			break;
+		default:
+			str = std::string("receive invalid.");
+			break;
+		}
+
+		if (!response) {
+			response = (char*)malloc(sizeof(size_t)+str.size());
+		} else {
+			response = (char*)realloc(response, sizeof(size_t)+str.size());
+		}
+
+		size_t len = str.size();
+		memcpy(response, &len, sizeof(size_t));
+		memcpy(response+sizeof(size_t), str.c_str(), len);
+
+		boost::asio::async_write(socket_,
+			boost::asio::buffer(response, sizeof(size_t)+len),
+			boost::bind(&session::write_callback, this,
+				boost::asio::placeholders::error));
+	}
+
+	/*
+	**	callback function
+	**	call after writing data to socket send buffer.
+	*/
+	void write_callback(const boost::system::error_code& error) {
+		if (!error) {
+			// read request header
+			boost::asio::async_read(socket_, boost::asio::buffer(&reqHeader, sizeof(Header)),
+				boost::bind(&session::read_callback, this,
+					boost::asio::placeholders::error,
+					boost::asio::placeholders::bytes_transferred, HEADER));
+		} else {
+			delete this;
+		}
+	}
+
+private:
+	tcp::socket socket_;
+
+	/*
+	**	simulate http request
+	*/
+	enum Data_Type {
+		HEADER = 1,
+		CONTENT,
+	};
+	enum Mime_Type {
+		MIME_TEXT = 1,
+		MIME_HTML,
+		MIME_JSON,
+	};
+	typedef struct _Header {
+		size_t contType;
+		size_t contLenth;
+	}Header, *PHeader;
+
+	Header reqHeader;
+	char* reqContent;
+
+	/*
+	**	simulate http resqonse(reply)
+	**	response: header and content
+	*/
+	char* response;
+};
+
+class server
+{
+public:
+	server(boost::asio::io_service& io_service, short port)
+		: io_service_(io_service),
+		acceptor_(io_service, tcp::endpoint(tcp::v4(), port)) {
+		start_accept();
+	}
+
+private:
+	void start_accept() {
+		session* new_session = new session(io_service_);
+		acceptor_.async_accept(new_session->socket(),
+			boost::bind(&server::handle_accept, this, new_session,
+				boost::asio::placeholders::error));
+	}
+
+	void handle_accept(session* new_session,
+		const boost::system::error_code& error) {
+		if (!error) {
+			new_session->start();
+		} else {
+			delete new_session;
+		}
+
+		start_accept();
+	}
+
+	boost::asio::io_service& io_service_;
+	tcp::acceptor acceptor_;
+};
+
+int main(int argc, char* argv[]) {
+	try {
+		if (argc != 2) {
+			std::cerr << "Usage: async_tcp_echo_server <port>\n";
+			return 1;
+		}
+
+		boost::asio::io_service io_service;
+
+		server s(io_service, atoi(argv[1]));
+
+		io_service.run();
+	} catch (std::exception& e) {
+		std::cerr << "Exception: " << e.what() << "\n";
+	}
+
+	return 0;
+}
+```
+
+client:
+
+```
+/*
+**	client.cpp
+*/
+
+#include <memory>
+#include <thread>
+#include <iostream>
+#include <boost/array.hpp>
+#include <boost/asio.hpp>
+
+using boost::asio::ip::tcp;
+
+enum Mime_Type {
+	MIME_TEXT = 1,
+	MIME_HTML,
+	MIME_JSON,
+};
+
+typedef struct _Header {
+	size_t contType;
+	size_t contLenth;
+}Header, *PHeader;
+
+typedef std::function<void(const boost::system::error_code&)> timer_callback;
+
+int main(int argc, char* argv[]) {
+	try {
+		std::shared_ptr<char> response;
+		boost::asio::io_service io_service;
+
+		tcp::resolver resolver(io_service);
+		tcp::resolver::query query(tcp::v4(), "127.0.0.1", "30019");
+		tcp::resolver::iterator endpoint_iterator = resolver.resolve(query);
+
+		tcp::socket socket(io_service);
+		boost::asio::connect(socket, endpoint_iterator);
+
+		boost::asio::deadline_timer timer(io_service, boost::posix_time::seconds(1));
+		timer_callback callback = [&](const boost::system::error_code& err) {
+			/*-------- on timer ---------*/
+			char content_[] = "hello world";
+			Header header_;
+			header_.contType = MIME_TEXT;
+			header_.contLenth = sizeof(content_);
+
+			boost::asio::write(socket, boost::asio::buffer(&header_, sizeof(Header)));
+			boost::asio::write(socket, boost::asio::buffer(content_, sizeof(content_)));
+
+			size_t reslen;
+			boost::asio::read(socket, boost::asio::buffer(&reslen, sizeof(size_t)));
+			
+			response.reset(new char[reslen+1], [](char* p) {
+				if(p) delete[] p;
+			});
+			response.get()[reslen] = '\0';
+
+			boost::asio::read(socket, boost::asio::buffer(response.get(), reslen));
+
+			std::cout << response << std::endl;
+			/*-------- on timer ---------*/
+
+			timer.expires_at(timer.expires_at() + boost::posix_time::seconds(1));
+			timer.async_wait(callback);
+		};
+
+		timer.async_wait(callback);
+		io_service.run();
+
+	} catch (std::exception& e) {
+		std::cerr << e.what() << std::endl;
+	}
+
+	return 0;
+}
 ```

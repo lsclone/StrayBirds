@@ -329,7 +329,7 @@ typedef std::function<void(const boost::system::error_code&)> timer_callback;
 
 int main(int argc, char* argv[]) {
 	try {
-		std::shared_ptr<char> response; // TODO std::shared_ptr<std::vecotr<char>> 
+		std::shared_ptr<char> response; // TODO std::vecotr<uint8_t>
 		boost::asio::io_service io_service;
 
 		tcp::resolver resolver(io_service);
@@ -356,7 +356,7 @@ int main(int argc, char* argv[]) {
 			response.reset(new char[reslen+1], [](char* p) {
 				if(p) delete[] p;
 			});
-			response[reslen] = '\0';
+			response.get()[reslen] = '\0';
 
 			boost::asio::read(socket, boost::asio::buffer(response.get(), reslen));
 

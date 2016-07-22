@@ -1,6 +1,6 @@
 ---
 layout: post
-title: boost::asio并发服务器搭建思路
+title: boost::asio并发服务器设计
 category: 技术
 ---
 

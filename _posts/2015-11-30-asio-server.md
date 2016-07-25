@@ -378,7 +378,7 @@ int main(int argc, char* argv[]) {
 }
 ```
 
-delete this修改为shared_ptr，需要参考：
+注：delete this修改为shared_ptr，需要参考：
 
 *文档*：[Boost 库 Enable_shared_from_this 实现原理分析](http://www.cnblogs.com/lzjsky/archive/2011/05/05/2037363.html "")
 

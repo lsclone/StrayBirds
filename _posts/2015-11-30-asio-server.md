@@ -382,5 +382,5 @@ int main(int argc, char* argv[]) {
 
 *文档*：[Boost 库 Enable_shared_from_this 实现原理分析](http://www.cnblogs.com/lzjsky/archive/2011/05/05/2037363.html "")
 
-*代码*: boost\_1\_59\_0/libs/asio/example/cpp11/echo/async\_tcp\_echo\_server.cpp
+*代码*：boost\_1\_59\_0/libs/asio/example/cpp11/echo/async\_tcp\_echo\_server.cpp
 

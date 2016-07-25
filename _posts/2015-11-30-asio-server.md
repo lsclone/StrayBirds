@@ -499,10 +499,10 @@ private:
         // read request header
         boost::asio::async_read(socket_, boost::asio::buffer(&reqHeader, sizeof(Header)),
             [this, self](boost::system::error_code ec, std::size_t bytes_transferred) {
-			if (!ec) {
-				read_callback(bytes_transferred, HEADER);
-			}
-	});
+				if (!ec) {
+					read_callback(bytes_transferred, HEADER);
+				}
+		});
     }
 
 private:
@@ -546,7 +546,7 @@ public:
 
 private:
     void do_accept() {
-	acceptor_.async_accept(socket_, [this](boost::system::error_code ec) {
+		acceptor_.async_accept(socket_, [this](boost::system::error_code ec) {
 			if (!ec) {
 				std::make_shared<session>(std::move(socket_))->start();
 			}

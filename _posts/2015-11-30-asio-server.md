@@ -4,7 +4,7 @@ title: boost::asio并发服务器设计
 category: 技术
 ---
 
-####待解决问题：
+####遗留问题：
 
 1. 以epoll为基础， 设计类似boost::asio并发架构模型。
 2. 以epoll为例， 如何在handle\_read()函数中，将收到数据添加到ctpl线程池之后，解决socket\_fd挂起问题。
@@ -378,9 +378,211 @@ int main(int argc, char* argv[]) {
 }
 ```
 
-注：delete this修改为shared_ptr，需要参考：
+####并发服务器端改进版本(C++11)
 
-*文档*：[Boost 库 Enable_shared_from_this 实现原理分析](http://www.cnblogs.com/lzjsky/archive/2011/05/05/2037363.html "")
+```
+/*
+** thread pool source:
+** http://threadpool.sourceforge.net/
+**
+** thread pool features:
+**  Policy-based thread pool implementation
+**  Scheduling policies: fifo, lifo and priority
+**  Size policies: static_size
+**  Size policy controller: empty_controller, resize_controller
+**  Shutdown policies: wait_for_all_tasks, wait_for_active_tasks, immediately
+**  Smooth integration into STL and boost
+**
+*/
 
-*代码*：boost\_1\_59\_0/libs/asio/example/cpp11/echo/async\_tcp\_echo\_server.cpp
+#include <cstdlib>
+#include <iostream>
+#include <boost/bind.hpp>
+#include <boost/asio.hpp>
+#include <boost/threadpool.hpp>
+
+using boost::asio::ip::tcp;
+
+/*
+**  thread number = number of cpu core * 2
+**  initialize threadpool with 8 threads.
+*/
+static boost::threadpool::pool tp(8);
+
+class session : public std::enable_shared_from_this<session>
+{
+public:
+	session(tcp::socket socket) : socket_(std::move(socket)) {}
+
+	void start() {
+		std::shared_ptr<session> self(shared_from_this());
+		// read request header
+		boost::asio::async_read(socket_, boost::asio::buffer(&reqHeader, sizeof(Header)),
+			[this, self](boost::system::error_code ec, std::size_t bytes_transferred) {
+				if (!ec) {
+					read_callback(bytes_transferred, HEADER);
+				}
+		});
+	}
+
+private:
+    /*
+    **  callback function
+    **  call after reading data from socket receive buffer.
+    */
+    void read_callback(size_t bytes_transferred, size_t type) {
+	std::shared_ptr<session> self(shared_from_this());
+	if (type == HEADER) {
+		// read request content 
+		reqContent.resize(reqHeader.contLenth);
+		boost::asio::async_read(socket_, boost::asio::buffer(reqContent.data(), reqHeader.contLenth),
+			[this, self](boost::system::error_code ec, std::size_t bytes_transferred) {
+				if (!ec) {
+					read_callback(bytes_transferred, CONTENT);
+				}
+		});
+	} else { // CONTENT
+		// add task to thread pool
+		tp.schedule([this, self, bytes_transferred]() {
+			process_work(bytes_transferred);
+		});
+	}
+    }
+
+    /*
+    **  thread function
+    **  process http request content data.
+    */
+    void process_work(size_t bytes_transferred) {
+	std::shared_ptr<session> self(shared_from_this());
+
+        // simulate the process with content according to content type.
+        switch (reqHeader.contType) {
+        case MIME_TEXT:
+            	// simulate the process with text content 
+		std::cout << "receive text: " << (char*)(reqContent.data()) << std::endl;
+            	break;
+        case MIME_HTML:
+            	// simulate the process with html content
+		std::cout << "receive html: " << (char*)(reqContent.data()) << std::endl;
+            	break;
+        case MIME_JSON:
+            	// simulate the process with json content
+		std::cout << "receive json: " << (char*)(reqContent.data()) << std::endl;
+            	break;
+        default:
+		std::cout << "receive invalid." << std::endl;
+            break;
+        }
+
+	// response to client
+	response.resize(sizeof(size_t)+reqContent.size());
+	size_t len = reqContent.size();
+        memcpy(response.data(), &len, sizeof(size_t));
+        memcpy(&response[sizeof(size_t)], reqContent.data(), len);
+
+        boost::asio::async_write(socket_,
+		boost::asio::buffer(response.data(), response.size()),
+            	[this, self](boost::system::error_code ec, std::size_t /*bytes_transferred*/) {
+			if (!ec) {
+				write_callback();
+			}
+		});
+    }
+
+    /*
+    **  callback function
+    **  call after writing data to socket send buffer.
+    */
+    void write_callback() {
+	std::shared_ptr<session> self(shared_from_this());
+        // read request header
+        boost::asio::async_read(socket_, boost::asio::buffer(&reqHeader, sizeof(Header)),
+            [this, self](boost::system::error_code ec, std::size_t bytes_transferred) {
+			if (!ec) {
+				read_callback(bytes_transferred, HEADER);
+			}
+	});
+    }
+
+private:
+    tcp::socket socket_;
+
+    /*
+    **  simulate http request
+    */
+    enum Data_Type {
+        HEADER = 1,
+        CONTENT,
+    };
+    enum Mime_Type {
+        MIME_TEXT = 1,
+        MIME_HTML,
+        MIME_JSON,
+    };
+    typedef struct _Header {
+        size_t contType;
+        size_t contLenth;
+    }Header, *PHeader;
+
+    Header reqHeader;
+    std::vector<uint8_t> reqContent;
+
+    /*
+    **  simulate http resqonse(reply)
+    **  response: header and content
+    */
+    std::vector<uint8_t> response;
+};
+
+class server
+{
+public:
+    server(boost::asio::io_service& io_service, short port)
+        : acceptor_(io_service, tcp::endpoint(tcp::v4(), port)),
+	  socket_(io_service) {
+        do_accept();
+    }
+
+private:
+    void do_accept() {
+	acceptor_.async_accept(socket_, [this](boost::system::error_code ec) {
+		if (!ec) {
+			std::make_shared<session>(std::move(socket_))->start();
+		}
+		do_accept();
+	});
+    }
+
+    tcp::acceptor acceptor_;
+    tcp::socket socket_;
+};
+
+int main(int argc, char* argv[]) {
+    try {
+        if (argc != 2) {
+            std::cerr << "Usage: async_tcp_echo_server <port>\n";
+            return 1;
+        }
+
+        boost::asio::io_service io_service;
+
+        server s(io_service, atoi(argv[1]));
+
+        io_service.run();
+    } catch (std::exception& e) {
+        std::cerr << "Exception: " << e.what() << "\n";
+    }
+
+    return 0;
+}
+```
+
+*参考文档*：[Boost 库 Enable_shared_from_this 实现原理分析](http://www.cnblogs.com/lzjsky/archive/2011/05/05/2037363.html "")
+
+*参考代码*：boost\_1\_59\_0/libs/asio/example/cpp11/echo/async\_tcp\_echo\_server.cpp
+
+===========================================
+
+注: 上述代码实现均未考虑字节序
 

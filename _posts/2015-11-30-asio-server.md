@@ -580,5 +580,5 @@ int main(int argc, char* argv[]) {
 注: 
 
 1. 上述代码实现均未考虑字节序
-2. 为实现Lock-free，需要实现简易版本消息队列，参考：[C++11使用总结之3.1 利用shared_ptr实现消息队列的简单实现](https://github.com/lsclone/blog/blob/gh-pages/_posts/2015-08-13-c++11.md "")
+2. 为实现Lock-free，需要实现简易版本消息队列，参考：[C++11使用总结之3.1 利用shared_ptr实现消息队列的简单实现](http://lsclone.github.io/blog/%E6%8A%80%E6%9C%AF/2015/08/13/c++11.html "")
 

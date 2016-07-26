@@ -4,14 +4,6 @@ title: boost::asio并发服务器设计
 category: 技术
 ---
 
-####遗留问题：
-
-1. 以epoll为基础， 设计类似boost::asio并发架构模型。
-2. 以epoll为例， 如何在handle\_read()函数中，将收到数据添加到ctpl线程池之后，解决socket\_fd挂起问题。
-因为异步，所以handle\_read返回后，此时还未修改fd由监听读改为监听写，所以是否仍然会从fd读取数据且再次调用handle\_read。(boost不会，可以放心)
-3. 可以参考 [boost高并发网络框架+线程池](http://blog.chinaunix.net/uid-28163274-id-4984766.html "asio")、[Boost.Asio C++ 网络编程](https://mmoaay.gitbooks.io/boost-asio-cpp-network-programming-chinese/content/Chapter5.html "asio")及
-*boost_1_59_0\libs\asio\example\cpp03\http\server2*
-
 ####设计思路
 
 * 1、参考boost::asio example，子线程执行asyn_read、asyn_write后，回调asyn_read_callback、asyn_write_callback会在主线程执行。
@@ -28,7 +20,8 @@ category: 技术
 
 * 7、[协程](http://www.cppblog.com/jinq0123/archive/2016/05/20/213553.html "asio")
 
-
+参考： [boost高并发网络框架+线程池](http://blog.chinaunix.net/uid-28163274-id-4984766.html "asio")、[Boost.Asio C++ 网络编程](https://mmoaay.gitbooks.io/boost-asio-cpp-network-programming-chinese/content/Chapter5.html "asio")及
+*boost_1_59_0\libs\asio\example\cpp03\http\server2*
 
 ###初步实现(未考虑分发deque及时间戳)：
 
@@ -584,5 +577,8 @@ int main(int argc, char* argv[]) {
 
 ===========================================
 
-注: 上述代码实现均未考虑字节序
+注: 
+
+1. 上述代码实现均未考虑字节序
+2. 为实现Lock-free，需要实现简易版本消息队列，参考：[C++11使用总结之3.1 利用shared_ptr实现消息队列的简单实现](https://github.com/lsclone/blog/blob/gh-pages/_posts/2015-08-13-c++11.md "")
 

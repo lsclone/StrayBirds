@@ -319,8 +319,9 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 
 ####10. Using C++ With Objective-C
 
-*参考网址：*
+*参考网址:*
 
 * [How to use C++ with Objective-C in XCode](http://stackoverflow.com/questions/2683101/how-can-i-use-c-with-objective-c-in-xcode "ios")
 * [Using C++ With Objective-C](http://www.cocoachina.com/bbs/read.php?tid-9111-fpage-3.html "ios")
 * [Strategies for Using C++ in Objective-C Projects (and vice versa)](http://philjordan.eu/article/strategies-for-using-c++-in-objective-c-projects "ios")
+

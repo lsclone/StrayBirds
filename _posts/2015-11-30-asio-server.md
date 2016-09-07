@@ -582,3 +582,11 @@ int main(int argc, char* argv[]) {
 1. 上述代码实现均未考虑字节序
 2. 为实现Lock-free，需要实现简易版本消息队列，参考：[C++11使用总结--3.1利用shared_ptr实现消息队列的简单实现](http://lsclone.github.io/blog/%E6%8A%80%E6%9C%AF/2015/08/13/c++11.html "")
 
+===========================================
+
+*参考网址：*
+
+* [IO设计模式：Reactor和Proactor对比](https://segmentfault.com/a/1190000002715832 "asio")
+* [ACE,boost::asio,libevent开源库对比](http://www.programgo.com/article/3531388910/ "asio")
+* [boost::asio原理详解分析：linux epoll实现/ windows iocp 实现](http://www.programgo.com/article/675222376/ "asio")
+* [IOCP(百度百科)](http://baike.baidu.com/view/1256215.htm "asio")

@@ -584,7 +584,7 @@ int main(int argc, char* argv[]) {
 
 ===========================================
 
-*其他参考网址：*
+*其他参考网址*
 
 * [IO设计模式：Reactor和Proactor对比](https://segmentfault.com/a/1190000002715832 "asio")
 * [ACE,boost::asio,libevent开源库对比](http://www.programgo.com/article/3531388910/ "asio")

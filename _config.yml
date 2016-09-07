@@ -128,7 +128,7 @@ safe: false
 highlighter: pygments
 title: 御 风
 description: 得失随缘 心无增减
-theme: kunka
+theme: modernist
 disqusname: lsclone
 
 # theme can be: hack, leap-day, merlot, midnight, minimal, modernist, slate, time-machine, kunka

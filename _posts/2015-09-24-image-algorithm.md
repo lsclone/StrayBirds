@@ -22,4 +22,16 @@ category: 技术
 * [三次样条插值和曲线拟合(代码实现)](http://haoxiang.org/2011/06/cubic-spline-interpolation-curve-fitting/ "spline")
 * [OpenCV中resize函数五种插值算法的实现过程](http://blog.csdn.net/fengbingchun/article/details/17335477 "spline")
 
+####3. 卷积
 
+* [wiki-卷积](https://zh.wikipedia.org/wiki/%E5%8D%B7%E7%A7%AF "convolution")
+* [OpenCV：卷积运算](http://blog.csdn.net/u010002704/article/details/43734731 "convolution")
+* [图像处理基本算法-卷积和相关](http://www.cnblogs.com/libing64/archive/2011/12/13/2878738.html "convolution")
+* [图像处理之理解卷积](http://blog.csdn.net/jia20003/article/details/7038938 "convolution")
+
+####4. 高斯模糊（滤波）
+
+要对数字图像做高斯模糊，就是用一个符合高斯函数分布的卷积核对数字图像做卷积运算。
+
+* [图像处理--高斯滤波](http://blog.csdn.net/l_inyi/article/details/8915116 "Gaussian")
+* [高斯函数以及在图像处理中的应用总结](http://blog.csdn.net/h_wlyfw/article/details/26456975 "Gaussian")

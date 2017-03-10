@@ -307,3 +307,23 @@ APP_CPPFLAGS := -O3 -fno-rtti -fno-exceptions -finline-functions -funswitch-loop
 6. **java与native之间的参数传递参考：** [Android JNI 开发详解](http://lsclone.github.io/blog/%E6%8A%80%E6%9C%AF/2015/08/25/android-jni.html "android jni")
 
 7. [Android NDK开发（2）----- JNI多线程](http://biancheng.dnbcw.info/shouji/388426.html "Markdown")
+
+
+====================================================================
+
+====================================================================
+
+Android Studio NDK开发
+
+**Step 1: **
+
+**Step 2: **
+
+**Step 3: **
+
+*参考网址*：
+
+* [Add C and C++ Code to Your Project](https://developer.android.com/studio/projects/add-native-code.html#existing-project "ndk")
+* [AndroidStudio支持新的NDK的操作使用](http://www.cnblogs.com/zhuyuliang/p/5007016.html "ndk")
+* [Android Studio使用新的Gradle构建工具配置NDK环境](http://blog.csdn.net/sbsujjbcy/article/details/48469569 "ndk")
+* [最详细Android Studio + NDK范例]("http://bbs.51cto.com/thread-1316339-1-1.html" "ndk")

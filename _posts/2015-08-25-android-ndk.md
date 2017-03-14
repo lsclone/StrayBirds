@@ -349,11 +349,11 @@ Creating a new project with support for native code is similar to creating any o
 
 > In the Customize C++ Support section of the wizard, you can customize your project with the following options:
 
->> C++ Standard: use the drop-down list to select which standardization of C++ you want to use. Selecting Toolchain Default uses the default CMake setting.
+>> **C++ Standard**: use the drop-down list to select which standardization of C++ you want to use. Selecting Toolchain Default uses the default CMake setting.
 
->> Exceptions Support: check this box if you want to enable support for C++ exception handling. If enabled, Android Studio adds the -fexceptions flag to cppFlags in your module-level build.gradle file, which Gradle passes to CMake.
+>> **Exceptions Support**: check this box if you want to enable support for C++ exception handling. If enabled, Android Studio adds the -fexceptions flag to cppFlags in your module-level build.gradle file, which Gradle passes to CMake.
 
->> Runtime Type Information Support: check this box if you want support for RTTI. If enabled, Android Studio adds the -frtti flag to cppFlags in your module-level build.gradle file, which Gradle passes to CMake.
+>> **Runtime Type Information Support**: check this box if you want support for RTTI. If enabled, Android Studio adds the -frtti flag to cppFlags in your module-level build.gradle file, which Gradle passes to CMake.
 
 > Click Finish.
 

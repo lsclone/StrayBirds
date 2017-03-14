@@ -385,7 +385,9 @@ add_library( # Specifies the name of the library.
              SHARED
 
              # Provides a relative path to your source file(s).
-             src/main/cpp/native-lib.cpp )
+             src/main/cpp/native-lib.cpp
+	     src/main/cpp/other.cpp
+	     ...)
 ```
 
 When you add a source file or library to your CMake build script using add_library(), Android Studio also shows associated header files in the Project view after you sync your project. However, in order for CMake to locate your header files during compile time, you need to add the **include_directories()** command to your CMake build script and specify the path to your headers:
@@ -426,7 +428,17 @@ find_library( # Defines the name of the path variable that stores the
               # Specifies the name of the NDK library that
               # CMake needs to locate.
               log )
-```	      
+	      
+find_library( z-lib z )
+
+find_library( jnigraphics-lib jnigraphics)
+
+find_library( glesv1-lib GLESv1_CM )
+
+find_library( glesv2-lib GLESv2 )
+
+find_library( egl-lib  EGL)
+```
 
 In order for your native library to call functions in the log library, you need to link the libraries using the **target_link_libraries()** command in your CMake build script:
 
@@ -438,7 +450,17 @@ target_link_libraries( # Specifies the target library.
                        native-lib
 
                        # Links the log library to the target library.
-                       ${log-lib} )
+                       ${log-lib}
+
+                       ${z-lib}
+
+                       ${jnigraphics-lib}
+
+                       ${glesv1-lib}
+
+                       ${glesv2-lib}
+
+                       ${egl-lib})
 ```
 
 The NDK also includes some libraries as source code that you need to build and link to your native library. You can compile the source code into a native library by using the **add_library()** command in your CMake build script. To provide a path to your local NDK library, you can use the **ANDROID_NDK** path variable, which Android Studio automatically defines for you.
@@ -454,9 +476,11 @@ add_library( app-glue
 target_link_libraries( native-lib app-glue ${log-lib} )
 ```
 
+
+
 *参考网址*：
 
 * [Add C and C++ Code to Your Project](https://developer.android.com/studio/projects/add-native-code.html#existing-project "ndk")
 * [AndroidStudio支持新的NDK的操作使用](http://www.cnblogs.com/zhuyuliang/p/5007016.html "ndk")
 * [Android Studio使用新的Gradle构建工具配置NDK环境](http://blog.csdn.net/sbsujjbcy/article/details/48469569 "ndk")
-* [最详细Android Studio + NDK范例]("http://bbs.51cto.com/thread-1316339-1-1.html" "ndk")
+* [最详细Android Studio + NDK范例](http://bbs.51cto.com/thread-1316339-1-1.html "ndk")

@@ -315,7 +315,25 @@ APP_CPPFLAGS := -O3 -fno-rtti -fno-exceptions -finline-functions -funswitch-loop
 
 Android Studio NDK开发
 
-**Step 1: **
+Using Android Studio 2.2 or higher with the Android plugin for Gradle version 2.2.0 or higher, you can add C and C++ code to your app by compiling it into a native library that Gradle can package with your APK. Your Java code can then call functions in your native library through the Java Native Interface (JNI)
+
+Android Studio's default build tool for native libraries is CMake. Android Studio also supports ndk-build due to the large number of existing projects that use the build toolkit to compile their native code. If you want to import an existing ndk-build library into your Android Studio project, see the section about how to configure Gradle to link to your native library. However, if you are creating a new native library, you should use CMake.
+
+**Step 1: Download the NDK and Build Tools**
+
+To compile and debug native code for your app, you need the following components:
+
+The Android Native Development Kit (NDK): a toolset that allows you to use C and C++ code with Android, and provides platform libraries that allow you to manage native activities and access physical device components, such as sensors and touch input.
+
+CMake: an external build tool that works alongside Gradle to build your native library. You do not need this component if you only plan to use ndk-build.
+
+LLDB: the debugger Android Studio uses to debug native code.
+
+You can install these components using the **SDK Manager**:
+
+>> From an open project, select Tools > Android > SDK Manager from the menu bar.
+>> Click the SDK Tools tab.
+>> Check the boxes next to LLDB, CMake, and NDK
 
 **Step 2: **
 

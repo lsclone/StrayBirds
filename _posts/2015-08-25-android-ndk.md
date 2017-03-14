@@ -357,10 +357,9 @@ Creating a new project with support for native code is similar to creating any o
 
 > Click Finish.
 
-* The cpp group is where you can find all the native source files, headers, and prebuilt libraries that are a part of your project. For new projects, Android Studio creates a sample C++ source file, native-lib.cpp, and places it in the src/main/cpp/ directory of your app module. This sample code provides a simple C++ function, stringFromJNI(), that returns the string “Hello from C++”. You can learn how to add additional source files to your project in the section about how to Create new native source files.
+* The cpp group is where you can find all the native source files, headers, and prebuilt libraries that are a part of your project. For new projects, Android Studio creates a sample C++ source file, **native-lib.cpp**, and places it in the src/main/cpp/ directory of your app module. This sample code provides a simple C++ function, stringFromJNI(), that returns the string “Hello from C++”. You can learn how to add additional source files to your project in the section about how to Create new native source files.
 
-* The External Build Files group is where you can find build scripts for CMake or ndk-build. Similar to how build.gradle files tell Gradle how to build your app, CMake and ndk-build require a build script to know how to build your native library. For new projects, Android Studio creates a CMake build script, CMakeLists.txt, and places it in your module’s root directory. You can learn more about the contents of this build script in the section about how to Create a Cmake Build Script.
-Build and run the sample ap
+* The External Build Files group is where you can find build scripts for CMake or ndk-build. Similar to how **build.gradle** files tell Gradle how to build your app, CMake and ndk-build require a build script to know how to build your native library. For new projects, Android Studio creates a CMake build script, **CMakeLists.txt**, and places it in your module’s root directory. You can learn more about the contents of this build script in the section about how to Create a Cmake Build Script.
 
 **Step 3: **
 

@@ -400,7 +400,7 @@ include_directories(src/main/cpp/include/)
 
 The convention CMake uses to name the file of your library is as follows:
 
-> liblibrary-name.so
+> lib*library-name*.so
 
 For example, if you specify "native-lib" as the name of your shared library in the build script, CMake creates a file named libnative-lib.so. However, when loading this library in your Java code, use the name you specified in the CMake build script:
 

@@ -476,7 +476,45 @@ add_library( app-glue
 target_link_libraries( native-lib app-glue ${log-lib} )
 ```
 
+**Step 5: Add other prebuilt libraries**
 
+Adding a prebuilt library is similar to specifying another native library for CMake to build. However, because the library is already built, you need to use the **IMPORTED** flag to tell CMake that you only want to import the library into your project:
+
+```
+add_library( imported-lib
+             SHARED
+             IMPORTED )
+```
+
+You then need to specify the path to the library using the **set_target_properties()** command as shown below.
+
+Some libraries provide separate packages for specific CPU architectures, or **Application Binary Interfaces (ABI)**, and organize them into separate directories. This approach helps libraries take advantage of certain CPU architectures while allowing you to use only the versions of the library you want. To add multiple ABI versions of a library to your CMake build script, without having to write multiple commands for each version of the library, you can use the **ANDROID_ABI** path variable. This variable uses a list of the default ABIs that the NDK supports, or a filtered list of ABIs you manually configure Gradle to use. For example:
+
+```
+add_library(...)
+set_target_properties( # Specifies the target library.
+                       imported-lib
+
+                       # Specifies the parameter you want to define.
+                       PROPERTIES IMPORTED_LOCATION
+
+                       # Provides the path to the library you want to import.
+                       imported-lib/src/${ANDROID_ABI}/libimported-lib.so )
+```
+
+For CMake to locate your header files during compile time, you need to use the **include_directories()** command and include the path to your header files:
+
+```
+include_directories( imported-lib/include/ )
+```
+
+> Note: If you want to package a prebuilt library that is not a build-time dependency—for example, when adding a prebuilt library that is a dependency of imported-lib, you do not need perform the following instructions to link the library.
+
+To link the prebuilt library to your own native library, add it to the target_link_libraries() command in your CMake build script:
+
+```
+target_link_libraries( native-lib imported-lib ${log-lib} )
+```
 
 *参考网址*：
 

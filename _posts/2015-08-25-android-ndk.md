@@ -516,6 +516,40 @@ To link the prebuilt library to your own native library, add it to the target_li
 target_link_libraries( native-lib imported-lib ${log-lib} )
 ```
 
+**Step 6: Manually configure Gradle**
+
+* Specify optional configurations
+
+You can specify optional arguments and flags for CMake or ndk-build by configuring another **externalNativeBuild** block within the **defaultConfig** block of your **module-level build.gradle** file. Similar to other properties in the **defaultConfig** block, you can override these properties for each product flavor in your build configuration.
+
+By default, Gradle builds your native library into separate .so files for the ABIs the NDK supports and packages them all into your APK. If you want Gradle to build and package only certain **ABI** configurations of your native libraries, you can specify them with the **ndk.abiFilters** flag in your **module-level build.gradle** file.
+
+```
+android {
+    ...
+    defaultConfig {
+    	...
+        externalNativeBuild {
+            cmake {
+                cppFlags "-std=c++11 -fexceptions -D_ANDROID -D_OPENGLES"
+            }
+        }
+        ndk {
+            // Specifies the ABI configurations of your native
+            // libraries Gradle should build and package with your APK.
+            abiFilters 'x86', 'armeabi-v7a'
+        }
+    }
+    buildTypes {...}
+    externalNativeBuild {
+        cmake {
+	    // Provides a relative path to your CMake build script.
+            path "CMakeLists.txt"
+        }
+    }
+}
+```
+
 *参考网址*：
 
 * [Add C and C++ Code to Your Project](https://developer.android.com/studio/projects/add-native-code.html#existing-project "ndk")

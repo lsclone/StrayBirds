@@ -414,6 +414,46 @@ Note: If you rename or remove a library in your CMake build script, you need to 
 
 Android Studio automatically adds the source files and headers to the cpp group in the Project pane. By using multiple **add_library()** commands, you can define additional libraries for CMake to build from other source files.
 
+**Step 4: Add NDK APIs(library)**
+
+Add the **find_library()** command to your CMake build script to locate an NDK library and store its path as a variable. You use this variable to refer to the NDK library in other parts of the build script. The following sample locates the **Android-specific log support library** and stores its path in **log-lib**:
+
+```
+find_library( # Defines the name of the path variable that stores the
+              # location of the NDK library.
+              log-lib
+
+              # Specifies the name of the NDK library that
+              # CMake needs to locate.
+              log )
+```	      
+
+In order for your native library to call functions in the log library, you need to link the libraries using the **target_link_libraries()** command in your CMake build script:
+
+```
+find_library(...)
+
+# Links your native library against one or more other native libraries.
+target_link_libraries( # Specifies the target library.
+                       native-lib
+
+                       # Links the log library to the target library.
+                       ${log-lib} )
+```
+
+The NDK also includes some libraries as source code that you need to build and link to your native library. You can compile the source code into a native library by using the **add_library()** command in your CMake build script. To provide a path to your local NDK library, you can use the **ANDROID_NDK** path variable, which Android Studio automatically defines for you.
+
+The following command tells CMake to build **android_native_app_glue.c**, which manages NativeActivity lifecycle events and touch input, into a static library and links it to **native-lib**:
+
+```
+add_library( app-glue
+             STATIC
+             ${ANDROID_NDK}/sources/android/native_app_glue/android_native_app_glue.c )
+
+# You need to link static libraries against your shared native library.
+target_link_libraries( native-lib app-glue ${log-lib} )
+```
+
 *参考网址*：
 
 * [Add C and C++ Code to Your Project](https://developer.android.com/studio/projects/add-native-code.html#existing-project "ndk")

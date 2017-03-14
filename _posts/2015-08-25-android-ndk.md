@@ -361,7 +361,58 @@ Creating a new project with support for native code is similar to creating any o
 
 * The External Build Files group is where you can find build scripts for CMake or ndk-build. Similar to how **build.gradle** files tell Gradle how to build your app, CMake and ndk-build require a build script to know how to build your native library. For new projects, Android Studio creates a CMake build script, **CMakeLists.txt**, and places it in your module’s root directory. You can learn more about the contents of this build script in the section about how to Create a Cmake Build Script.
 
-**Step 3: **
+**Step 3: Create a CMake build script (CMakeLists.txt)**
+
+You can now configure your build script by adding CMake commands. To instruct CMake to create a native library from native source code, add the **cmake_minimum_required()** and **add_library()** commands to your build script:
+
+```
+# Sets the minimum version of CMake required to build your native library.
+# This ensures that a certain set of CMake features is available to
+# your build.
+
+cmake_minimum_required(VERSION 3.4.1)
+
+# Specifies a library name, specifies whether the library is STATIC or
+# SHARED, and provides relative paths to the source code. You can
+# define multiple libraries by adding multiple add.library() commands,
+# and CMake builds them for you. When you build your app, Gradle
+# automatically packages shared libraries with your APK.
+
+add_library( # Specifies the name of the library.
+             native-lib
+
+             # Sets the library as a shared library.
+             SHARED
+
+             # Provides a relative path to your source file(s).
+             src/main/cpp/native-lib.cpp )
+```
+
+When you add a source file or library to your CMake build script using add_library(), Android Studio also shows associated header files in the Project view after you sync your project. However, in order for CMake to locate your header files during compile time, you need to add the **include_directories()** command to your CMake build script and specify the path to your headers:
+
+```
+add_library(...)
+
+# Specifies a path to native header files.
+include_directories(src/main/cpp/include/)
+
+```
+
+The convention CMake uses to name the file of your library is as follows:
+
+> liblibrary-name.so
+
+For example, if you specify "native-lib" as the name of your shared library in the build script, CMake creates a file named libnative-lib.so. However, when loading this library in your Java code, use the name you specified in the CMake build script:
+
+```
+static {
+    System.loadLibrary(“native-lib”);
+}
+```
+
+Note: If you rename or remove a library in your CMake build script, you need to clean your project before Gradle applies the changes or removes the older version of the library from your APK. To clean your project, select **Build > Clean Project** from the menu bar.
+
+Android Studio automatically adds the source files and headers to the cpp group in the Project pane. By using multiple **add_library()** commands, you can define additional libraries for CMake to build from other source files.
 
 *参考网址*：
 

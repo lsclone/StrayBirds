@@ -518,8 +518,6 @@ target_link_libraries( native-lib imported-lib ${log-lib} )
 
 **Step 6: Manually configure Gradle**
 
-* Specify optional configurations
-
 You can specify optional arguments and flags for CMake or ndk-build by configuring another **externalNativeBuild** block within the **defaultConfig** block of your **module-level build.gradle** file. Similar to other properties in the **defaultConfig** block, you can override these properties for each product flavor in your build configuration.
 
 By default, Gradle builds your native library into separate .so files for the ABIs the NDK supports and packages them all into your APK. If you want Gradle to build and package only certain **ABI** configurations of your native libraries, you can specify them with the **ndk.abiFilters** flag in your **module-level build.gradle** file.

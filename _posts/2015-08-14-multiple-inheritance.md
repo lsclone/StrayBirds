@@ -10,28 +10,34 @@ category: 技术
 
 ```
 #include <stdio.h>
+#include <iostream>
+
+using namespace std;
 
 class A {
 public:
 	A(int aa) : aData(aa) {}
+	virtual ~A() { cout << __FUNCTION__ << endl; }
 	virtual void a() { printf("%s\n", __FUNCTION__); }
 	virtual void b() { printf("%s\n", __FUNCTION__); }
 private:
 	int aData;
 };
 
-class B : virtual public A {
+class B : virtual public A { // 虚基类
 public:
 	B(int aa, int bb) : A(aa), bData(bb) {}
+	~B() { cout << __FUNCTION__ << endl; }
 	virtual void a() { printf("%s\n", __FUNCTION__); }
 	virtual void b() { printf("%s\n", __FUNCTION__); }
 private:
 	int bData;
 };
 
-class C : virtual public A {
+class C : virtual public A { // 虚基类
 public:
 	C(int aa, int cc) : A(aa), cData(cc) {}
+	~C() { cout << __FUNCTION__ << endl; }
 	virtual void a() { printf("%s\n", __FUNCTION__); }
 	//virtual void b() { printf("%s\n", __FUNCTION__); }
 private:
@@ -41,16 +47,22 @@ private:
 class D : public B, public C {
 public:
 	D(int aa, int bb, int cc, int dd) : A(aa), B(aa, bb), C(aa, cc), dData(dd) {}
+	~D() { cout << __FUNCTION__ << endl; }
 	virtual void a() { printf("%s\n", __FUNCTION__); }
 	//virtual void b() { printf("%s\n", __FUNCTION__); }
 private:
 	int dData;
 };
 
-void main() {
-	D dd(1, 2, 3, 4);
-	A* pA = &dd;
+int main() {
+	A* pA = new D(1, 2, 3, 4);
+
 	pA->a();
 	pA->b();
+
+	if (pA != nullptr)
+		delete pA;
+
+	return 0;
 }
 ```

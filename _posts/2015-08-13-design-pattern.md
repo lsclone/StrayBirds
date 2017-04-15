@@ -18,7 +18,7 @@ category: 技术
 
 ```
 #include <memory>
-#include <boost/thread/mutex.hpp>
+#include <mutex>
 
 class Singleton {
 public:
@@ -30,7 +30,7 @@ protected:
 
 private:
   static std::auto_ptr<Singleton> pInstance;
-  static boost::mutex mutex;
+  static std::mutex mtx;
 };
 ```
 
@@ -41,7 +41,7 @@ std::auto_ptr<Singleton> Singleton::pInstance;
 
 Singleton* Singleton::GetInstance() {
   if (!pInstance.get()) {
-    boost::mutex::scoped_lock lock(mutex);
+      std::unique_lock<std::mutex> lock(mtx);
       if (!pInstance.get()) {
         pInstance = std::auto_ptr<Singleton>(new Singleton());
       }

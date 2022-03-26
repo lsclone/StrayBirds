@@ -1,1 +1,67 @@
-<mxfile host="app.diagrams.net" modified="2022-03-17T01:57:37.367Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36 Edg/99.0.1150.39" version="15.5.6" etag="-8em3ONL9DQNUJmQjdsN" type="github"><diagram id="v6T6caYfrksYSBO10d0g">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2022-03-26T05:55:09.691Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.82 Safari/537.36" etag="xD1pRhvzxE_rbsWveP18" version="17.2.4" type="github">
+  <diagram id="v6T6caYfrksYSBO10d0g" name="Page-1">
+    <mxGraphModel dx="782" dy="468" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="7bpBVlcoPpbQ1vgJCoJ1-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="7bpBVlcoPpbQ1vgJCoJ1-1" target="7bpBVlcoPpbQ1vgJCoJ1-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="7bpBVlcoPpbQ1vgJCoJ1-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="7bpBVlcoPpbQ1vgJCoJ1-1" target="7bpBVlcoPpbQ1vgJCoJ1-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="7bpBVlcoPpbQ1vgJCoJ1-1" value="router 1&lt;br&gt;gateway&lt;br&gt;10.0.1.1" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="110" width="100" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="7bpBVlcoPpbQ1vgJCoJ1-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="7bpBVlcoPpbQ1vgJCoJ1-3" target="7bpBVlcoPpbQ1vgJCoJ1-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="7bpBVlcoPpbQ1vgJCoJ1-3" value="router 2&lt;br&gt;WAN: 10.0.1.2&lt;br&gt;gateway: 172.168.1.1" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="110" y="240" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="7bpBVlcoPpbQ1vgJCoJ1-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="7bpBVlcoPpbQ1vgJCoJ1-4" target="7bpBVlcoPpbQ1vgJCoJ1-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="7bpBVlcoPpbQ1vgJCoJ1-4" value="router 3&lt;br&gt;WAN: 10.0.1.3&lt;br&gt;gateway: 192.168.1.1" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="354" y="240" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="7bpBVlcoPpbQ1vgJCoJ1-5" value="client&lt;br&gt;self ip/port&lt;br&gt;172.168.1.2:30001" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="370" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="7bpBVlcoPpbQ1vgJCoJ1-6" value="server&lt;br&gt;listen ip/port 192.168.1.138:7755&lt;br&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="370" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="7bpBVlcoPpbQ1vgJCoJ1-12" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="60" width="510" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="7bpBVlcoPpbQ1vgJCoJ1-13" value="WAN" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="70" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="7bpBVlcoPpbQ1vgJCoJ1-14" value="LAN 1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="240" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="7bpBVlcoPpbQ1vgJCoJ1-15" value="LAN 2" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="490" y="240" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="7bpBVlcoPpbQ1vgJCoJ1-16" value="&lt;b&gt;&lt;font color=&quot;#ff3399&quot;&gt;NAT&lt;/font&gt;&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="10" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="7bpBVlcoPpbQ1vgJCoJ1-18" value="&lt;h1&gt;Step1&lt;/h1&gt;&lt;div&gt;configure route3, add a NAT into mapping list.&lt;/div&gt;&lt;div&gt;1. open a port of WAN&lt;/div&gt;&lt;div&gt;2. map: 192.168.1.138:7755 &amp;lt; &amp;gt; 10.0.1.3:8000&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;dashed=1;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="590" y="170" width="420" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="7bpBVlcoPpbQ1vgJCoJ1-19" value="&lt;h1&gt;Step2&lt;/h1&gt;&lt;div&gt;1. connect(socket_client, 10.0.1.3, 8000);&lt;/div&gt;&lt;div&gt;2. find according to following steps:&lt;/div&gt;&lt;div&gt;&amp;nbsp;&amp;gt; firstly find in localhost&lt;/div&gt;&lt;div&gt;&amp;nbsp;&amp;gt; send the packet to router/gateway.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;ip header + tcp/udp header&lt;/div&gt;&lt;div&gt;src ip + port&lt;/div&gt;&lt;div&gt;dest ip + port&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;172.168.1.2:30001&lt;/div&gt;&lt;div&gt;10.0.1.3:8000&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;dashed=1;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="20" y="451" width="260" height="219" as="geometry" />
+        </mxCell>
+        <mxCell id="7bpBVlcoPpbQ1vgJCoJ1-20" value="&lt;h1&gt;Step3&lt;/h1&gt;&lt;p&gt;src:172.168.1.2:30001&lt;/p&gt;&lt;p&gt;dest:10.0.1.3:8000&lt;/p&gt;&lt;p&gt;NAT(network addr transfer)&lt;/p&gt;&lt;p&gt;map: 172.168.1.2:30001 &amp;lt;&amp;gt; 10.0.1.2:30001&lt;/p&gt;&lt;p&gt;packet information has been modified:&lt;/p&gt;&lt;p&gt;src: 10.0.1.2:30001&lt;/p&gt;&lt;p&gt;dest: 10.0.1.3:8000&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;dashed=1;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="200" y="281" width="320" height="219" as="geometry" />
+        </mxCell>
+        <mxCell id="7bpBVlcoPpbQ1vgJCoJ1-21" value="&lt;h1&gt;Step4&lt;/h1&gt;&lt;p&gt;receive the packet&lt;/p&gt;&lt;p&gt;src: 10.0.1.2:30001, dest: 10.0.1.3:8000&lt;/p&gt;&lt;p&gt;find the dest ip/port if exists in router3&#39;s mapping list.&lt;/p&gt;&lt;p&gt;if exist，modifiy the packet,&amp;nbsp; NAT&lt;/p&gt;&lt;p&gt;packet:&lt;/p&gt;&lt;p&gt;src: 10.0.1.2:30001, dest: 192.168.1.138:7755&lt;/p&gt;&lt;p&gt;send the packet to 192.168.1.138&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;dashed=1;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="600" y="320" width="320" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="7bpBVlcoPpbQ1vgJCoJ1-22" value="&lt;h1&gt;Step5&lt;/h1&gt;&lt;div&gt;send packet (ACK) back to client&lt;/div&gt;&lt;div&gt;packet:&lt;/div&gt;&lt;div&gt;src: 192.168.1.138:7755&lt;/div&gt;&lt;div&gt;dest: 10.0.1.2:30001&amp;nbsp;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;dashed=1;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="400" y="500" width="220" height="120" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-08-12T09:29:27.507Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37" etag="k8A8EARekPkf3c-dXf1j" version="17.2.4" type="github">
+<mxfile host="app.diagrams.net" modified="2022-08-12T09:31:13.514Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37" etag="1PSYAk1ujL9WcqHCqiod" version="17.2.4" type="github">
   <diagram id="8s4QYpiPi4UWaAkvlVJo" name="Page-1">
     <mxGraphModel dx="1185" dy="635" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -175,6 +175,9 @@
         </mxCell>
         <mxCell id="Oyf2wEZ1zQuML1rLrcPN-62" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;&lt;b&gt;&lt;font style=&quot;font-size: 16px&quot;&gt;Architecture of Reactor (epoll)&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="110" y="18" width="255" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-63" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;&lt;font style=&quot;font-size: 12px&quot;&gt;refer to: github/libevent and github/muduo&lt;/font&gt;&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="646" y="28" width="240" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-08-12T08:37:15.412Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37" etag="B8m2PKK2-zjEUumSvQAq" version="17.2.4" type="github">
+<mxfile host="app.diagrams.net" modified="2022-08-12T08:40:34.956Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37" etag="XYfYhNUGXVE0LOzuYqVG" version="17.2.4" type="github">
   <diagram id="8s4QYpiPi4UWaAkvlVJo" name="Page-1">
     <mxGraphModel dx="1185" dy="635" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -79,10 +79,17 @@
         <mxCell id="Oyf2wEZ1zQuML1rLrcPN-31" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" vertex="1" parent="Oyf2wEZ1zQuML1rLrcPN-28">
           <mxGeometry x="30" y="61" width="10" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-46" value="&lt;font style=&quot;font-size: 9px&quot;&gt;add callback(epoll_ctl) to functors&lt;br&gt;and write data to eventfd.&lt;/font&gt;" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;fontSize=10;" edge="1" parent="Oyf2wEZ1zQuML1rLrcPN-28" target="Oyf2wEZ1zQuML1rLrcPN-37">
-          <mxGeometry x="-0.6006" width="80" relative="1" as="geometry">
-            <mxPoint x="36" y="151" as="sourcePoint" />
-            <mxPoint x="170.50000000000023" y="151" as="targetPoint" />
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-46" value="&lt;font style=&quot;font-size: 9px&quot;&gt;add callback(epoll_ctl) to functors&lt;br&gt;and write data to eventfd.&lt;/font&gt;" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;fontSize=10;" edge="1" parent="Oyf2wEZ1zQuML1rLrcPN-28">
+          <mxGeometry x="-0.3182" width="80" relative="1" as="geometry">
+            <mxPoint x="36" y="222" as="sourcePoint" />
+            <mxPoint x="241.32999999999993" y="222" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-47" value="return event loop 2" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;rounded=0;" edge="1" parent="Oyf2wEZ1zQuML1rLrcPN-28">
+          <mxGeometry x="0.5435" relative="1" as="geometry">
+            <mxPoint x="386.5" y="178" as="sourcePoint" />
+            <mxPoint x="36" y="178" as="targetPoint" />
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
@@ -108,7 +115,7 @@
           <mxGeometry x="796" y="80" width="90" height="400" as="geometry" />
         </mxCell>
         <mxCell id="Oyf2wEZ1zQuML1rLrcPN-41" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" vertex="1" parent="1">
-          <mxGeometry x="695.33" y="212" width="10" height="78" as="geometry" />
+          <mxGeometry x="695.33" y="212" width="10" height="118" as="geometry" />
         </mxCell>
         <mxCell id="Oyf2wEZ1zQuML1rLrcPN-42" value="&lt;b&gt;&lt;font color=&quot;#007fff&quot;&gt;epoll_wait&lt;/font&gt;&lt;/b&gt; (wait for eventfd)" style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;rounded=0;fontSize=10;" edge="1" parent="1" target="Oyf2wEZ1zQuML1rLrcPN-41">
           <mxGeometry x="1" y="10" relative="1" as="geometry">
@@ -121,10 +128,11 @@
             <mxPoint x="634.9966666666667" y="256.64999999999986" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-45" value="add callback to functors,&lt;br&gt;and write data to eventfd." style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;fontSize=10;" edge="1" parent="1">
-          <mxGeometry width="80" relative="1" as="geometry">
-            <mxPoint x="490" y="540" as="sourcePoint" />
-            <mxPoint x="624.5000000000002" y="540" as="targetPoint" />
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-45" value="apply for event loop handle" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;fontSize=10;" edge="1" parent="1" target="Oyf2wEZ1zQuML1rLrcPN-37">
+          <mxGeometry x="-0.6006" width="80" relative="1" as="geometry">
+            <mxPoint x="490" y="230" as="sourcePoint" />
+            <mxPoint x="624.5000000000002" y="230" as="targetPoint" />
+            <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
       </root>

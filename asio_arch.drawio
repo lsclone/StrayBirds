@@ -1,17 +1,17 @@
-<mxfile host="app.diagrams.net" modified="2022-08-12T08:03:17.400Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37" etag="d2pRV1--naXx45wv44xo" version="17.2.4" type="github">
+<mxfile host="app.diagrams.net" modified="2022-08-12T08:11:28.184Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37" etag="nCLwW_h2xZ12qot3V57J" version="17.2.4" type="github">
   <diagram id="8s4QYpiPi4UWaAkvlVJo" name="Page-1">
     <mxGraphModel dx="1185" dy="635" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="Oyf2wEZ1zQuML1rLrcPN-1" value="Acceptor" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;size=30;" vertex="1" parent="1">
-          <mxGeometry x="110" y="80" width="70" height="320" as="geometry" />
+          <mxGeometry x="110" y="80" width="70" height="400" as="geometry" />
         </mxCell>
         <mxCell id="Oyf2wEZ1zQuML1rLrcPN-17" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" vertex="1" parent="Oyf2wEZ1zQuML1rLrcPN-1">
           <mxGeometry x="30" y="60" width="10" height="40" as="geometry" />
         </mxCell>
         <mxCell id="Oyf2wEZ1zQuML1rLrcPN-2" value="&lt;font style=&quot;font-size: 10px&quot;&gt;Event Loop 1&lt;br&gt;bind with main thread&lt;/font&gt;" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;size=40;" vertex="1" parent="1">
-          <mxGeometry x="230" y="80" width="100" height="320" as="geometry" />
+          <mxGeometry x="230" y="80" width="100" height="400" as="geometry" />
         </mxCell>
         <mxCell id="Oyf2wEZ1zQuML1rLrcPN-15" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" vertex="1" parent="Oyf2wEZ1zQuML1rLrcPN-2">
           <mxGeometry x="45" y="54" width="10" height="30" as="geometry" />
@@ -41,6 +41,26 @@
         </mxCell>
         <mxCell id="Oyf2wEZ1zQuML1rLrcPN-18" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;create listening socket&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="151" y="140" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-21" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="275" y="250" width="10" height="59" as="geometry" />
+        </mxCell>
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-22" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;1. invoke callback of active sockets (eventfd),&lt;br&gt;2. invoke functors.(invoke epoll_ctl for acceptor&#39;s readable.)&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="289" y="264" width="111" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-23" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="340" y="343" width="10" height="47" as="geometry" />
+        </mxCell>
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-24" value="epoll_wait (wait for eventfd and acceptor)" style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;rounded=0;fontSize=10;" edge="1" parent="1" target="Oyf2wEZ1zQuML1rLrcPN-23">
+          <mxGeometry x="1" y="10" relative="1" as="geometry">
+            <mxPoint x="280" y="343" as="sourcePoint" />
+            <mxPoint x="10" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-25" value="acceptor is readable and return" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;exitX=0;exitY=0.95;rounded=0;fontSize=10;" edge="1" parent="1" source="Oyf2wEZ1zQuML1rLrcPN-23">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="279.66666666666674" y="387.64999999999986" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>

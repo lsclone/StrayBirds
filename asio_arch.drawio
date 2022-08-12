@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-08-12T08:40:34.956Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37" etag="XYfYhNUGXVE0LOzuYqVG" version="17.2.4" type="github">
+<mxfile host="app.diagrams.net" modified="2022-08-12T08:42:47.286Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37" etag="JNK-Qv8TfeuwesCYfzuO" version="17.2.4" type="github">
   <diagram id="8s4QYpiPi4UWaAkvlVJo" name="Page-1">
     <mxGraphModel dx="1185" dy="635" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -86,13 +86,6 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-47" value="return event loop 2" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;rounded=0;" edge="1" parent="Oyf2wEZ1zQuML1rLrcPN-28">
-          <mxGeometry x="0.5435" relative="1" as="geometry">
-            <mxPoint x="386.5" y="178" as="sourcePoint" />
-            <mxPoint x="36" y="178" as="targetPoint" />
-            <mxPoint as="offset" />
-          </mxGeometry>
-        </mxCell>
         <mxCell id="Oyf2wEZ1zQuML1rLrcPN-32" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;set read/write&lt;br&gt;&amp;nbsp;callback.&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="497" y="145" width="71" height="30" as="geometry" />
         </mxCell>
@@ -111,7 +104,7 @@
         <mxCell id="Oyf2wEZ1zQuML1rLrcPN-36" value="&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;create a eventfd/pipe/socket pair,&lt;/span&gt;&lt;br style=&quot;&quot;&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;and invoke epoll_ctl for it&#39;s readable.&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="640" y="133" width="165" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-37" value="&lt;font style=&quot;font-size: 10px&quot;&gt;Thread Pool of Event Loop&lt;/font&gt;" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;size=40;" vertex="1" parent="1">
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-37" value="&lt;font style=&quot;font-size: 10px&quot;&gt;&lt;b&gt;&lt;font color=&quot;#007fff&quot;&gt;Pool&lt;/font&gt;&lt;/b&gt; of Event Loop&lt;/font&gt;" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;size=40;" vertex="1" parent="1">
           <mxGeometry x="796" y="80" width="90" height="400" as="geometry" />
         </mxCell>
         <mxCell id="Oyf2wEZ1zQuML1rLrcPN-41" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" vertex="1" parent="1">
@@ -128,10 +121,23 @@
             <mxPoint x="634.9966666666667" y="256.64999999999986" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-45" value="apply for event loop handle" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;fontSize=10;" edge="1" parent="1" target="Oyf2wEZ1zQuML1rLrcPN-37">
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-45" value="apply for event loop handle" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;fontSize=10;entryX=0.233;entryY=0.028;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="Oyf2wEZ1zQuML1rLrcPN-50">
           <mxGeometry x="-0.6006" width="80" relative="1" as="geometry">
             <mxPoint x="490" y="230" as="sourcePoint" />
             <mxPoint x="624.5000000000002" y="230" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-50" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="836" y="230" width="10" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-51" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;find a event loop from pool&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="847" y="230" width="93" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-47" value="return event loop 2" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;rounded=0;exitX=0.483;exitY=1.028;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="Oyf2wEZ1zQuML1rLrcPN-50" target="Oyf2wEZ1zQuML1rLrcPN-28">
+          <mxGeometry x="0.5435" relative="1" as="geometry">
+            <mxPoint x="840.5" y="257" as="sourcePoint" />
+            <mxPoint x="490" y="257" as="targetPoint" />
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>

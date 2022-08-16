@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-08-16T08:09:00.153Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37" etag="CRS32H54f57sZ_Zd_wzv" version="20.2.3" type="github">
+<mxfile host="app.diagrams.net" modified="2022-08-16T08:14:13.117Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37" etag="LK8QFWo4pCFTd01gzX2j" version="20.2.3" type="github">
   <diagram id="8s4QYpiPi4UWaAkvlVJo" name="Page-1">
     <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
       <root>
@@ -214,8 +214,14 @@
             <mxPoint x="404.99666666666667" y="988.6499999999999" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="_-AkgMlnDdN6ogvlzVWD-10" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;create epoll descriptor.&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
-          <mxGeometry x="414" y="873" width="110" height="30" as="geometry" />
+        <mxCell id="_-AkgMlnDdN6ogvlzVWD-10" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;1. create epoll descriptor.&lt;br&gt;&lt;/span&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;2. create a eventfd/pipe/socket pair,&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;and epoll_ctl for it&#39;s readable.&lt;/span&gt;&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="414" y="875" width="166" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_-AkgMlnDdN6ogvlzVWD-11" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="400" y="1000" width="10" height="59" as="geometry" />
+        </mxCell>
+        <mxCell id="_-AkgMlnDdN6ogvlzVWD-12" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;1. invoke callback of active descriptor(eventfd),&lt;br&gt;2. invoke functors.(invoke epoll_ctl for acceptor&#39;s readable.)&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="414" y="1014" width="151" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

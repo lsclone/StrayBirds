@@ -1,22 +1,22 @@
-<mxfile host="app.diagrams.net" modified="2022-08-12T09:31:13.514Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37" etag="1PSYAk1ujL9WcqHCqiod" version="17.2.4" type="github">
+<mxfile host="app.diagrams.net" modified="2022-08-16T07:58:38.394Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37" etag="jhB_cJ_irNvCk6beFZUs" version="20.2.3" type="github">
   <diagram id="8s4QYpiPi4UWaAkvlVJo" name="Page-1">
-    <mxGraphModel dx="1185" dy="635" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-1" value="Acceptor&lt;br&gt;&lt;font style=&quot;font-size: 10px&quot;&gt;(listening socket)&lt;/font&gt;" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;size=40;" vertex="1" parent="1">
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-1" value="Acceptor&lt;br&gt;&lt;font style=&quot;font-size: 10px&quot;&gt;(listening socket)&lt;/font&gt;" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;size=40;" parent="1" vertex="1">
           <mxGeometry x="110" y="80" width="70" height="520" as="geometry" />
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-17" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" vertex="1" parent="Oyf2wEZ1zQuML1rLrcPN-1">
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-17" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" parent="Oyf2wEZ1zQuML1rLrcPN-1" vertex="1">
           <mxGeometry x="30" y="60" width="10" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-2" value="&lt;font style=&quot;font-size: 10px&quot;&gt;Event Loop 1&lt;br&gt;bind with main thread&lt;/font&gt;" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;size=40;" vertex="1" parent="1">
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-2" value="&lt;font style=&quot;font-size: 10px&quot;&gt;Event Loop 1&lt;br&gt;bind with main thread&lt;/font&gt;" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;size=40;" parent="1" vertex="1">
           <mxGeometry x="230" y="80" width="100" height="520" as="geometry" />
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-15" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" vertex="1" parent="Oyf2wEZ1zQuML1rLrcPN-2">
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-15" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" parent="Oyf2wEZ1zQuML1rLrcPN-2" vertex="1">
           <mxGeometry x="45" y="54" width="10" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-30" value="create new client connection" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;fontSize=10;" edge="1" parent="Oyf2wEZ1zQuML1rLrcPN-2" target="Oyf2wEZ1zQuML1rLrcPN-28">
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-30" value="create new client connection" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;fontSize=10;" parent="Oyf2wEZ1zQuML1rLrcPN-2" target="Oyf2wEZ1zQuML1rLrcPN-28" edge="1">
           <mxGeometry x="-0.5545" y="-20" width="80" relative="1" as="geometry">
             <mxPoint x="47.25" y="340" as="sourcePoint" />
             <mxPoint x="210" y="100" as="targetPoint" />
@@ -27,157 +27,169 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-9" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-9" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" parent="1" vertex="1">
           <mxGeometry x="340" y="185" width="10" height="47" as="geometry" />
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-10" value="&lt;b&gt;&lt;font color=&quot;#007fff&quot;&gt;epoll_wait&lt;/font&gt;&lt;/b&gt; (wait for eventfd)" style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;rounded=0;fontSize=10;" edge="1" target="Oyf2wEZ1zQuML1rLrcPN-9" parent="1">
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-10" value="&lt;b&gt;&lt;font color=&quot;#007fff&quot;&gt;epoll_wait&lt;/font&gt;&lt;/b&gt; (wait for eventfd)" style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;rounded=0;fontSize=10;" parent="1" target="Oyf2wEZ1zQuML1rLrcPN-9" edge="1">
           <mxGeometry x="1" y="10" relative="1" as="geometry">
             <mxPoint x="280" y="185" as="sourcePoint" />
             <mxPoint x="10" y="10" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-11" value="eventfd is readable and return" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;exitX=0;exitY=0.95;rounded=0;fontSize=10;" edge="1" source="Oyf2wEZ1zQuML1rLrcPN-9" parent="1">
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-11" value="eventfd is readable and return" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;exitX=0;exitY=0.95;rounded=0;fontSize=10;" parent="1" source="Oyf2wEZ1zQuML1rLrcPN-9" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="279.66666666666674" y="229.64999999999986" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-12" value="add callback to functors,&lt;br&gt;and write data to eventfd." style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;fontSize=10;" edge="1" parent="1" target="Oyf2wEZ1zQuML1rLrcPN-2">
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-12" value="add callback to functors,&lt;br&gt;and write data to eventfd." style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;fontSize=10;" parent="1" target="Oyf2wEZ1zQuML1rLrcPN-2" edge="1">
           <mxGeometry width="80" relative="1" as="geometry">
             <mxPoint x="145" y="200" as="sourcePoint" />
             <mxPoint x="225" y="200" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-16" value="&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;create a eventfd/pipe/socket pair,&lt;/span&gt;&lt;br style=&quot;&quot;&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;and invoke epoll_ctl for it&#39;s readable.&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-16" value="&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;create a eventfd/pipe/socket pair,&lt;/span&gt;&lt;br style=&quot;&quot;&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;and invoke epoll_ctl for it&#39;s readable.&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" parent="1" vertex="1">
           <mxGeometry x="289" y="133" width="165" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-18" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;create listening socket&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-18" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;create listening socket&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" parent="1" vertex="1">
           <mxGeometry x="151" y="140" width="110" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-21" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-21" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" parent="1" vertex="1">
           <mxGeometry x="275" y="245" width="10" height="59" as="geometry" />
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-22" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;1. invoke callback of active descriptor(eventfd),&lt;br&gt;2. invoke functors.(invoke epoll_ctl for acceptor&#39;s readable.)&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-22" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;1. invoke callback of active descriptor(eventfd),&lt;br&gt;2. invoke functors.(invoke epoll_ctl for acceptor&#39;s readable.)&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" parent="1" vertex="1">
           <mxGeometry x="289" y="259" width="151" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-23" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-23" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" parent="1" vertex="1">
           <mxGeometry x="340" y="351" width="10" height="47" as="geometry" />
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-24" value="&lt;b&gt;&lt;font color=&quot;#007fff&quot;&gt;epoll_wait&lt;/font&gt; &lt;/b&gt;(wait for eventfd and acceptor)" style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;rounded=0;fontSize=10;" edge="1" parent="1" target="Oyf2wEZ1zQuML1rLrcPN-23">
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-24" value="&lt;b&gt;&lt;font color=&quot;#007fff&quot;&gt;epoll_wait&lt;/font&gt; &lt;/b&gt;(wait for eventfd and acceptor)" style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;rounded=0;fontSize=10;" parent="1" target="Oyf2wEZ1zQuML1rLrcPN-23" edge="1">
           <mxGeometry x="1" y="10" relative="1" as="geometry">
             <mxPoint x="280" y="351" as="sourcePoint" />
             <mxPoint x="10" y="10" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-25" value="acceptor is readable and return" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;exitX=0;exitY=0.95;rounded=0;fontSize=10;" edge="1" parent="1" source="Oyf2wEZ1zQuML1rLrcPN-23">
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-25" value="acceptor is readable and return" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;exitX=0;exitY=0.95;rounded=0;fontSize=10;" parent="1" source="Oyf2wEZ1zQuML1rLrcPN-23" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="279.66666666666674" y="395.64999999999986" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-28" value="&lt;font&gt;Connection&lt;br&gt;&lt;font style=&quot;font-size: 10px&quot;&gt;(connected socket)&lt;/font&gt;&lt;/font&gt;" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;size=41;" vertex="1" parent="1">
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-28" value="&lt;font&gt;Connection&lt;br&gt;&lt;font style=&quot;font-size: 10px&quot;&gt;(connected socket)&lt;/font&gt;&lt;/font&gt;" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;size=41;" parent="1" vertex="1">
           <mxGeometry x="454" y="79" width="70" height="521" as="geometry" />
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-31" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" vertex="1" parent="Oyf2wEZ1zQuML1rLrcPN-28">
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-31" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" parent="Oyf2wEZ1zQuML1rLrcPN-28" vertex="1">
           <mxGeometry x="30" y="61" width="10" height="49" as="geometry" />
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-46" value="&lt;font style=&quot;font-size: 9px&quot;&gt;add callback(epoll_ctl) to functors&lt;br&gt;and write data to eventfd.&lt;/font&gt;" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;fontSize=10;" edge="1" parent="Oyf2wEZ1zQuML1rLrcPN-28">
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-46" value="&lt;font style=&quot;font-size: 9px&quot;&gt;add callback(epoll_ctl) to functors&lt;br&gt;and write data to eventfd.&lt;/font&gt;" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;fontSize=10;" parent="Oyf2wEZ1zQuML1rLrcPN-28" edge="1">
           <mxGeometry x="-0.3182" width="80" relative="1" as="geometry">
             <mxPoint x="36" y="222" as="sourcePoint" />
             <mxPoint x="241.32999999999993" y="222" as="targetPoint" />
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-32" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;set read/write&lt;br&gt;&amp;nbsp;callback.&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-32" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;set read/write&lt;br&gt;&amp;nbsp;callback.&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" parent="1" vertex="1">
           <mxGeometry x="497" y="150" width="71" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-33" value="&lt;font style=&quot;font-size: 10px&quot;&gt;Event Loop 2&lt;br&gt;bind with a thread&lt;/font&gt;" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;size=40;" vertex="1" parent="1">
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-33" value="&lt;font style=&quot;font-size: 10px&quot;&gt;Event Loop 2&lt;br&gt;bind with a thread&lt;/font&gt;" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;size=40;" parent="1" vertex="1">
           <mxGeometry x="590" y="79" width="90" height="521" as="geometry" />
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-34" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" vertex="1" parent="Oyf2wEZ1zQuML1rLrcPN-33">
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-34" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" parent="Oyf2wEZ1zQuML1rLrcPN-33" vertex="1">
           <mxGeometry x="40" y="54" width="10" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-40" value="add handle of this event loop to pool" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;fontSize=10;" edge="1" parent="Oyf2wEZ1zQuML1rLrcPN-33">
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-40" value="add handle of this event loop to pool" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;fontSize=10;" parent="Oyf2wEZ1zQuML1rLrcPN-33" edge="1">
           <mxGeometry width="80" relative="1" as="geometry">
             <mxPoint x="46" y="105" as="sourcePoint" />
             <mxPoint x="250" y="105" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-36" value="&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;create a eventfd/pipe/socket pair,&lt;/span&gt;&lt;br style=&quot;&quot;&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;and invoke epoll_ctl for it&#39;s readable.&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-36" value="&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;create a eventfd/pipe/socket pair,&lt;/span&gt;&lt;br style=&quot;&quot;&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;and invoke epoll_ctl for it&#39;s readable.&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" parent="1" vertex="1">
           <mxGeometry x="640" y="133" width="165" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-37" value="&lt;font style=&quot;font-size: 10px&quot;&gt;&lt;b&gt;&lt;font color=&quot;#007fff&quot;&gt;Pool&lt;/font&gt;&lt;/b&gt; of Event Loop&lt;/font&gt;" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;size=40;" vertex="1" parent="1">
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-37" value="&lt;font style=&quot;font-size: 10px&quot;&gt;&lt;b&gt;&lt;font color=&quot;#007fff&quot;&gt;Pool&lt;/font&gt;&lt;/b&gt; of Event Loop&lt;/font&gt;" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;size=40;" parent="1" vertex="1">
           <mxGeometry x="796" y="80" width="90" height="520" as="geometry" />
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-42" value="&lt;b&gt;&lt;font color=&quot;#007fff&quot;&gt;epoll_wait&lt;/font&gt;&lt;/b&gt; (wait for eventfd)" style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;rounded=0;fontSize=10;" edge="1" parent="1" target="Oyf2wEZ1zQuML1rLrcPN-41">
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-42" value="&lt;b&gt;&lt;font color=&quot;#007fff&quot;&gt;epoll_wait&lt;/font&gt;&lt;/b&gt; (wait for eventfd)" style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;rounded=0;fontSize=10;" parent="1" target="Oyf2wEZ1zQuML1rLrcPN-41" edge="1">
           <mxGeometry x="1" y="10" relative="1" as="geometry">
             <mxPoint x="635.3299999999999" y="212" as="sourcePoint" />
             <mxPoint x="10" y="10" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-45" value="apply for event loop handle" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;fontSize=10;entryX=0.233;entryY=0.028;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="Oyf2wEZ1zQuML1rLrcPN-28" target="Oyf2wEZ1zQuML1rLrcPN-50">
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-45" value="apply for event loop handle" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;fontSize=10;entryX=0.233;entryY=0.028;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="Oyf2wEZ1zQuML1rLrcPN-28" target="Oyf2wEZ1zQuML1rLrcPN-50" edge="1">
           <mxGeometry x="-0.6006" width="80" relative="1" as="geometry">
             <mxPoint x="490" y="230" as="sourcePoint" />
             <mxPoint x="624.5000000000002" y="230" as="targetPoint" />
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-50" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-50" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" parent="1" vertex="1">
           <mxGeometry x="836" y="230" width="10" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-51" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;find an event loop from pool&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-51" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;find an event loop from pool&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" parent="1" vertex="1">
           <mxGeometry x="847" y="230" width="93" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-47" value="return event loop 2" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;rounded=0;exitX=0.483;exitY=1.028;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="Oyf2wEZ1zQuML1rLrcPN-50" target="Oyf2wEZ1zQuML1rLrcPN-28">
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-47" value="return event loop 2" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;rounded=0;exitX=0.483;exitY=1.028;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="Oyf2wEZ1zQuML1rLrcPN-50" target="Oyf2wEZ1zQuML1rLrcPN-28" edge="1">
           <mxGeometry x="0.5435" relative="1" as="geometry">
             <mxPoint x="840.5" y="257" as="sourcePoint" />
             <mxPoint x="490" y="257" as="targetPoint" />
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-41" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;verticalAlign=top;" vertex="1" parent="1">
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-41" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;verticalAlign=top;" parent="1" vertex="1">
           <mxGeometry x="695.33" y="212" width="10" height="118" as="geometry" />
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-43" value="eventfd is readable and return" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;exitX=0;exitY=0.95;rounded=0;fontSize=10;" edge="1" parent="1" source="Oyf2wEZ1zQuML1rLrcPN-41" target="Oyf2wEZ1zQuML1rLrcPN-33">
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-43" value="eventfd is readable and return" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;exitX=0;exitY=0.95;rounded=0;fontSize=10;" parent="1" source="Oyf2wEZ1zQuML1rLrcPN-41" target="Oyf2wEZ1zQuML1rLrcPN-33" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="634.9966666666667" y="256.64999999999986" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-52" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;wrap an epoll descriptor&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-52" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;wrap an epoll descriptor&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" parent="1" vertex="1">
           <mxGeometry x="332.5" y="86" width="67.5" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-53" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;wrap an epoll descriptor&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-53" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;wrap an epoll descriptor&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" parent="1" vertex="1">
           <mxGeometry x="683" y="85" width="67" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-54" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-54" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" parent="1" vertex="1">
           <mxGeometry x="630" y="341" width="10" height="59" as="geometry" />
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-55" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;1. invoke callback of active descriptor(eventfd),&lt;br&gt;2. invoke functors.(invoke epoll_ctl(&lt;b&gt;ADD&lt;/b&gt;) for connected socket&#39;s readable.)&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-55" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;1. invoke callback of active descriptor(eventfd),&lt;br&gt;2. invoke functors.(invoke epoll_ctl(&lt;b&gt;ADD&lt;/b&gt;) for connected socket&#39;s readable.)&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" parent="1" vertex="1">
           <mxGeometry x="644" y="355" width="186" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-56" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-56" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" parent="1" vertex="1">
           <mxGeometry x="695.3299999999999" y="444" width="10" height="47" as="geometry" />
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-57" value="&lt;b&gt;&lt;font color=&quot;#007fff&quot;&gt;epoll_wait&lt;/font&gt; &lt;/b&gt;(wait for eventfd and connected sockets)" style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;rounded=0;fontSize=10;" edge="1" parent="1" target="Oyf2wEZ1zQuML1rLrcPN-56">
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-57" value="&lt;b&gt;&lt;font color=&quot;#007fff&quot;&gt;epoll_wait&lt;/font&gt; &lt;/b&gt;(wait for eventfd and connected sockets)" style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;rounded=0;fontSize=10;" parent="1" target="Oyf2wEZ1zQuML1rLrcPN-56" edge="1">
           <mxGeometry x="1" y="10" relative="1" as="geometry">
             <mxPoint x="635.3299999999999" y="444" as="sourcePoint" />
             <mxPoint x="10" y="10" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-58" value="connected sockets is readable/writable and return" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;exitX=0;exitY=0.95;rounded=0;fontSize=10;" edge="1" parent="1" source="Oyf2wEZ1zQuML1rLrcPN-56">
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-58" value="connected sockets is readable/writable and return" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;exitX=0;exitY=0.95;rounded=0;fontSize=10;" parent="1" source="Oyf2wEZ1zQuML1rLrcPN-56" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="634.9966666666667" y="488.64999999999986" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-59" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-59" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" parent="1" vertex="1">
           <mxGeometry x="630" y="504" width="10" height="59" as="geometry" />
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-60" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;1. invoke read/write callback according to readable/writable of connected sockets.&lt;br&gt;2. invoke functors if it&#39;s not empty.(maybe &lt;font color=&quot;#007fff&quot;&gt;another connected socket&lt;/font&gt; added in.)&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-60" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;1. invoke read/write callback according to readable/writable of connected sockets.&lt;br&gt;2. invoke functors if it&#39;s not empty.(maybe &lt;font color=&quot;#007fff&quot;&gt;another connected socket&lt;/font&gt; added in.)&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" parent="1" vertex="1">
           <mxGeometry x="644" y="518" width="186" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-62" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;&lt;b&gt;&lt;font style=&quot;font-size: 16px&quot;&gt;Architecture of Reactor (epoll)&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-62" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;&lt;b&gt;&lt;font style=&quot;font-size: 16px&quot;&gt;Architecture of Reactor (epoll)&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" parent="1" vertex="1">
           <mxGeometry x="110" y="18" width="255" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-63" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;&lt;font style=&quot;font-size: 12px&quot;&gt;refer to: github/libevent and github/muduo&lt;/font&gt;&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="Oyf2wEZ1zQuML1rLrcPN-63" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;&lt;font style=&quot;font-size: 12px&quot;&gt;refer to: github/libevent and github/muduo&lt;/font&gt;&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" parent="1" vertex="1">
           <mxGeometry x="646" y="28" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_-AkgMlnDdN6ogvlzVWD-1" value="Acceptor&lt;br&gt;&lt;font style=&quot;font-size: 10px&quot;&gt;(listening socket)&lt;/font&gt;" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;size=40;" vertex="1" parent="1">
+          <mxGeometry x="202.5" y="810" width="70" height="520" as="geometry" />
+        </mxCell>
+        <mxCell id="_-AkgMlnDdN6ogvlzVWD-2" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" vertex="1" parent="_-AkgMlnDdN6ogvlzVWD-1">
+          <mxGeometry x="30" y="60" width="10" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="_-AkgMlnDdN6ogvlzVWD-3" value="Event Loop&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;(epoll_wait)&lt;/font&gt;" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;size=40;" vertex="1" parent="1">
+          <mxGeometry x="400" y="810" width="70" height="520" as="geometry" />
+        </mxCell>
+        <mxCell id="_-AkgMlnDdN6ogvlzVWD-4" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" vertex="1" parent="_-AkgMlnDdN6ogvlzVWD-3">
+          <mxGeometry x="30" y="60" width="10" height="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-08-16T09:03:35.715Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37" etag="Bua-yhsPrYnPZqiTskAQ" version="20.2.3" type="github">
+<mxfile host="app.diagrams.net" modified="2022-08-16T09:06:16.821Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37" etag="b_K9DOYlyWGqSZ6J0VSP" version="20.2.3" type="github">
   <diagram id="8s4QYpiPi4UWaAkvlVJo" name="Page-1">
     <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
       <root>
@@ -209,7 +209,7 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="_-AkgMlnDdN6ogvlzVWD-5" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;1. create listening socket.&lt;br&gt;2. set read callback.&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="_-AkgMlnDdN6ogvlzVWD-5" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;1. create listening socket.&lt;br&gt;set noo-blocking.&lt;br&gt;2. set read callback.&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="247" y="873" width="123" height="30" as="geometry" />
         </mxCell>
         <mxCell id="_-AkgMlnDdN6ogvlzVWD-6" value="add socket to epoll_wait.&lt;br&gt;epoll_ctl(ADD, EPOLLIN)" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;fontSize=10;" edge="1" parent="1">
@@ -257,8 +257,8 @@
         <mxCell id="_-AkgMlnDdN6ogvlzVWD-20" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" vertex="1" parent="_-AkgMlnDdN6ogvlzVWD-19">
           <mxGeometry x="30" y="62" width="10" height="39" as="geometry" />
         </mxCell>
-        <mxCell id="_-AkgMlnDdN6ogvlzVWD-22" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;set read/write&lt;br&gt;callback.&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
-          <mxGeometry x="620" y="873" width="70" height="30" as="geometry" />
+        <mxCell id="_-AkgMlnDdN6ogvlzVWD-22" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;1.&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;set socket noo-blocking.&lt;/span&gt;&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;&lt;br&gt;2. set read/write callback.&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="620" y="873" width="130" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

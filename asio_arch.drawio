@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-08-17T00:46:33.465Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37" etag="M91pFKMjhCYUY2PlyKza" version="20.2.4" type="github">
+<mxfile host="app.diagrams.net" modified="2022-08-17T00:57:14.527Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37" etag="bI7MbzZv--6VR7umX4-4" version="20.2.4" type="github">
   <diagram id="8s4QYpiPi4UWaAkvlVJo" name="Page-1">
     <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
       <root>
@@ -185,7 +185,7 @@
         <mxCell id="_-AkgMlnDdN6ogvlzVWD-2" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" parent="_-AkgMlnDdN6ogvlzVWD-1" vertex="1">
           <mxGeometry x="30" y="60" width="10" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="_-AkgMlnDdN6ogvlzVWD-3" value="Event Loop&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;(epoll_wait)&lt;/font&gt;" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;size=40;" parent="1" vertex="1">
+        <mxCell id="_-AkgMlnDdN6ogvlzVWD-3" value="Event Loop&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;(epoll_wait in main thread)&lt;/font&gt;" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;size=40;" parent="1" vertex="1">
           <mxGeometry x="370" y="810" width="70" height="520" as="geometry" />
         </mxCell>
         <mxCell id="_-AkgMlnDdN6ogvlzVWD-4" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" parent="_-AkgMlnDdN6ogvlzVWD-3" vertex="1">
@@ -257,8 +257,8 @@
         <mxCell id="_-AkgMlnDdN6ogvlzVWD-20" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" parent="_-AkgMlnDdN6ogvlzVWD-19" vertex="1">
           <mxGeometry x="30" y="62" width="10" height="39" as="geometry" />
         </mxCell>
-        <mxCell id="oihFWhnjBpmNXEekLoWu-1" value="add connection to manager." style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;fontSize=10;" edge="1" parent="_-AkgMlnDdN6ogvlzVWD-19" target="_-AkgMlnDdN6ogvlzVWD-24">
-          <mxGeometry x="0.0315" width="80" relative="1" as="geometry">
+        <mxCell id="oihFWhnjBpmNXEekLoWu-7" value="add connection to manager..&lt;br&gt;std::map&amp;lt;socket, shared_ptr&amp;gt;" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;fontSize=10;" edge="1" parent="_-AkgMlnDdN6ogvlzVWD-19" target="_-AkgMlnDdN6ogvlzVWD-24">
+          <mxGeometry x="-0.015" y="-12" width="80" relative="1" as="geometry">
             <mxPoint x="34" y="111" as="sourcePoint" />
             <mxPoint x="200.5" y="111" as="targetPoint" />
             <mxPoint as="offset" />
@@ -269,6 +269,26 @@
         </mxCell>
         <mxCell id="_-AkgMlnDdN6ogvlzVWD-24" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Connection&lt;br&gt;Manager&lt;/font&gt;" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;size=40;" parent="1" vertex="1">
           <mxGeometry x="740" y="809" width="90" height="521" as="geometry" />
+        </mxCell>
+        <mxCell id="oihFWhnjBpmNXEekLoWu-2" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="453.3299999999999" y="1130" width="10" height="47" as="geometry" />
+        </mxCell>
+        <mxCell id="oihFWhnjBpmNXEekLoWu-3" value="&lt;b&gt;&lt;font color=&quot;#007fff&quot;&gt;epoll_wait&lt;/font&gt;&lt;/b&gt;&amp;nbsp;" style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;rounded=0;fontSize=10;" edge="1" parent="1" target="oihFWhnjBpmNXEekLoWu-2">
+          <mxGeometry x="1" y="10" relative="1" as="geometry">
+            <mxPoint x="405.3299999999999" y="1130" as="sourcePoint" />
+            <mxPoint x="10" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oihFWhnjBpmNXEekLoWu-4" value="return" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;exitX=0;exitY=0.95;rounded=0;fontSize=10;" edge="1" parent="1" source="oihFWhnjBpmNXEekLoWu-2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="404.99666666666667" y="1174.6499999999999" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oihFWhnjBpmNXEekLoWu-5" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="400" y="1186" width="10" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="oihFWhnjBpmNXEekLoWu-6" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;1. invoke read callback of active descriptor(connected socket),&lt;br&gt;2. invoke functors if necessary.&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="414" y="1196" width="151" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-08-17T09:24:33.427Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37" etag="JoVRjrxw8goPL2LP0beA" version="20.2.4" type="github">
+<mxfile host="app.diagrams.net" modified="2022-08-17T09:24:44.962Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37" etag="0pBm3XXN8kIWuTFGGOcH" version="20.2.4" type="github">
   <diagram id="8s4QYpiPi4UWaAkvlVJo" name="Page-1">
     <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
       <root>
@@ -291,7 +291,7 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="oihFWhnjBpmNXEekLoWu-30" value="add session to connection." style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;rounded=0;" edge="1" parent="_-AkgMlnDdN6ogvlzVWD-24">
+        <mxCell id="oihFWhnjBpmNXEekLoWu-30" value="add session to connection." style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;rounded=0;strokeColor=#000000;" edge="1" parent="_-AkgMlnDdN6ogvlzVWD-24">
           <mxGeometry x="0.0235" y="8" relative="1" as="geometry">
             <mxPoint x="342" y="253.5" as="sourcePoint" />
             <mxPoint x="-129.5" y="253.5" as="targetPoint" />

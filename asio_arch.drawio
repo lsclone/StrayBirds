@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-08-17T01:08:56.436Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37" etag="w3R-B5AGo1VTgkZvTKi-" version="20.2.4" type="github">
+<mxfile host="app.diagrams.net" modified="2022-08-17T01:09:32.286Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37" etag="gkWWHqiMz5NbgIKn2_9w" version="20.2.4" type="github">
   <diagram id="8s4QYpiPi4UWaAkvlVJo" name="Page-1">
     <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
       <root>
@@ -306,6 +306,9 @@
         </mxCell>
         <mxCell id="oihFWhnjBpmNXEekLoWu-10" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;1. add received data to buffer (std::vector&amp;lt;char&amp;gt; request).&lt;br&gt;2. add request to queue.&lt;br&gt;(queue.push(socket))&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="620" y="1132" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="oihFWhnjBpmNXEekLoWu-11" value="&lt;b&gt;&lt;font color=&quot;#007fff&quot;&gt;Thread Pool&lt;/font&gt;&lt;/b&gt;" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;size=40;" vertex="1" parent="1">
+          <mxGeometry x="980" y="809" width="90" height="521" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

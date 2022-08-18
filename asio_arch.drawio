@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-08-18T02:12:08.013Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37" etag="SOcf1Um5OZA0LHUFOOiF" version="20.2.4" type="github">
+<mxfile host="app.diagrams.net" modified="2022-08-18T02:12:54.050Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37" etag="HOOPhWSxtPmzYEREm7ph" version="20.2.4" type="github">
   <diagram id="8s4QYpiPi4UWaAkvlVJo" name="Page-1">
     <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
       <root>
@@ -209,7 +209,7 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="oihFWhnjBpmNXEekLoWu-9" value="invoke connection read callback." style="html=1;verticalAlign=bottom;endArrow=classicThin;rounded=0;fontSize=10;dashed=1;endFill=1;" parent="_-AkgMlnDdN6ogvlzVWD-3" edge="1" source="_-AkgMlnDdN6ogvlzVWD-3">
+        <mxCell id="oihFWhnjBpmNXEekLoWu-9" value="invoke connection &lt;b&gt;read &lt;/b&gt;callback." style="html=1;verticalAlign=bottom;endArrow=classicThin;rounded=0;fontSize=10;dashed=1;endFill=1;" parent="_-AkgMlnDdN6ogvlzVWD-3" edge="1" source="_-AkgMlnDdN6ogvlzVWD-3">
           <mxGeometry x="-0.6416" width="80" relative="1" as="geometry">
             <mxPoint x="36" y="440" as="sourcePoint" />
             <mxPoint x="240.5" y="120" as="targetPoint" />
@@ -427,7 +427,7 @@
         <mxCell id="ySbSuoVtxYeGmx0g1xd0-4" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;1. invoke read callback of eventfd if it&#39;s waked up.&lt;br&gt;2. invoke &lt;font color=&quot;#ff3333&quot;&gt;functors&lt;/font&gt;, bundle of callbacks(epoll_ctl...)&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="414" y="1321" width="126" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="ySbSuoVtxYeGmx0g1xd0-6" value="invoke connection write callback." style="html=1;verticalAlign=bottom;endArrow=classicThin;rounded=0;fontSize=10;dashed=1;endFill=1;" edge="1" parent="1" source="_-AkgMlnDdN6ogvlzVWD-3" target="_-AkgMlnDdN6ogvlzVWD-19">
+        <mxCell id="ySbSuoVtxYeGmx0g1xd0-6" value="invoke connection &lt;b&gt;write &lt;/b&gt;callback." style="html=1;verticalAlign=bottom;endArrow=classicThin;rounded=0;fontSize=10;dashed=1;endFill=1;" edge="1" parent="1" source="_-AkgMlnDdN6ogvlzVWD-3" target="_-AkgMlnDdN6ogvlzVWD-19">
           <mxGeometry x="-0.4635" width="80" relative="1" as="geometry">
             <mxPoint x="414.5" y="1290" as="sourcePoint" />
             <mxPoint x="620.5" y="940" as="targetPoint" />

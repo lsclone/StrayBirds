@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-08-18T00:43:14.885Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37" etag="YIZlQsuvI49J9vwftldW" version="20.2.4" type="github">
+<mxfile host="app.diagrams.net" modified="2022-08-18T00:43:44.386Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37" etag="I9cTlDiTjOSzKc4ybDWJ" version="20.2.4" type="github">
   <diagram id="8s4QYpiPi4UWaAkvlVJo" name="Page-1">
     <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
       <root>
@@ -318,7 +318,7 @@
         <mxCell id="oihFWhnjBpmNXEekLoWu-5" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" parent="1" vertex="1">
           <mxGeometry x="400" y="1186" width="10" height="52" as="geometry" />
         </mxCell>
-        <mxCell id="oihFWhnjBpmNXEekLoWu-6" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;1. invoke read/write callback &lt;br&gt;of active descriptor&lt;br&gt;(eventfd, connected socket),&lt;br&gt;2. invoke &lt;font color=&quot;#ff3333&quot;&gt;functors &lt;/font&gt;if necessary.&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" parent="1" vertex="1">
+        <mxCell id="oihFWhnjBpmNXEekLoWu-6" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;1. invoke read/write callback &lt;br&gt;of active descriptor&lt;br&gt;(eventfd, connected socket),&lt;br&gt;2. invoke &lt;font color=&quot;#ff3333&quot;&gt;functors &lt;/font&gt;if it&#39;s not empty.&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" parent="1" vertex="1">
           <mxGeometry x="414" y="1194" width="166" height="30" as="geometry" />
         </mxCell>
         <mxCell id="oihFWhnjBpmNXEekLoWu-10" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;1. add received data to buffer (std::vector&amp;lt;uint8_t&amp;gt; request).&lt;br&gt;2. create session, &lt;br&gt;bind with connected socket &lt;br&gt;and pass request to it.&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" parent="1" vertex="1">

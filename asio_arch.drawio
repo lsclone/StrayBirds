@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-08-18T03:21:29.566Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37" etag="muCQbqZ9T3xw24cAMScm" version="20.2.4" type="github">
+<mxfile host="app.diagrams.net" modified="2022-08-18T03:27:03.059Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37" etag="GPgz68M5XheMg9b9O4jf" version="20.2.4" type="github">
   <diagram id="8s4QYpiPi4UWaAkvlVJo" name="Page-1">
     <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
       <root>
@@ -394,7 +394,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="ySbSuoVtxYeGmx0g1xd0-16" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" vertex="1" parent="oihFWhnjBpmNXEekLoWu-21">
-          <mxGeometry x="40" y="411" width="10" height="60" as="geometry" />
+          <mxGeometry x="40" y="391" width="10" height="69" as="geometry" />
         </mxCell>
         <mxCell id="oihFWhnjBpmNXEekLoWu-22" value="&lt;div style=&quot;text-align: left;&quot;&gt;add session to session manager.&lt;/div&gt;" style="html=1;verticalAlign=bottom;endArrow=classicThin;rounded=0;fontSize=10;strokeWidth=1;strokeColor=#000000;endFill=1;" parent="1" source="_-AkgMlnDdN6ogvlzVWD-19" edge="1">
           <mxGeometry x="-0.6075" y="-10" width="80" relative="1" as="geometry">
@@ -479,6 +479,9 @@
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="935.6666666666666" y="1185.6499999999999" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="ySbSuoVtxYeGmx0g1xd0-20" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;1. test if sessions timeout.&lt;br&gt;&lt;/span&gt;2. add timeout response to timeout session.&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;&lt;br&gt;3. move timeout session from session manager to relevant connection.&lt;br&gt;&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="943" y="1205" width="130" height="70" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

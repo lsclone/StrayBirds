@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-08-18T02:59:08.719Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37" etag="KurdhFNWALIuL3X7A-3Y" version="20.2.4" type="github">
+<mxfile host="app.diagrams.net" modified="2022-08-18T03:02:02.394Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37" etag="OS28o8Cg6E__BhjMmKOX" version="20.2.4" type="github">
   <diagram id="8s4QYpiPi4UWaAkvlVJo" name="Page-1">
     <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
       <root>
@@ -448,10 +448,17 @@
           <mxGeometry x="794" y="906" width="80" height="16" as="geometry" />
         </mxCell>
         <mxCell id="ySbSuoVtxYeGmx0g1xd0-12" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" vertex="1" parent="1">
-          <mxGeometry x="606" y="1280" width="10" height="50" as="geometry" />
+          <mxGeometry x="606" y="1275" width="10" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="ySbSuoVtxYeGmx0g1xd0-13" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;connection closure:&lt;br&gt;1. remove from connection manager.&lt;br&gt;2. epoll_ctl(DEL, connected socket).&lt;br&gt;3. close(connected socket).&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
-          <mxGeometry x="619" y="1269" width="170" height="70" as="geometry" />
+        <mxCell id="ySbSuoVtxYeGmx0g1xd0-13" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;connection closure:&lt;br&gt;&lt;br&gt;&lt;br&gt;2. epoll_ctl(DEL, connected socket).&lt;br&gt;3. close(connected socket).&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="619" y="1267" width="170" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ySbSuoVtxYeGmx0g1xd0-14" value="&lt;span style=&quot;text-align: left;&quot;&gt;1. remove from connection manager.&lt;/span&gt;" style="html=1;verticalAlign=bottom;endArrow=classicThin;rounded=0;fontSize=10;endFill=1;entryX=-0.4;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.486;exitY=0.178;exitDx=0;exitDy=0;exitPerimeter=0;labelBackgroundColor=none;" edge="1" parent="1">
+          <mxGeometry x="-0.0174" width="80" relative="1" as="geometry">
+            <mxPoint x="616" y="1302.698" as="sourcePoint" />
+            <mxPoint x="786.98" y="1302.5" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>

@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-08-18T02:12:54.050Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37" etag="HOOPhWSxtPmzYEREm7ph" version="20.2.4" type="github">
+<mxfile host="app.diagrams.net" modified="2022-08-18T02:33:45.087Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37" etag="3yWm9WlP2F1IjCrlVuLE" version="20.2.4" type="github">
   <diagram id="8s4QYpiPi4UWaAkvlVJo" name="Page-1">
     <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
       <root>
@@ -191,17 +191,6 @@
         <mxCell id="_-AkgMlnDdN6ogvlzVWD-4" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" parent="_-AkgMlnDdN6ogvlzVWD-3" vertex="1">
           <mxGeometry x="30" y="60" width="10" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="_-AkgMlnDdN6ogvlzVWD-18" value="&lt;span style=&quot;text-align: left;&quot;&gt;create new client connection.&lt;/span&gt;" style="html=1;verticalAlign=bottom;endArrow=classicThin;rounded=0;fontSize=10;exitX=0.95;exitY=0.455;exitDx=0;exitDy=0;exitPerimeter=0;endFill=1;" parent="_-AkgMlnDdN6ogvlzVWD-3" source="_-AkgMlnDdN6ogvlzVWD-13" edge="1">
-          <mxGeometry x="-0.7563" width="80" relative="1" as="geometry">
-            <mxPoint x="-132.5" y="340" as="sourcePoint" />
-            <mxPoint x="240" y="60" as="targetPoint" />
-            <mxPoint x="1" as="offset" />
-            <Array as="points">
-              <mxPoint x="190" y="282" />
-              <mxPoint x="190" y="60" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
         <mxCell id="_-AkgMlnDdN6ogvlzVWD-23" value="add connected socket to epoll_wait&lt;br&gt;epoll_ctl(ADD, EPOLLIN)" style="html=1;verticalAlign=bottom;endArrow=classicThin;rounded=0;fontSize=10;endFill=1;" parent="_-AkgMlnDdN6ogvlzVWD-3" edge="1">
           <mxGeometry x="-0.009" y="-30" width="80" relative="1" as="geometry">
             <mxPoint x="-132.5" y="300" as="sourcePoint" />
@@ -222,6 +211,17 @@
         </mxCell>
         <mxCell id="ySbSuoVtxYeGmx0g1xd0-3" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" vertex="1" parent="_-AkgMlnDdN6ogvlzVWD-3">
           <mxGeometry x="30" y="506" width="10" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="_-AkgMlnDdN6ogvlzVWD-18" value="&lt;span style=&quot;text-align: left;&quot;&gt;create new client connection.&lt;/span&gt;" style="html=1;verticalAlign=bottom;endArrow=classicThin;rounded=0;fontSize=10;exitX=0.95;exitY=0.455;exitDx=0;exitDy=0;exitPerimeter=0;endFill=1;" parent="_-AkgMlnDdN6ogvlzVWD-3" source="_-AkgMlnDdN6ogvlzVWD-13" edge="1">
+          <mxGeometry x="-0.7563" width="80" relative="1" as="geometry">
+            <mxPoint x="-132.5" y="340" as="sourcePoint" />
+            <mxPoint x="240" y="60" as="targetPoint" />
+            <mxPoint x="1" as="offset" />
+            <Array as="points">
+              <mxPoint x="190" y="282" />
+              <mxPoint x="190" y="60" />
+            </Array>
+          </mxGeometry>
         </mxCell>
         <mxCell id="_-AkgMlnDdN6ogvlzVWD-5" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;1. create listening socket.&lt;br&gt;set noo-blocking.&lt;br&gt;2. set read callback.&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" parent="1" vertex="1">
           <mxGeometry x="247" y="873" width="123" height="30" as="geometry" />

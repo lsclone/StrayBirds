@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-08-22T05:42:58.436Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37" etag="NELWPgK5ax_vtQ8SEOye" version="20.2.4" type="github">
+<mxfile host="app.diagrams.net" modified="2022-08-22T05:47:40.920Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37" etag="YaDgb45mqXDxHAFlfEgX" version="20.2.4" type="github">
   <diagram id="8s4QYpiPi4UWaAkvlVJo" name="Page-1">
     <mxGraphModel dx="1422" dy="1162" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
       <root>
@@ -1023,6 +1023,18 @@
         </mxCell>
         <mxCell id="HbQjIsXzjIfjCsx8-T67-200" value="" style="rounded=0;whiteSpace=wrap;html=1;fillStyle=hatch;strokeColor=#001DBC;strokeWidth=1;fillColor=#0050ef;fontColor=#ffffff;" vertex="1" parent="1">
           <mxGeometry x="1858.5" y="643" width="15" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="HbQjIsXzjIfjCsx8-T67-203" value="" style="shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;fillStyle=hatch;fontSize=12;fontColor=#FF66B3;strokeColor=#000000;strokeWidth=1;fillColor=default;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1145" y="1" width="20" height="663" as="geometry" />
+        </mxCell>
+        <mxCell id="HbQjIsXzjIfjCsx8-T67-204" value="&lt;font color=&quot;#000000&quot;&gt;Socket &lt;br&gt;Send Buffer&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillStyle=hatch;fontSize=12;fontColor=#FF66B3;" vertex="1" parent="1">
+          <mxGeometry x="1070" y="318.5" width="81" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="HbQjIsXzjIfjCsx8-T67-205" value="&lt;font color=&quot;#000000&quot;&gt;Socket &lt;br&gt;Receive Buffer&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillStyle=hatch;fontSize=12;fontColor=#FF66B3;" vertex="1" parent="1">
+          <mxGeometry x="2000" y="316.5" width="81" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="HbQjIsXzjIfjCsx8-T67-206" value="" style="shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;flipH=1;fillStyle=hatch;fontSize=12;fontColor=#000000;strokeColor=#000000;strokeWidth=1;fillColor=default;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1979" y="1" width="20" height="659" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

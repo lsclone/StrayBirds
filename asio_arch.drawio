@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-01-17T02:14:23.934Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 Edg/108.0.1462.54" etag="cM4Emyzrr-VV4YAKUmhE" version="20.7.4" type="github">
+<mxfile host="app.diagrams.net" modified="2023-01-17T02:37:49.137Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 Edg/108.0.1462.54" etag="BT5vogTBe4s9ILLjtebA" version="20.7.4" type="github">
   <diagram id="8s4QYpiPi4UWaAkvlVJo" name="Page-1">
     <mxGraphModel dx="1627" dy="1164" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
       <root>
@@ -1268,7 +1268,7 @@
         <mxCell id="N6m6CBui6TGWoIH77Kk2-44" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;session id = queue.pop()&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="2298.5" y="917" width="120" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="N6m6CBui6TGWoIH77Kk2-45" value="&lt;font style=&quot;&quot;&gt;Session&lt;br&gt;Manager&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;(one thread)&lt;/font&gt;&lt;br&gt;&lt;/font&gt;" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;size=40;" vertex="1" parent="1">
+        <mxCell id="N6m6CBui6TGWoIH77Kk2-45" value="&lt;font style=&quot;&quot;&gt;Event Loop&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;(one thread)&lt;/font&gt;&lt;br&gt;&lt;/font&gt;" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;size=40;" vertex="1" parent="1">
           <mxGeometry x="2068.5" y="813" width="90" height="591" as="geometry" />
         </mxCell>
         <mxCell id="N6m6CBui6TGWoIH77Kk2-46" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" vertex="1" parent="N6m6CBui6TGWoIH77Kk2-45">

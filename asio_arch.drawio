@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-01-17T03:29:18.783Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 Edg/108.0.1462.54" etag="Mom_5INAF1TD2P79wNRt" version="20.7.4" type="github">
+<mxfile host="app.diagrams.net" modified="2023-01-17T03:36:56.148Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 Edg/108.0.1462.54" etag="K-XMhkKtS5FBTxtNYOyb" version="20.7.4" type="github">
   <diagram id="8s4QYpiPi4UWaAkvlVJo" name="Page-1">
-    <mxGraphModel dx="660" dy="764" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
+    <mxGraphModel dx="793" dy="837" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1149,16 +1149,16 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="N6m6CBui6TGWoIH77Kk2-22" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" vertex="1" parent="N6m6CBui6TGWoIH77Kk2-19">
-          <mxGeometry x="30" y="140" width="10" height="54" as="geometry" />
+          <mxGeometry x="30" y="140" width="10" height="70" as="geometry" />
         </mxCell>
         <mxCell id="N6m6CBui6TGWoIH77Kk2-23" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" vertex="1" parent="N6m6CBui6TGWoIH77Kk2-19">
-          <mxGeometry x="30" y="225" width="10" height="91" as="geometry" />
+          <mxGeometry x="30" y="241" width="10" height="91" as="geometry" />
         </mxCell>
         <mxCell id="N6m6CBui6TGWoIH77Kk2-24" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;1.&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;set socket noo-blocking.&lt;/span&gt;&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;&lt;br&gt;2. set read/write callback.&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="1798.5" y="874" width="130" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="N6m6CBui6TGWoIH77Kk2-36" value="&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 9px;&quot;&gt;1. add received data to request cache (std::vector&amp;lt;uint8_t&amp;gt; request).&lt;br&gt;2. process request data.&lt;br&gt;3. save response data to response cache.&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
-          <mxGeometry x="1798.5" y="964" width="171.5" height="30" as="geometry" />
+        <mxCell id="N6m6CBui6TGWoIH77Kk2-36" value="&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;&lt;font style=&quot;font-size: 9px;&quot;&gt;1. add received data to request cache (std::vector&amp;lt;uint8_t&amp;gt; request).&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 9px;&quot;&gt;2. process request data.&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 9px;&quot;&gt;3. save response data to response cache.&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;4. epoll_ctl(MOD, connected socket, &lt;br&gt;EPOLLIN | EPOLLOUT | EPOLLET)&lt;/font&gt;&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1798.5" y="964" width="171.5" height="46" as="geometry" />
         </mxCell>
         <mxCell id="N6m6CBui6TGWoIH77Kk2-37" value="&lt;b&gt;&lt;font color=&quot;#007fff&quot;&gt;Event Loop Manager&lt;/font&gt;&lt;/b&gt;" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;size=40;" vertex="1" parent="1">
           <mxGeometry x="2142.5" y="813" width="90" height="591" as="geometry" />
@@ -1192,24 +1192,25 @@
           <mxGeometry x="40" y="137" width="10" height="43" as="geometry" />
         </mxCell>
         <mxCell id="N6m6CBui6TGWoIH77Kk2-50" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" vertex="1" parent="N6m6CBui6TGWoIH77Kk2-45">
-          <mxGeometry x="40" y="405" width="10" height="33" as="geometry" />
+          <mxGeometry x="40" y="419" width="10" height="33" as="geometry" />
         </mxCell>
         <mxCell id="N6m6CBui6TGWoIH77Kk2-78" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" vertex="1" parent="N6m6CBui6TGWoIH77Kk2-45">
           <mxGeometry x="40" y="187" width="10" height="33" as="geometry" />
         </mxCell>
-        <mxCell id="N6m6CBui6TGWoIH77Kk2-60" value="invoke connection &lt;b&gt;write &lt;/b&gt;callback." style="html=1;verticalAlign=bottom;endArrow=classicThin;rounded=0;fontSize=10;dashed=1;endFill=1;" edge="1" parent="1" source="N6m6CBui6TGWoIH77Kk2-3" target="N6m6CBui6TGWoIH77Kk2-19">
-          <mxGeometry x="-0.4635" width="80" relative="1" as="geometry">
-            <mxPoint x="1593" y="1294" as="sourcePoint" />
+        <mxCell id="N6m6CBui6TGWoIH77Kk2-60" value="&lt;font style=&quot;font-size: 8px;&quot;&gt;invoke connection &lt;b&gt;write callback&lt;/b&gt;.&lt;/font&gt;" style="html=1;verticalAlign=bottom;endArrow=classicThin;rounded=0;fontSize=10;dashed=1;endFill=1;" edge="1" parent="1" source="N6m6CBui6TGWoIH77Kk2-45" target="N6m6CBui6TGWoIH77Kk2-19">
+          <mxGeometry x="-1" y="-18" width="80" relative="1" as="geometry">
+            <mxPoint x="1920" y="1240" as="sourcePoint" />
             <mxPoint x="1799" y="944" as="targetPoint" />
-            <mxPoint x="1" as="offset" />
+            <mxPoint x="18" y="18" as="offset" />
             <Array as="points">
-              <mxPoint x="1768.5" y="1304" />
-              <mxPoint x="1768.5" y="1154" />
+              <mxPoint x="1960" y="1220" />
+              <mxPoint x="1960" y="1050" />
+              <mxPoint x="1880" y="1050" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="N6m6CBui6TGWoIH77Kk2-61" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;1.&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;pop one session from queue.&lt;/span&gt;&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;&lt;br&gt;2. move session::response to connection::response.&lt;br&gt;3. send response out to client.&lt;br&gt;4. if response sent is completed and queue is empty(no session), then epoll_ctl(MOD, connected socket, &amp;amp;=~EPOLLOUT).&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
-          <mxGeometry x="1797.5" y="1037" width="150" height="93" as="geometry" />
+          <mxGeometry x="1797.5" y="1053" width="150" height="93" as="geometry" />
         </mxCell>
         <mxCell id="N6m6CBui6TGWoIH77Kk2-62" value="&lt;span style=&quot;text-align: center;&quot;&gt;&lt;font style=&quot;font-size: 9px;&quot;&gt;add connection to connection collection std::map&amp;lt;&lt;b&gt;&lt;font color=&quot;#ff66b3&quot;&gt;id&lt;/font&gt;&lt;/b&gt;, &lt;br&gt;connection shared pointer&amp;gt;&lt;/font&gt;&lt;/span&gt;&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="2018" y="967" width="122" height="16" as="geometry" />
@@ -1243,7 +1244,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="N6m6CBui6TGWoIH77Kk2-69" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;remove &lt;/span&gt;timeout&amp;nbsp;&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;connection from connection collection.&lt;/span&gt;&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
-          <mxGeometry x="2020.5" y="1216" width="147" height="32" as="geometry" />
+          <mxGeometry x="2020.5" y="1230" width="147" height="32" as="geometry" />
         </mxCell>
         <mxCell id="N6m6CBui6TGWoIH77Kk2-72" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;&lt;b&gt;&lt;font style=&quot;font-size: 16px&quot;&gt;Architecture of Concurrent Server based on epoll&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="1381" y="758" width="379" height="30" as="geometry" />
@@ -1258,10 +1259,10 @@
           <mxGeometry x="2021" y="1133" width="166" height="30" as="geometry" />
         </mxCell>
         <mxCell id="N6m6CBui6TGWoIH77Kk2-84" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" vertex="1" parent="1">
-          <mxGeometry x="2007" y="1262" width="10" height="44" as="geometry" />
+          <mxGeometry x="2007" y="1276" width="10" height="44" as="geometry" />
         </mxCell>
         <mxCell id="N6m6CBui6TGWoIH77Kk2-85" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;1. invoke read callback of eventfd if it&#39;s waked up.&lt;br&gt;2. invoke &lt;font color=&quot;#ff3333&quot;&gt;functors&lt;/font&gt;, bundle of callbacks(epoll_ctl...)&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
-          <mxGeometry x="2021" y="1267" width="126" height="30" as="geometry" />
+          <mxGeometry x="2021" y="1281" width="126" height="30" as="geometry" />
         </mxCell>
         <mxCell id="N6m6CBui6TGWoIH77Kk2-6" value="&lt;font style=&quot;font-size: 8px;&quot;&gt;invoke connection &lt;b&gt;read callback&lt;/b&gt;.&lt;/font&gt;" style="html=1;verticalAlign=bottom;endArrow=classicThin;rounded=0;fontSize=10;dashed=1;endFill=1;" edge="1" parent="1" source="N6m6CBui6TGWoIH77Kk2-45" target="N6m6CBui6TGWoIH77Kk2-19">
           <mxGeometry x="-1" y="-18" width="80" relative="1" as="geometry">

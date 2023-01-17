@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-01-17T02:39:31.880Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 Edg/108.0.1462.54" etag="MZuug5oCxTwbeC86KpQn" version="20.7.4" type="github">
+<mxfile host="app.diagrams.net" modified="2023-01-17T02:39:47.027Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 Edg/108.0.1462.54" etag="LBGXmR-2RaC-1zBgT8u8" version="20.7.4" type="github">
   <diagram id="8s4QYpiPi4UWaAkvlVJo" name="Page-1">
     <mxGraphModel dx="1627" dy="1164" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
       <root>
@@ -1230,7 +1230,7 @@
         <mxCell id="N6m6CBui6TGWoIH77Kk2-36" value="&lt;span style=&quot;background-color: rgb(255 , 255 , 255)&quot;&gt;1. add received data to buffer (std::vector&amp;lt;uint8_t&amp;gt; request).&lt;br&gt;2. create session, &lt;br&gt;&lt;b&gt;bind with connected socket &lt;/b&gt;&lt;br&gt;and pass request to it.&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="1798.5" y="948" width="160" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="N6m6CBui6TGWoIH77Kk2-37" value="&lt;b&gt;&lt;font color=&quot;#007fff&quot;&gt;Thread Pool&lt;/font&gt;&lt;/b&gt;" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;size=40;" vertex="1" parent="1">
+        <mxCell id="N6m6CBui6TGWoIH77Kk2-37" value="&lt;b&gt;&lt;font color=&quot;#007fff&quot;&gt;Event Loop Manager&lt;/font&gt;&lt;/b&gt;" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;size=40;" vertex="1" parent="1">
           <mxGeometry x="2243.5" y="813" width="90" height="591" as="geometry" />
         </mxCell>
         <mxCell id="N6m6CBui6TGWoIH77Kk2-38" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" vertex="1" parent="N6m6CBui6TGWoIH77Kk2-37">

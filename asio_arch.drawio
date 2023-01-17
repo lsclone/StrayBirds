@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-01-17T03:54:11.399Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 Edg/108.0.1462.54" etag="zwXeSFn-FyYucbYmIND9" version="20.7.4" type="github">
+<mxfile host="app.diagrams.net" modified="2023-01-17T03:55:33.773Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 Edg/108.0.1462.54" etag="pIzr3jHiG8iCPoBh8Rda" version="20.7.4" type="github">
   <diagram id="8s4QYpiPi4UWaAkvlVJo" name="Page-1">
-    <mxGraphModel dx="793" dy="837" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
+    <mxGraphModel dx="1156" dy="1037" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1070,13 +1070,13 @@
           <mxGeometry x="1171.5" y="-207" width="80" height="30" as="geometry" />
         </mxCell>
         <mxCell id="N6m6CBui6TGWoIH77Kk2-1" value="Acceptor&lt;br&gt;&lt;font style=&quot;font-size: 10px&quot;&gt;(listening socket)&lt;/font&gt;" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;size=40;" vertex="1" parent="1">
-          <mxGeometry x="1381" y="814" width="70" height="590" as="geometry" />
+          <mxGeometry x="1381" y="814" width="70" height="566" as="geometry" />
         </mxCell>
         <mxCell id="N6m6CBui6TGWoIH77Kk2-2" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" vertex="1" parent="N6m6CBui6TGWoIH77Kk2-1">
           <mxGeometry x="30" y="60" width="10" height="40" as="geometry" />
         </mxCell>
         <mxCell id="N6m6CBui6TGWoIH77Kk2-3" value="Event Loop&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;(epoll_wait in main thread)&lt;/font&gt;" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;size=40;" vertex="1" parent="1">
-          <mxGeometry x="1548.5" y="814" width="70" height="590" as="geometry" />
+          <mxGeometry x="1548.5" y="814" width="70" height="566" as="geometry" />
         </mxCell>
         <mxCell id="N6m6CBui6TGWoIH77Kk2-4" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" vertex="1" parent="N6m6CBui6TGWoIH77Kk2-3">
           <mxGeometry x="30" y="60" width="10" height="40" as="geometry" />
@@ -1136,7 +1136,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="N6m6CBui6TGWoIH77Kk2-19" value="&lt;font&gt;Connection&lt;br&gt;&lt;font style=&quot;font-size: 10px&quot;&gt;(connected socket)&lt;/font&gt;&lt;/font&gt;" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;size=41;" vertex="1" parent="1">
-          <mxGeometry x="1754.5" y="813" width="70" height="591" as="geometry" />
+          <mxGeometry x="1754.5" y="813" width="70" height="567" as="geometry" />
         </mxCell>
         <mxCell id="N6m6CBui6TGWoIH77Kk2-20" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" vertex="1" parent="N6m6CBui6TGWoIH77Kk2-19">
           <mxGeometry x="30" y="62" width="10" height="28" as="geometry" />
@@ -1161,7 +1161,7 @@
           <mxGeometry x="1798.5" y="983" width="171.5" height="46" as="geometry" />
         </mxCell>
         <mxCell id="N6m6CBui6TGWoIH77Kk2-37" value="&lt;b&gt;&lt;font color=&quot;#007fff&quot;&gt;Event Loop Manager&lt;/font&gt;&lt;/b&gt;" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;size=40;" vertex="1" parent="1">
-          <mxGeometry x="2142.5" y="813" width="90" height="591" as="geometry" />
+          <mxGeometry x="2142.5" y="813" width="90" height="567" as="geometry" />
         </mxCell>
         <mxCell id="N6m6CBui6TGWoIH77Kk2-74" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" vertex="1" parent="N6m6CBui6TGWoIH77Kk2-37">
           <mxGeometry x="40" y="106" width="10" height="29" as="geometry" />
@@ -1186,7 +1186,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="N6m6CBui6TGWoIH77Kk2-45" value="&lt;font style=&quot;&quot;&gt;Event Loop&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;(epoll_wait in&lt;br&gt;one thread)&lt;/font&gt;&lt;br&gt;&lt;/font&gt;" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;size=40;" vertex="1" parent="1">
-          <mxGeometry x="1967.5" y="813" width="90" height="591" as="geometry" />
+          <mxGeometry x="1967.5" y="813" width="90" height="567" as="geometry" />
         </mxCell>
         <mxCell id="N6m6CBui6TGWoIH77Kk2-47" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fontSize=10;" vertex="1" parent="N6m6CBui6TGWoIH77Kk2-45">
           <mxGeometry x="40" y="137" width="10" height="43" as="geometry" />
